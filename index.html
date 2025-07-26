@@ -15,43 +15,55 @@
     
 </head>
 <body class="bg-blue-50" style="font-family: 'Poppins', sans-serif;">
-    <nav class="bg-blue-900 p-4 fixed top-0 left-0 w-full z-50 shadow transition-shadow duration-300">
-        <div class=" container mx-auto">
-          <div class="flex justify-between items-center">
-            <!--logo-->
-            <div class="flex items-center space-x-2">
-                <img src="./Veritas.png" class="animate-bounce" alt="Veritas Logo" width="60">
-              <div class="ml-2 animate-bounce">
-                <h2 class="text-3xl font-bold text-yellow-700">Veritas KE</h2>
-                <p class="text-yellow-600 font-bold">Truth In Every Task</p>
-              </div>  
-            </div>
-            <div class="hidden md:flex items-center space-x-6 ">
-                <a href="#" class="text-yellow-600 text-lg font-semibold hover:text-white">Home</a>
-                <a href="#" class="text-yellow-600 text-lg font-semibold hover:text-white">About Us</a>
-                <a href="#" class="text-yellow-600 text-lg font-semibold hover:text-white">Services</a>
-                <a href="#" class="text-yellow-600 text-lg font-semibold hover:text-white">Contact Us</a>
-                <a href="#" class="text-yellow-400 hover:text-white font-semibold border border-yellow-400 px-4 py-1 rounded hover:bg-yellow-400 hover:text-blue-900 transition">Sign Up</a>
-            </div>
-            <!--Hanburger button-->
-            <div class="md:hidden text-yellow-500">
-             <button id="menu-button" class="focus:outline-none" aria-label="Toggle menu">
-               <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 6h16M4 12h16M4 18h16" />
-               </svg>
-             </button>
-           </div>
-          </div>
-              <!--Mobile-menu-->
-          <div id="mobile-menu" class="md:hidden flex-col space-y-2 hidden mt-4 md:flex md:flex-col md:space-y-0 md:space-x-6">
-            <a href="#home" class="block text-yellow-500 hover:text-white font-semibold">Home</a>
-            <a href="#about" class="block text-yellow-500 hover:text-white font-semibold">About</a>
-            <a href="#services" class="block text-yellow-500 hover:text-white font-semibold">Services</a>
-            <a href="#contact" class="block text-yellow-400 hover:text-white font-semibold">Contact Us</a>
-            <a href="#" class="text-yellow-400 hover:text-white font-semibold border border-yellow-400 px-4 py-1 mt-8 rounded hover:bg-yellow-400 hover:text-blue-900 transition">Sign Up</a>
-         </div>
-        </div>   
-    </nav>
+ <nav class="bg-blue-900 p-4 fixed top-0 left-0 w-full z-50 shadow transition-shadow duration-300">
+  <div class="container mx-auto">
+    <div class="flex justify-between items-center">
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <img src="./Veritas.png" class="animate-bounce" alt="Veritas Logo" width="60">
+        <div class="ml-2 animate-bounce">
+          <h2 class="text-3xl font-bold text-yellow-700">Veritas KE</h2>
+          <p class="text-yellow-600 font-bold">Truth In Every Task</p>
+        </div>
+      </div>
+
+      <!-- Desktop nav links -->
+      <div class="hidden md:flex items-center space-x-6">
+        <a href="#" class="text-yellow-600 text-lg font-semibold hover:text-white">Home</a>
+        <a href="#" class="text-yellow-600 text-lg font-semibold hover:text-white">About Us</a>
+        <a href="#" class="text-yellow-600 text-lg font-semibold hover:text-white">Services</a>
+        <a href="#" class="text-yellow-600 text-lg font-semibold hover:text-white">Contact Us</a>
+        <a href="#" class="text-yellow-400 hover:text-white font-semibold border border-yellow-400 px-4 py-1 rounded hover:bg-yellow-400 hover:text-blue-900 transition">Sign Up</a>
+      </div>
+      <!-- Hamburger and Close-->
+      <div class="md:hidden">
+        <button id="menu-toggle">
+          <!-- Hamburger Icon -->
+          <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <!-- Close Icon -->
+          <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-400 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden mt-4">
+      <div class="flex justify-between w-full">
+        <div class="flex flex-col items-start space-y-4 bg-blue-900 p-4 rounded shadow w-full">
+          <a href="#" class="text-yellow-400 hover:text-white font-semibold">Home</a>
+          <a href="#" class="text-yellow-400 hover:text-white font-semibold">About</a>
+          <a href="#" class="text-yellow-400 hover:text-white font-semibold">Services</a>
+          <a href="#" class="text-yellow-400 hover:text-white font-semibold">Contact Us</a>
+          <a href="#" class="text-blue-900 bg-yellow-400 hover:bg-yellow-300 font-bold px-4 py-2 rounded">Sign Up</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
 <section id="about" class="py-20 bg-gradient-to-r from-blue-100 via-purple-100 to-blue-100 mt-8">
   <div class="container mx-auto px-4 md:px-20">
     <div class="flex flex-col-reverse md:flex-row items-center gap-10">
@@ -335,19 +347,26 @@
 </footer>
 
 <script>
-    const btn = document.getElementById("menu-button");
-    const menu = document.getElementById("mobile-menu");
+  const toggleBtn = document.getElementById('menu-toggle');
+  const hamburgerIcon = document.getElementById('hamburger-icon');
+  const closeIcon = document.getElementById('close-icon');
+  const mobileMenu = document.getElementById('mobile-menu');
 
-    btn.addEventListener("click", () => {
-      menu.classList.toggle("hidden");
-    });
+  toggleBtn.addEventListener('click', () => {
+    hamburgerIcon.classList.toggle('hidden');
+    closeIcon.classList.toggle('hidden');
+    mobileMenu.classList.toggle('hidden');
+  });
 
-    document.querySelectorAll("#mobile-menu a").forEach(link => {
-      link.addEventListener("click", () => {
-        menu.classList.add("hidden");
-      });
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      hamburgerIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
     });
+  });
 </script>
+
 
 <script>
   const carousel = document.getElementById('carousel');
@@ -377,10 +396,9 @@
     updateCarousel();
   }
 
-  // Initialize
+
   updateCarousel();
 
-  // Auto-slide every 3 seconds
   setInterval(nextSlide, 3000);
 </script>
 <!-- Swiper JS -->
@@ -402,8 +420,8 @@
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
   AOS.init({
-    duration: 1000,  // animation duration
-    once: true       // animate only once when in view
+    duration: 1000,
+    once: true       
   });
 </script>
 
