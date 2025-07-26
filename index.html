@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veritas KE portfolio</title>
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link
+     rel="stylesheet"
+     href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+</head>
+<body class="bg-blue-50" style="font-family: 'Poppins', sans-serif;">
+    <nav class="bg-blue-900 p-4 fixed top-0 left-0 w-full z-50 shadow transition-shadow duration-300">
+        <div class=" container mx-auto">
+          <div class="flex justify-between items-center">
+            <!--logo-->
+            <div class="flex items-center space-x-2">
+                <img src="./Veritas.png" class="animate-bounce" alt="Veritas Logo" width="60">
+              <div class="ml-2 animate-bounce">
+                <h2 class="text-3xl font-bold text-yellow-700">Veritas KE</h2>
+                <p class="text-yellow-600 font-bold">Truth In Every Task</p>
+              </div>  
+            </div>
+            <div class="hidden md:flex items-center space-x-6 ">
+                <a href="#" class="text-yellow-600 text-lg font-semibold hover:text-white">Home</a>
+                <a href="#" class="text-yellow-600 text-lg font-semibold hover:text-white">About Us</a>
+                <a href="#" class="text-yellow-600 text-lg font-semibold hover:text-white">Services</a>
+                <a href="#" class="text-yellow-600 text-lg font-semibold hover:text-white">Contact Us</a>
+                <a href="#" class="text-yellow-400 hover:text-white font-semibold border border-yellow-400 px-4 py-1 rounded hover:bg-yellow-400 hover:text-blue-900 transition">Sign Up</a>
+            </div>
+            <!--Hanburger button-->
+            <div class="md:hidden text-yellow-500">
+             <button id="menu-button" class="focus:outline-none" aria-label="Toggle menu">
+               <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 6h16M4 12h16M4 18h16" />
+               </svg>
+             </button>
+           </div>
+          </div>
+              <!--Mobile-menu-->
+          <div id="mobile-menu" class="md:hidden flex-col space-y-2 hidden mt-4 md:flex md:flex-col md:space-y-0 md:space-x-6">
+            <a href="#home" class="block text-yellow-500 hover:text-white font-semibold">Home</a>
+            <a href="#about" class="block text-yellow-500 hover:text-white font-semibold">About</a>
+            <a href="#services" class="block text-yellow-500 hover:text-white font-semibold">Services</a>
+            <a href="#contact" class="block text-yellow-400 hover:text-white font-semibold">Contact Us</a>
+            <a href="#" class="text-yellow-400 hover:text-white font-semibold border border-yellow-400 px-4 py-1 mt-8 rounded hover:bg-yellow-400 hover:text-blue-900 transition">Sign Up</a>
+         </div>
+        </div>   
+    </nav>
+<section id="about" class="py-20 bg-gradient-to-r from-blue-100 via-purple-100 to-blue-100 mt-8">
+  <div class="container mx-auto px-4 md:px-20">
+    <div class="flex flex-col-reverse md:flex-row items-center gap-10">
+      <!-- Text -->
+      <div class="w-full md:w-1/2">
+        <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4">Driving Business Transformation Through Technology</h2>
+        <p class="text-gray-700 mb-4 text-lg">
+          We help businesses build a strong and lasting online presence by leveraging digital tools, creative design, and strategic content to connect them with their target audience in today’s competitive digital world.
+        </p>
+        
+        <a href="#" class="bg-blue-900 mt-8 text-yellow-400 px-6 py-3 rounded hover:bg-yellow-500 hover:text-blue-900 transition">Learn More</a>
+      </div>
+
+      <!-- Image -->
+      <div class="relative w-full max-w-xl mx-auto overflow-hidden rounded-xl shadow-lg">
+        <div id="carousel" class="flex transition-transform duration-700 ease-in-out">
+           <div class="w-full flex-shrink-0">
+              <img src="./Web-development.png" alt="Graphic Design" class="w-full" />
+              <p class="text-center py-2 text-lg font-semibold">Web Development</p>
+           </div>
+           <div class="w-full flex-shrink-0">
+              <img src="./Article-writing.png" alt="Web Development" class="w-full" />
+              <p class="text-center py-2 text-lg font-semibold">Depth-Researched Article Writing</p>
+           </div>
+           <div class="w-full flex-shrink-0">
+             <img src="./Graphic-Design.png" alt="Article Writing" class="w-full" />
+             <p class="text-center py-2 text-lg font-semibold">Graphic Design</p>
+           </div>
+        </div>
+        <button onclick="prevSlide()" class="absolute top-1/2 transform -translate-y-1/2 bg-gray-400 p-2 rounded-full shadow-md hover:bg-gray-100">
+          &#8592;
+        </button>
+        <button onclick="nextSlide()" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-500 p-2 rounded-full shadow-md hover:bg-gray-100">
+        &#8594;
+       </button>
+
+  <!-- Dots -->
+        <div class="flex justify-center gap-2 mt-2">
+          <span class="dot w-3 h-3 rounded-full cursor-pointer transition-colors duration-300"></span>
+          <span class="dot w-3 h-3 rounded-full cursor-pointer transition-colors duration-300"></span>
+          <span class="dot w-3 h-3 rounded-full cursor-pointer transition-colors duration-300"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="bg-blue-50 py-6">
+  <div class="max-w-4xl mx-auto text-center px-4">
+    <h3 class="text-xl font-semibold text-[#0b1a34] mb-2">Why Choose Veritas KE</h3>
+    <p class="text-black=900">
+      We combine creativity, strategy, and precision to deliver powerful solutions in writing, design, and development.
+    </p>
+
+    <div class="mt-3 flex justify-center gap-4 text-sm text-[#0b1a34] flex-wrap font-medium">
+      <span class="px-3 py-1 border border-[#c99b2f] rounded-full">✔ Fast Delivery</span>
+      <span class="px-3 py-1 border border-[#c99b2f] rounded-full">✔ Tailored Solutions</span>
+      <span class="px-3 py-1 border border-[#c99b2f] rounded-full">✔ Trusted by Startups</span>
+    </div>
+  </div>
+</section>
+<section class="py-16 bg-gradient-to-r from-blue-100 via-purple-100 to-blue-100 ">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+    <h2 class="text-4xl font-bold text-blue-900 mb-4">Our Services</h2>
+    <p class="text-gray-700 mb-12 max-w-2xl mx-auto">
+      At Veritas KE, we offer tailored digital solutions to elevate your brand. Explore how we bring your ideas to life through design, development, and strategic content.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Card 1 -->
+      <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition duration-300 flex flex-col justify-between">
+        <div>
+          <h3 class="text-xl font-semibold text-blue-900 mb-3">Website Design</h3>
+          <p class="text-gray-600 mb-6">We design beautiful, responsive websites tailored to your business goals and brand identity.</p>
+        </div>
+        <div class="flex justify-center">
+          <button class="bg-blue-900 text-yellow-400 text-white px-4 py-2 rounded-full hover:bg-yellow-500 hover:text-blue-900 hover:bg-yellow-600 transition text-sm">Explore</button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition duration-300 flex flex-col justify-between">
+        <div>
+          <h3 class="text-xl font-semibold text-blue-900 mb-3">Graphic Design</h3>
+          <p class="text-gray-600 mb-6">From logos to marketing materials, we deliver high-quality visuals that speak volumes.</p>
+        </div>
+        <div class="flex justify-center">
+          <button class="bg-blue-900 text-yellow-400 text-white px-4 py-2 rounded-full hover:bg-yellow-500 hover:text-blue-900 transition hover:bg-yellow-600 transition text-sm">Explore</button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white rounded-2xl shadow-xl p-6 transition hover:shadow-2xl transition duration-300 flex flex-col justify-between">
+        <div>
+          <h3 class="text-xl font-semibold text-blue-900 mb-3">Content Writing</h3>
+          <p class="text-gray-600 mb-6">We craft compelling, SEO-friendly articles and copy that connect with your audience and drive results.</p>
+        </div>
+        <div class="flex justify-center">
+          <button class="bg-blue-900 text-yellow-400 px-4 py-2 rounded-full hover:bg-yellow-500 hover:text-blue-900 hover:bg-yellow-600 transition text-sm">Explore</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class=" py-16 bg-gradient-to-r from-blue-100 via-purple-100 to-blue-100 px-4 md:px-16 mt-8" id="testimonials">
+  <div class="text-center mb-10">
+    <h2 class="text-3xl md:text-4xl font-semibold text-[#0a1d4d]">What Our Clients Say</h2>
+    <p class="text-gray-600 mt-2">Real feedback from people we’ve worked with at Veritas KE</p>
+  </div>
+
+  <!-- Swiper Container -->
+  <div class="swiper max-w-4xl mx-auto">
+    <div class="swiper-wrapper">
+      <!-- Slide 1 -->
+      <div class="swiper-slide bg-[#f9f9f9] p-6 rounded-xl shadow-md border-l-4 border-[#d4af37]">
+        <p class="text-gray-700 italic mb-4">"Veritas KE transformed our website and content. Professional, fast, and reliable."</p>
+        <div class="text-sm font-medium text-[#0a1d4d]">— Janet W., Small Business Owner</div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="swiper-slide bg-[#f9f9f9] p-6 rounded-xl shadow-md border-l-4 border-[#d4af37]">
+        <p class="text-gray-700 italic mb-4">"They truly understand what a client needs. Our branding looks better than ever."</p>
+        <div class="text-sm font-medium text-[#0a1d4d]">— Brian M., Digital Strategist</div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="swiper-slide bg-[#f9f9f9] p-6 rounded-xl shadow-md border-l-4 border-[#d4af37]">
+        <p class="text-gray-700 italic mb-4">"Great communication, creative minds, and results that exceeded expectations!"</p>
+        <div class="text-sm font-medium text-[#0a1d4d]">— Mercy A., NGO Director</div>
+      </div>
+    </div>
+    <div class="swiper-pagination mt-4"></div>
+  </div>
+  </section>
+
+  <section class="bg-gradient-to-r from-blue-200 via-purple-100 to-blue-200 text-gray-600 py-10 px-6 text-center mt-10">
+     <h2 class="text-3xl font-bold text-blue-900 mb-4">
+     Let's Work Together
+     </h2>
+     <p class="text-lg mb-6">
+     Have a project in mind? Reach out and let's make it a reality.
+    </p>
+    <a href="#contact" class="inline-block bg-blue-900 text-yellow-400 px-6 py-3 rounded-full font-semibold transition duration-300 hover:bg-yellow-400 hover:text-blue-900 hover:scale-105">
+    Contact Us
+    </a>
+</section>
+
+<section class="bg-gradient-to-r from-blue-100 via-purple-100 to-blue-100 py-10 mt-8">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h2 class="text-2xl md:text-3xl font-semibold text-blue-900 mb-6">Our Partners</h2>
+      <p class="mb-8 text-sm md:text-base">
+      We collaborate with reputable brands and organizations to deliver value-driven solutions.
+      </p>
+     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 justify-center items-center">
+       <div data-aos="zoom-in" class="relative group bg-white rounded-full w-24 h-24 flex items-center justify-center mx-auto shadow-md hover:shadow-xl hover:scale-110 hover:rotate-6 transition-all duration-300 cursor-pointer">
+         <img src="./Peld.png" alt="Partner 1" class="h-24 w-auto" />
+           <span class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            Peld Waters
+           </span>
+       </div>
+       <div data-aos="zoom-in" class="relative group bg-white rounded-full w-24 h-24 flex items-center justify-center mx-auto shadow-md hover:shadow-xl hover:scale-110 hover:rotate-6 transition-all duration-300 cursor-pointer">
+         <img src="./Goldengrid.png" alt="Partner 2" class="h-24 w-auto" />
+           <span class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            Goldengrid
+           </span>
+       </div>
+       <div data-aos="zoom-in" class="relative group bg-white rounded-full w-24 h-24 flex items-center justify-center mx-auto shadow-md hover:shadow-xl hover:scale-110 hover:rotate-6 transition-all duration-300 cursor-pointer">
+         <img src="./PixelFusion.png" alt="Partner 3" class="h-24 w-auto" />
+           <span class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+             PixelFusion
+           </span>
+        </div>
+        <div data-aos="zoom-in" class="relative group bg-white rounded-full w-24 h-24 flex items-center justify-center mx-auto shadow-md hover:shadow-xl hover:scale-110 hover:rotate-6 transition-all duration-300 cursor-pointer">
+         <img src="./Bluewave.png" alt="Partner 4" class="h-24 w-auto" />
+           <span class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            Bluewave
+           </span>
+        </div>
+     </div>
+    </div>
+</section>
+
+<section class="bg-gradient-to-r from-blue-100 via-purple-100 to-blue-100 py-16 px-4 md:px-20 text-center mt-8">
+  <h2 class="text-3xl font-bold text-blue-900 mb-4">Latest from Our Blog</h2>
+  <p class="text-gray-600 max-w-2xl mx-auto mb-10">
+    Discover insights, tips, and industry updates from the team at Veritas KE.
+    Whether you're a startup, freelancer, or business owner — our blog helps you navigate the digital world smarter.
+  </p>
+
+  <div class="grid md:grid-cols-3 gap-6">
+    <!-- Blog Post 1 -->
+    <div class="bg-gray-100 rounded-xl overflow-hidden shadow hover:shadow-lg transition">
+      <img src="./Blog 1.png" alt="Blog image" class="w-full h-48 object-cover">
+      <div class="p-5 text-left">
+        <h4 class="text-xl font-semibold text-blue-900 mb-2">5 Ways to Stand Out as a Freelance Writer in 2025</h4>
+        <p class="text-gray-600 text-sm mb-4">Learn the top strategies we use at Veritas KE to help writers get noticed in a crowded market.</p>
+        <a href="#" class="text-blue-600 font-medium hover:underline">Read More →</a>
+      </div>
+    </div>
+
+    <!-- Blog Post 2 -->
+    <div class="bg-gray-100 rounded-xl overflow-hidden shadow hover:shadow-lg transition">
+      <img src="./Blog 2.png" alt="Blog image" class="w-full h-48 object-cover">
+      <div class="p-5 text-left">
+        <h4 class="text-xl font-semibold text-blue-900 mb-2">Beginner’s Guide to SEO for Small Businesses</h4>
+        <p class="text-gray-600 text-sm mb-4">We break down SEO in simple language so you can start ranking your business website on Google.</p>
+        <a href="#" class="text-blue-600 font-medium hover:underline">Read More →</a>
+      </div>
+    </div>
+
+    <!-- Blog Post 3 -->
+    <div class="bg-gray-100 rounded-xl overflow-hidden shadow hover:shadow-lg transition">
+      <img src="./Blog 3.png" alt="Blog image" class="w-full h-48 object-cover">
+      <div class="p-5 text-left">
+        <h4 class="text-xl font-semibold text-blue-900 mb-2">How Great Branding Can Transform Your Business</h4>
+        <p class="text-gray-600 text-sm mb-4">Branding isn’t just a logo. It’s your identity. Let us show you how we do it at Veritas KE.</p>
+        <a href="#" class="text-blue-600 font-medium hover:underline">Read More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-blue-900 text-white pt-12 pb-6 px-4 md:px-16">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+    <!-- Company Info -->
+    <div>
+      <h2 class="text-xl font-semibold mb-4 text-gold">Veritas KE</h2>
+      <p class="text-sm text-gray-300">Empowering businesses through digital solutions: content, web, design, and strategy.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div>
+      <h2 class="text-lg font-semibold mb-4 text-gold">Quick Links</h2>
+      <ul class="space-y-2 text-sm text-gray-300">
+        <li><a href="#" class="hover:text-gold transition">Home</a></li>
+        <li><a href="#" class="hover:text-gold transition">Services</a></li>
+        <li><a href="#" class="hover:text-gold transition">About</a></li>
+        <li><a href="#" class="hover:text-gold transition">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Social Media -->
+    <div>
+      <h2 class="text-lg font-semibold mb-4 text-gold">Follow Us</h2>
+      <div class="flex space-x-4">
+        <a href="#" aria-label="Facebook" class="hover:text-yellow-400 transition">
+          <i class="fab fa-facebook text-xl"></i>
+        </a>
+        <a href="#" aria-label="Twitter" class="hover:text-yellow-400 transition">
+          <i class="fab fa-twitter text-xl"></i>
+        </a>
+        <a href="#" aria-label="LinkedIn" class="hover:text-yellow-400 transition">
+          <i class="fab fa-linkedin text-xl"></i>
+        </a>
+        <a href="#" aria-label="Instagram" class="hover:text-yellow-400 transition">
+          <i class="fab fa-instagram text-xl"></i>
+        </a>
+        <a href="https://www.tiktok.com/@yourusername" target="_blank" class="text-white hover:text-yellow-400 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 448 512">
+            <path d="M448,209.9c-41.2,0-75.7-33.5-75.7-75.7V24H313.1v262.6c0,43.1-35,78.1-78.1,78.1s-78.1-35-78.1-78.1,35-78.1,78.1-78.1c7.9,0,15.6,1.2,22.8,3.5v-66c-7.4-1-15.1-1.5-22.8-1.5-79.8,0-144.4,64.6-144.4,144.4S156.2,408,236,408c79.8,0,144.4-64.6,144.4-144.4V157c21.3,13.3,46.6,21,73.6,21Z"/>
+          </svg>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Newsletter Signup -->
+    <div>
+      <h2 class="text-lg font-semibold mb-4 text-gold">Get Updates</h2>
+      <form id="subscribeForm" class="space-y-2">
+        <input type="email" id="email" placeholder="Your email" class="w-full px-3 py-2 rounded bg-blue-200 text-black text-sm focus:outline-none focus:ring-2 focus:ring-gold" required>
+        <button type="submit" class="bg-white text-black font-semibold w-full py-2 rounded hover:bg-yellow-400 transition">Subscribe</button>
+        <p class="text-xs text-gray-400">We respect your privacy. No spam ever.</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bottom Footer -->
+  <div class="mt-10 border-t border-gray-600 pt-4 text-center text-sm text-gray-400">
+    &copy; <span id="year"></span> Veritas KE. All rights reserved.
+  </div>
+</footer>
+
+<script>
+    const btn = document.getElementById("menu-button");
+    const menu = document.getElementById("mobile-menu");
+
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+
+    document.querySelectorAll("#mobile-menu a").forEach(link => {
+      link.addEventListener("click", () => {
+        menu.classList.add("hidden");
+      });
+    });
+</script>
+
+<script>
+  const carousel = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  const slides = carousel.children.length;
+  let currentSlide = 0;
+
+  function updateCarousel() {
+    carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+    updateDots();
+  }
+
+  function updateDots() {
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('bg-blue-500', index === currentSlide);
+      dot.classList.toggle('bg-gray-300', index !== currentSlide);
+    });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides;
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides) % slides;
+    updateCarousel();
+  }
+
+  // Initialize
+  updateCarousel();
+
+  // Auto-slide every 3 seconds
+  setInterval(nextSlide, 3000);
+</script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  const swiper = new Swiper(".swiper", {
+    loop: true,
+    autoplay: {
+      delay: 5000,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
+</script>
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,  // animation duration
+    once: true       // animate only once when in view
+  });
+</script>
+
+<script>
+  // Update year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Email validation
+  document.getElementById('subscribeForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!regex.test(email)) {
+      alert("Please enter a valid email address.");
+    } else {
+      alert("Thank you for subscribing!");
+      this.reset();
+    }
+  });
+</script>
+
+</body>
+</html>
