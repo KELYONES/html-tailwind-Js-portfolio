@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn more about Veritas KE, a digital agency based in Nakuru, Kenya, empowering startups with web design and strategy." />
+  <title>About Us | Veritas KE</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+  tailwind.config = {
+    darkMode: 'class'
+  }
+</script>
+
+  <style>
+    body {
+      scroll-behavior: smooth;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .typing {
+      border-right: 2px solid #4f46e5;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: blink 0.7s step-end infinite;
+    }
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+    .dark-mode {
+      background-color: #111827;
+      color: #f3f4f6;
+    }
+  </style>
+</head>
+
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 font-sans" id="dark-mode">
+<nav class="bg-blue-900 p-4 fixed top-0 left-0 w-full z-40 shadow transition-shadow duration-300">
+  <div class="container mx-auto">
+    <div class="flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <img src="./Veritas.png" class="animate-bounce" alt="Veritas Logo" width="60">
+        <div class="ml-2 animate-bounce">
+          <h2 class="text-3xl font-bold text-yellow-700">Veritas KE</h2>
+          <p class="text-yellow-600 font-bold">Truth In Every Task</p>
+        </div>
+      </div>
+
+      <div class="hidden md:flex items-center space-x-6">
+        <a href="./index.html" class="text-yellow-600 text-lg font-semibold hover:text-white">Home</a>
+        <a href="./about.html" class="text-yellow-600 text-lg font-semibold hover:text-white">About Us</a>
+        <a href="#" class="text-yellow-600 text-lg font-semibold hover:text-white">Services</a>
+        <a href="#" class="text-yellow-600 text-lg font-semibold hover:text-white">Contact Us</a>
+        <a href="#" class="text-yellow-400 hover:text-white font-semibold border border-yellow-400 px-4 py-1 rounded hover:bg-yellow-400 hover:text-blue-900 transition">Sign Up</a>
+        <button id="darkToggle" class="bg-gray-200 dark:bg-gray-700 p-2 rounded-full shadow hover:scale-105 transition">
+          <i data-lucide="moon" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="flex items-center space-x-3 md:hidden">
+        <button id="menu-toggle">
+          <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-400 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        <button id="darkToggleMobile" class="bg-gray-200 dark:bg-gray-700 p-2 rounded-full shadow hover:scale-105 transition">
+          <i id="darkIconMobile" data-lucide="moon" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="md:hidden hidden mt-4">
+      <div class="flex justify-between w-full">
+        <div class="flex flex-col items-start space-y-4 bg-blue-900 p-4 rounded shadow w-full">
+          <a href="./index.html" class="text-yellow-400 hover:text-white font-semibold">Home</a>
+          <a href="./about.html" class="text-yellow-400 hover:text-white font-semibold">About</a>
+          <a href="#" class="text-yellow-400 hover:text-white font-semibold">Services</a>
+          <a href="#" class="text-yellow-400 hover:text-white font-semibold">Contact Us</a>
+          <a href="#" class="text-blue-900 bg-yellow-400 hover:bg-yellow-300 font-bold px-4 py-2 rounded">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+ 
+  <!-- Hero with Advanced Typing Effect -->
+  <section class="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-br from-blue-100 via-purple-100 to-blue-100 px-6 pt-32">
+    <h1 class="text-4xl md:text-6xl font-bold text-indigo-900 mb-4">
+      Empowering Startups with <span id="typing-text" class="typing"></span>
+    </h1>
+    <p class="max-w-xl text-gray-700 text-lg">At Veritas KE, we create powerful, fast, and modern digital experiences for startups across Africa and beyond.</p>
+  </section>
+
+  <!-- Parallax Divider -->
+  <div class="h-12 bg-gradient-to-r from-indigo-600 to-purple-600 w-full transform -skew-y-3"></div>
+
+  <!-- Founders Section -->
+  <section class="py-16 px-6 text-center bg-gray-50">
+    <h2 class="text-3xl font-bold mb-6 text-indigo-900">Our Story</h2>
+    <p class="max-w-3xl mx-auto text-gray-600 text-lg fade-in">Founded in Nakuru, Kenya by Kelly Johns, June Chepkemoi, and Deborah Blessings, Veritas KE was born from a shared passion: to uplift startups through smart, beautiful, and performance-driven digital solutions. We saw a gap in accessible tech for early-stage founders — and we're here to close it.</p>
+    <p class="max-w-3xl mx-auto text-gray-600 text-lg fade-in mt-6">Our vision started with helping startups gain an online presence. But as we journeyed alongside them, we realized they needed more than just a website — they needed support for the entire foundation of their business. That’s why we’ve expanded our services to also cover business legality, branding, and documentation essentials.</p>
+  </section>
+
+  <!-- Animated Timeline -->
+  <section class="py-16 px-6 bg-white">
+    <h3 class="text-2xl font-bold text-center mb-10 text-indigo-900">Our Journey</h3>
+    <div class="relative border-l-4 border-indigo-500 max-w-2xl mx-auto space-y-12">
+      <div class="ml-6 fade-in">
+        <p class="text-sm text-gray-400">2024</p>
+        <h4 class="text-lg font-semibold">Veritas KE is Born</h4>
+        <p class="text-gray-600">Three passionate creatives unite to launch a purpose-driven digital agency in Nakuru.</p>
+      </div>
+      <div class="ml-6 fade-in">
+        <p class="text-sm text-gray-400">2025</p>
+        <h4 class="text-lg font-semibold">Team Building Begins</h4>
+        <p class="text-gray-600">Hiring begins for the first wave of designers, writers, and developers to scale our impact.</p>
+      </div>
+      <div class="ml-6 fade-in">
+        <p class="text-sm text-gray-400">Future</p>
+        <h4 class="text-lg font-semibold">Expanding Across Africa</h4>
+        <p class="text-gray-600">With partners and clients across borders, we continue our mission to empower startups everywhere.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values -->
+  <section class="bg-gray-100 py-16 px-6">
+    <h3 class="text-2xl font-bold text-center mb-10 text-indigo-900">What Drives Us</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto text-center">
+      <div class="p-6 bg-white rounded-2xl shadow-lg transform transition hover:-translate-y-1 hover:shadow-xl fade-in">
+        <i data-lucide="zap" class="w-8 h-8 text-yellow-400 mx-auto mb-4"></i>
+        <h4 class="text-xl font-semibold">Performance First</h4>
+        <p class="text-gray-600 text-sm">Speed, SEO, and smooth UX — we build with purpose and precision.</p>
+      </div>
+      <div class="p-6 bg-white rounded-2xl shadow-lg transform transition hover:-translate-y-1 hover:shadow-xl fade-in">
+        <i data-lucide="users" class="w-8 h-8 text-yellow-400 mx-auto mb-4"></i>
+        <h4 class="text-xl font-semibold">Startups First</h4>
+        <p class="text-gray-600 text-sm">We’re here for the bold, the builders, and the game-changers just getting started.</p>
+      </div>
+      <div class="p-6 bg-white rounded-2xl shadow-lg transform transition hover:-translate-y-1 hover:shadow-xl fade-in">
+        <i data-lucide="globe" class="w-8 h-8 text-yellow-400 mx-auto mb-4"></i>
+        <h4 class="text-xl font-semibold">Global Vision</h4>
+        <p class="text-gray-600 text-sm">Rooted in Kenya, reaching the world — our work crosses borders and barriers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Teaser Section -->
+  <section class="py-20 px-6 bg-white">
+    <h2 class="text-3xl font-bold text-center mb-6 text-indigo-900">What We Do</h2>
+    <p class="text-center text-gray-600 max-w-2xl mx-auto text-lg fade-in">From web development and design to documentation and digital transformation, Veritas KE provides the tools, support, and strategy your startup needs to thrive. <a href="/services" class="text-yellow-500 font-medium hover:underline">Explore our full services →</a></p>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-gradient-to-br from-blue-900 via-black to-blue-900 text-white text-center px-6">
+    <h2 class="text-3xl font-bold mb-4">Let’s Build Your Vision</h2>
+    <p class="max-w-xl mx-auto text-lg mb-6">Looking for a modern, SEO-optimized website that actually grows your business? You're in the right place.</p>
+    <a href="/contact" class="inline-block bg-yellow-400 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-300 transition">Contact Us</a>
+  </section>
+  <footer class="bg-blue-900 text-white pt-12 pb-6 px-4 md:px-16">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+    <!-- Company Info -->
+    <div>
+      <h2 class="text-xl font-semibold mb-4 text-gold">Veritas KE</h2>
+      <p class="text-sm text-gray-300">Empowering businesses through digital solutions: content, web, design, and strategy.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div>
+      <h2 class="text-lg font-semibold mb-4 text-gold">Quick Links</h2>
+      <ul class="space-y-2 text-sm text-gray-300">
+        <li><a href="#" class="hover:text-yellow-400 transition">Home</a></li>
+        <li><a href="#" class="hover:text-yellow-400 transition">Services</a></li>
+        <li><a href="#" class="hover:text-yellow-400 transition">About</a></li>
+        <li><a href="#" class="hover:text-yellow-400 transition">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Social Media -->
+    <div>
+      <h2 class="text-lg font-semibold mb-4 text-gold">Follow Us</h2>
+      <div class="flex space-x-4">
+        <a href="#" aria-label="Facebook" class="hover:text-yellow-400 transition">
+          <i class="fab fa-facebook text-xl"></i>
+        </a>
+        <a href="#" aria-label="Twitter" class="hover:text-yellow-400 transition">
+          <i class="fab fa-twitter text-xl"></i>
+        </a>
+        <a href="#" aria-label="LinkedIn" class="hover:text-yellow-400 transition">
+          <i class="fab fa-linkedin text-xl"></i>
+        </a>
+        <a href="#" aria-label="Instagram" class="hover:text-yellow-400 transition">
+          <i class="fab fa-instagram text-xl"></i>
+        </a>
+        <a href="https://www.tiktok.com/@yourusername" target="_blank" class="text-white hover:text-yellow-400 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 448 512">
+            <path d="M448,209.9c-41.2,0-75.7-33.5-75.7-75.7V24H313.1v262.6c0,43.1-35,78.1-78.1,78.1s-78.1-35-78.1-78.1,35-78.1,78.1-78.1c7.9,0,15.6,1.2,22.8,3.5v-66c-7.4-1-15.1-1.5-22.8-1.5-79.8,0-144.4,64.6-144.4,144.4S156.2,408,236,408c79.8,0,144.4-64.6,144.4-144.4V157c21.3,13.3,46.6,21,73.6,21Z"/>
+          </svg>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Newsletter Signup -->
+    <div>
+      <h2 class="text-lg font-semibold mb-4 text-gold">Get Updates</h2>
+      <form id="subscribeForm" class="space-y-2">
+        <input type="email" id="email" placeholder="Your email" class="w-full px-3 py-2 rounded bg-blue-200 text-black text-sm focus:outline-none focus:ring-2 focus:ring-gold" required>
+        <button type="submit" class="bg-white text-black font-semibold w-full py-2 rounded hover:bg-yellow-400 transition">Subscribe</button>
+        <p class="text-xs text-gray-400">We respect your privacy. No spam ever.</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bottom Footer -->
+  <div class="mt-10 border-t border-gray-600 pt-4 text-center text-sm text-gray-400">
+    &copy; <span id="year"></span> Veritas KE. All rights reserved.
+  </div>
+</footer>
+
+  <!-- Scripts -->
+  <script>
+    const phrases = ["Modern Web Design", "SEO-Optimized Strategy", "Bold Digital Identity"];
+    let currentPhrase = 0;
+    let currentChar = 0;
+    const typingEl = document.getElementById("typing-text");
+    let isDeleting = false;
+    function typeLoop() {
+      const fullText = phrases[currentPhrase];
+      typingEl.textContent = fullText.slice(0, currentChar);
+      if (!isDeleting) {
+        if (currentChar < fullText.length) {
+          currentChar++;
+        } else {
+          isDeleting = true;
+          setTimeout(typeLoop, 1000);
+          return;
+        }
+      } else {
+        if (currentChar > 0) {
+          currentChar--;
+        } else {
+          isDeleting = false;
+          currentPhrase = (currentPhrase + 1) % phrases.length;
+        }
+      }
+      setTimeout(typeLoop, isDeleting ? 50 : 120);
+    }
+    typeLoop();
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    fadeEls.forEach(el => observer.observe(el));
+    lucide.createIcons();
+    
+    const toggleBtn = document.getElementById('menu-toggle');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+    const mobileMenu = document.getElementById('mobile-menu');
+    toggleBtn.addEventListener('click', () => {
+      hamburgerIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+      mobileMenu.classList.toggle('hidden');
+    });
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        hamburgerIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      });
+    });
+</script>
+<script>
+  lucide.createIcons();
+
+  const root = document.body; // Change made here
+  const darkToggleDesktop = document.getElementById("darkToggle");
+  const darkToggleMobile = document.getElementById("darkToggleMobile");
+
+  const toggleDarkMode = () => {
+    root.classList.toggle("dark");
+  };
+
+  darkToggleDesktop?.addEventListener("click", toggleDarkMode);
+  darkToggleMobile?.addEventListener("click", toggleDarkMode);
+</script>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+<script>
+  document.getElementById("subscribeForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    alert("Thanks for subscribing!");
+  });
+</script>
+
+
+</body>
+</html>
+
+
