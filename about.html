@@ -38,14 +38,10 @@
     @keyframes blink {
       50% { border-color: transparent; }
     }
-    .dark-mode {
-      background-color: #111827;
-      color: #f3f4f6;
-    }
   </style>
 </head>
 
-<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 font-sans" id="dark-mode">
+<body class="bg-white text-gray-800 font-sans" >
 <nav class="bg-blue-900 p-4 fixed top-0 left-0 w-full z-40 shadow transition-shadow duration-300">
   <div class="container mx-auto">
     <div class="flex justify-between items-center">
@@ -63,9 +59,6 @@
         <a href="#" class="text-yellow-600 text-lg font-semibold hover:text-white">Services</a>
         <a href="#" class="text-yellow-600 text-lg font-semibold hover:text-white">Contact Us</a>
         <a href="#" class="text-yellow-400 hover:text-white font-semibold border border-yellow-400 px-4 py-1 rounded hover:bg-yellow-400 hover:text-blue-900 transition">Sign Up</a>
-        <button id="darkToggle" class="bg-gray-200 dark:bg-gray-700 p-2 rounded-full shadow hover:scale-105 transition">
-          <i data-lucide="moon" class="w-5 h-5"></i>
-        </button>
       </div>
 
       <div class="flex items-center space-x-3 md:hidden">
@@ -76,10 +69,6 @@
           <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-400 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
-        </button>
-        <button id="darkToggleMobile" class="bg-gray-200 dark:bg-gray-700 p-2 rounded-full shadow hover:scale-105 transition">
-          <i id="darkIconMobile" data-lucide="moon" class="w-5 h-5"></i>
-        </button>
       </div>
     </div>
 
@@ -289,20 +278,6 @@
         closeIcon.classList.add('hidden');
       });
     });
-</script>
-<script>
-  lucide.createIcons();
-
-  const root = document.body; // Change made here
-  const darkToggleDesktop = document.getElementById("darkToggle");
-  const darkToggleMobile = document.getElementById("darkToggleMobile");
-
-  const toggleDarkMode = () => {
-    root.classList.toggle("dark");
-  };
-
-  darkToggleDesktop?.addEventListener("click", toggleDarkMode);
-  darkToggleMobile?.addEventListener("click", toggleDarkMode);
 </script>
 
 <script>
