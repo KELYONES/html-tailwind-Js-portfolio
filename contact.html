@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Veritas KE</title>
+  <meta name="description" content="Reach out to Veritas KE for digital services, consultations, or partnerships. We're ready to help.">
+
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- ScrollReveal -->
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal"></script>
+
+  <!-- reCAPTCHA v3 -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6Le9dJErAAAAALKIJhrYOzBrDEkuHs2IUFyIIegj"></script>
+</head>
+<body class="bg-gradient-to-r from-blue-100 via-purple-100 to-blue-100 text-gray-900 min-h-screen py-10">
+     <nav class="bg-blue-900 p-4 fixed top-0 left-0 w-full z-50 shadow transition-shadow duration-300">
+  <div class="container mx-auto">
+    <div class="flex justify-between items-center">
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <img src="./Veritas.png" class="animate-bounce" alt="Veritas Logo" width="60">
+        <div class="ml-2 animate-bounce">
+          <h2 class="text-3xl font-bold text-yellow-700">Veritas KE</h2>
+          <p class="text-yellow-600 font-bold">Truth In Every Task</p>
+        </div>
+      </div>
+
+      <!-- Desktop nav links -->
+      <div class="hidden md:flex items-center space-x-6">
+        <a href="./index.html" class="text-yellow-600 text-lg font-semibold hover:text-white">Home</a>
+        <a href="./about.html" class="text-yellow-600 text-lg font-semibold hover:text-white">About Us</a>
+        <a href="./service.html" class="text-yellow-600 text-lg font-semibold hover:text-white">Services</a>
+        <a href="./contact.html" class="text-yellow-600 text-lg font-semibold hover:text-white">Contact Us</a>
+        <a href="#" class="text-yellow-400 hover:text-white font-semibold border border-yellow-400 px-4 py-1 rounded hover:bg-yellow-400 hover:text-blue-900 transition">Sign Up</a>
+      </div>
+      <!-- Hamburger and Close-->
+      <div class="md:hidden">
+        <button id="menu-toggle">
+          <!-- Hamburger Icon -->
+          <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <!-- Close Icon -->
+          <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-400 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden mt-4">
+      <div class="flex justify-between w-full">
+        <div class="flex flex-col items-start space-y-4 bg-blue-900 p-4 rounded shadow w-full">
+          <a href="./index.html" class="text-yellow-400 hover:text-white font-semibold">Home</a>
+          <a href="./about.html" class="text-yellow-400 hover:text-white font-semibold">About</a>
+          <a href="./service.html" class="text-yellow-400 hover:text-white font-semibold">Services</a>
+          <a href="./contact.html" class="text-yellow-400 hover:text-white font-semibold">Contact Us</a>
+          <a href="#" class="text-blue-900 bg-yellow-400 hover:bg-yellow-300 font-bold px-4 py-2 rounded">Sign Up</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+  <div class="max-w-6xl mx-auto px-4 md:px-8">
+    <h1 class="text-4xl font-bold text-center text-blue-900 mb-10">Let's Connect</h1>
+
+    <div class="grid md:grid-cols-2 gap-10 items-start">
+
+      <!-- Contact Form -->
+      <form id="contactForm" action="https://formspree.io/f/mwpbkadj" method="POST" class="bg-white p-6 rounded-xl shadow-xl space-y-6">
+        <h2 class="text-2xl font-semibold text-blue-900">Send Us a Message</h2>
+
+        <!-- Floating Label - Name -->
+        <div class="relative">
+          <input type="text" name="name" id="name" required class="peer w-full px-3 pt-6 pb-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder=" " />
+          <label for="name" class="absolute left-3 top-2 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-2 peer-focus:text-sm peer-focus:text-blue-500">Your Name</label>
+        </div>
+
+        <!-- Floating Label - Email -->
+        <div class="relative">
+          <input type="email" name="email" id="email" required class="peer w-full px-3 pt-6 pb-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder=" " />
+          <label for="email" class="absolute left-3 top-2 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-2 peer-focus:text-sm peer-focus:text-blue-500">Your Email</label>
+        </div>
+
+        <!-- Floating Label - Message -->
+        <div class="relative">
+          <textarea name="message" id="message" rows="5" required class="peer w-full px-3 pt-6 pb-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder=" "></textarea>
+          <label for="message" class="absolute left-3 top-2 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-2 peer-focus:text-sm peer-focus:text-blue-500">Your Message</label>
+        </div>
+
+        <!-- Hidden input for reCAPTCHA token -->
+        <input type="hidden" name="g-recaptcha-response" id="recaptchaToken" />
+
+        <!-- Submit Button -->
+        <button type="submit" class="bg-blue-900 text-white px-6 py-2 rounded hover:bg-yellow-400 transition font-semibold w-full">Send Message</button>
+
+        <!-- Thank You Message -->
+        <div id="thankYouMessage" class="hidden text-green-700 font-medium pt-4">
+          ✅ Thank you! We'll respond as soon as possible.
+        </div>
+      </form>
+
+      <!-- Google Map: Nakuru -->
+      <div class="rounded-xl overflow-hidden shadow-xl" id="mapBox">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15957.200992739692!2d36.05864182927266!3d-0.3030981956059476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182a4f9b61eb1b1d%3A0x38a6c9577dcfd6!2sNakuru!5e0!3m2!1sen!2ske!4v1699118934057!5m2!1sen!2ske"
+          width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+   <footer class="bg-blue-900 text-white pt-12 pb-6 px-4 md:px-16">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+    <!-- Company Info -->
+    <div>
+      <h2 class="text-xl font-semibold mb-4 text-gold">Veritas KE</h2>
+      <p class="text-sm text-gray-300">Empowering businesses through digital solutions: content, web, design, and strategy.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div>
+      <h2 class="text-lg font-semibold mb-4 text-gold">Quick Links</h2>
+      <ul class="space-y-2 text-sm text-gray-300">
+        <li><a href="./index.html" class="hover:text-yellow-400 transition">Home</a></li>
+        <li><a href="./service.html" class="hover:text-yellow-400 transition">Services</a></li>
+        <li><a href="./about.html" class="hover:text-yellow-400 transition">About</a></li>
+        <li><a href="./contact.html" class="hover:text-yellow-400 transition">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Social Media -->
+    <div>
+      <h2 class="text-lg font-semibold mb-4 text-gold">Follow Us</h2>
+      <div class="flex space-x-4">
+        <a href="#" aria-label="Facebook" class="hover:text-yellow-400 transition">
+          <i class="fab fa-facebook text-xl"></i>
+        </a>
+        <a href="#" aria-label="Twitter" class="hover:text-yellow-400 transition">
+          <i class="fab fa-twitter text-xl"></i>
+        </a>
+        <a href="#" aria-label="LinkedIn" class="hover:text-yellow-400 transition">
+          <i class="fab fa-linkedin text-xl"></i>
+        </a>
+        <a href="#" aria-label="Instagram" class="hover:text-yellow-400 transition">
+          <i class="fab fa-instagram text-xl"></i>
+        </a>
+        <a href="https://www.tiktok.com/@yourusername" target="_blank" class="text-white hover:text-yellow-400 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 448 512">
+            <path d="M448,209.9c-41.2,0-75.7-33.5-75.7-75.7V24H313.1v262.6c0,43.1-35,78.1-78.1,78.1s-78.1-35-78.1-78.1,35-78.1,78.1-78.1c7.9,0,15.6,1.2,22.8,3.5v-66c-7.4-1-15.1-1.5-22.8-1.5-79.8,0-144.4,64.6-144.4,144.4S156.2,408,236,408c79.8,0,144.4-64.6,144.4-144.4V157c21.3,13.3,46.6,21,73.6,21Z"/>
+          </svg>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Newsletter Signup -->
+    <div>
+      <h2 class="text-lg font-semibold mb-4 text-gold">Get Updates</h2>
+      <form id="subscribeForm" class="space-y-2">
+        <input type="email" id="email" placeholder="Your email" class="w-full px-3 py-2 rounded bg-blue-200 text-black text-sm focus:outline-none focus:ring-2 focus:ring-gold" required>
+        <button type="submit" class="bg-white text-black font-semibold w-full py-2 rounded hover:bg-yellow-400 transition">Subscribe</button>
+        <p class="text-xs text-gray-400">We respect your privacy. No spam ever.</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bottom Footer -->
+  <div class="mt-10 border-t border-gray-600 pt-4 text-center text-sm text-gray-400">
+    &copy; <span id="year"></span> Veritas KE. All rights reserved.
+  </div>
+</footer>
+
+
+<script>
+  const toggleBtn = document.getElementById('menu-toggle');
+  const hamburgerIcon = document.getElementById('hamburger-icon');
+  const closeIcon = document.getElementById('close-icon');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  toggleBtn.addEventListener('click', () => {
+    hamburgerIcon.classList.toggle('hidden');
+    closeIcon.classList.toggle('hidden');
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      hamburgerIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+    });
+  });
+</script>
+
+  <script>
+    // Animate appearance
+    ScrollReveal().reveal('#contactForm', { distance: '40px', origin: 'left', duration: 1000 });
+    ScrollReveal().reveal('#mapBox', { distance: '40px', origin: 'right', duration: 1000 });
+
+    // reCAPTCHA and form handling
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      grecaptcha.ready(function () {
+        grecaptcha.execute('6Le9dJErAAAAALKIJhrYOzBrDEkuHs2IUFyIIegj', { action: 'submit' }).then(function (token) {
+          document.getElementById('recaptchaToken').value = token;
+
+          const form = e.target;
+          const thankYou = document.getElementById('thankYouMessage');
+
+          fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: {
+              'Accept': 'application/json'
+            }
+          }).then(response => {
+            if (response.ok) {
+              form.reset();
+              thankYou.classList.remove('hidden');
+            } else {
+              alert('❌ Submission failed. Please try again later.');
+            }
+          });
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
+
