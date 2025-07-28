@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Freelance Guide</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-blue-100 via-purple-100 to-blue-100 text-black font-sans">
+     <nav class="bg-blue-900 p-4 fixed top-0 left-0 w-full z-50 shadow transition-shadow duration-300">
+  <div class="container mx-auto">
+    <div class="flex justify-between items-center">
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <img src="./Veritas.png" class="animate-bounce" alt="Veritas Logo" width="60">
+        <div class="ml-2 animate-bounce">
+          <h2 class="text-3xl font-bold text-yellow-700">Veritas KE</h2>
+          <p class="text-yellow-600 font-bold">Truth In Every Task</p>
+        </div>
+      </div>
+
+      <!-- Desktop nav links -->
+      <div class="hidden md:flex items-center space-x-6">
+        <a href="./index.html" class="text-yellow-600 text-lg font-semibold hover:text-white">Home</a>
+        <a href="./about.html" class="text-yellow-600 text-lg font-semibold hover:text-white">About Us</a>
+        <a href="./service.html" class="text-yellow-600 text-lg font-semibold hover:text-white">Services</a>
+        <a href="./contact.html" class="text-yellow-600 text-lg font-semibold hover:text-white">Contact Us</a>
+
+        <!-- Login & Signup buttons -->
+        <a href="./login.html" class="text-yellow-400 hover:text-white font-semibold border border-yellow-400 px-4 py-1 rounded hover:bg-yellow-400 hover:text-blue-900 transition">Login</a>
+        <a href="./signup.html" class="text-blue-900 bg-yellow-400 hover:bg-yellow-300 font-bold px-4 py-1 rounded transition">Sign Up</a>
+      </div>
+
+      <!-- Hamburger and Close -->
+      <div class="md:hidden">
+        <button id="menu-toggle">
+          <!-- Hamburger Icon -->
+          <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <!-- Close Icon -->
+          <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-400 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden mt-4">
+      <div class="flex justify-between w-full">
+        <div class="flex flex-col items-start space-y-4 bg-blue-900 p-4 rounded shadow w-full">
+          <a href="./index.html" class="text-yellow-400 hover:text-white font-semibold">Home</a>
+          <a href="./about.html" class="text-yellow-400 hover:text-white font-semibold">About</a>
+          <a href="./service.html" class="text-yellow-400 hover:text-white font-semibold">Services</a>
+          <a href="./contact.html" class="text-yellow-400 hover:text-white font-semibold">Contact Us</a>
+           <a href="./login.html" class="text-yellow-400 hover:text-white font-semibold border border-yellow-400 px-4 py-1 rounded hover:bg-yellow-400 hover:text-blue-900 transition">Login</a>
+          <a href="./signup.html" class="text-blue-900 bg-yellow-400 hover:bg-yellow-300 font-bold px-4 py-2 rounded">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+  <div class="max-w-4xl mx-auto px-6 mt-20 py-10">
+
+    <!-- Header -->
+    <h1 class="text-4xl font-bold text-center text-black mb-6"> 5 Ways to Stand Out as a Freelance Writer in 2025</h1>
+
+    <!-- Table of Contents -->
+     
+
+    <div class="bg-white shadow-md rounded-lg p-6 mb-10 border-l-4 border-yellow-500">
+      <h2 class="text-xl font-semibold text-blue-900 mb-3">📘 Table of Contents</h2>
+      <ul class="space-y-2 text-blue-800 font-medium list-disc list-inside">
+        <li><a href="#intro" class="hover:underline text-yellow-700">Introduction</a></li>
+        <li><a href="#story" class="hover:underline text-yellow-700">1. Tell Your Story</a></li>
+        <li><a href="#positioning" class="hover:underline text-yellow-700">2. Stop Competing. Start Positioning.</a></li>
+        <li><a href="#visibility" class="hover:underline text-yellow-700">3. Get Found Where Clients Are Searching</a></li>
+        <li><a href="#proof" class="hover:underline text-yellow-700">4. Show Proof. Not Just Promises.</a></li>
+        <li><a href="#emotion" class="hover:underline text-yellow-700">5. Make Clients Feel Something</a></li>
+        <li><a href="#final" class="hover:underline text-yellow-700">Final Thoughts</a></li>
+      </ul>
+    </div>
+
+    <!-- Sections -->
+     <h2 class="text-2xl font-semibold text-blue-900 mb-4">Let’s Get Real for a Minute...</h2>
+
+    <div id="intro" class="fade-in mb-12">
+      <p class="text-lg mb-4">You know that moment when you’re staring at your screen, waiting for an email reply from a client who ghosted you? Or worse, refreshing job boards, watching dozens of proposals with zero replies?</p>
+      <p class="text-lg mb-4">Yeah… I’ve been there too.</p>
+      <p class="text-lg mb-4">Back in 2023, I had only one consistent writing client—paying me peanuts. Every week, I sent out pitch after pitch, customizing each one. But nothing. I even questioned if I was cut out for this whole freelance thing. I’d scroll LinkedIn and see people bragging about “hitting $5k months,” and I’d feel like an imposter.</p>
+      <p class="text-lg mb-4">If you’ve ever felt invisible in the freelancing world, this post is for you. I’m not here to throw vague advice. I’ll walk you through 5 things that actually helped me stand out—and keep clients coming back for more.</p>
+      <p class="text-lg">Let’s talk like freelancers at a coffee shop, yeah?</p>
+    </div>
+
+    <div id="story" class="fade-in mb-12">
+      <h2 class="text-2xl font-bold text-blue-900 mb-4">1. Tell Your Story — Because That’s Your Brand</h2>
+      <p class="text-lg mb-4">Here’s the deal: people remember stories, not titles. You’re not just a "freelance writer." You're someone who left a draining 9-5 to pursue passion. Or someone who learned copywriting during power outages with a borrowed laptop. That’s powerful.</p>
+      <p class="text-lg mb-4">Clients don’t just want a service—they want a human.</p>
+      <p class="text-lg mb-4">When I started sharing bits of my personal journey on my portfolio site and LinkedIn, the responses shifted. One client even said, “I hired you because I felt like you got it—you’ve been where our audience is.”</p>
+      <p class="text-lg font-semibold italic">Action Tip:</p>
+      <p class="text-lg">Dedicate a section on your website that tells your journey. Not a corporate bio. Be real. Vulnerability builds trust faster than a polished resume ever will.</p>
+    </div>
+
+    <div id="positioning" class="fade-in mb-12">
+      <h2 class="text-2xl font-bold text-blue-900 mb-4">2. Stop Competing. Start Positioning.</h2>
+      <p class="text-lg mb-4">Here’s an ugly truth: thousands of writers offer “SEO blog posts” or “copywriting services.” If that’s all you’re saying, you’re blending in, not standing out.</p>
+      <p class="text-lg mb-4">So how do you position?</p>
+      <p class="text-lg mb-4">Think about the exact transformation you offer. For example:</p>
+      <ul class="list-disc list-inside mb-4 text-lg">
+        <li>“I help B2B SaaS brands turn technical jargon into stories that convert.”</li>
+        <li>“I write content that ranks and reads like your favorite Netflix show.”</li>
+      </ul>
+      <p class="text-lg mb-4">The moment I niched down to “tech ghostwriting for founders,” my inbox became less about “how much?” and more like “can we book a call?”</p>
+      <p class="text-lg font-semibold italic">Action Tip:</p>
+      <p class="text-lg">Update your LinkedIn headline, Upwork title, or personal website with a positioning statement that screams, “This is what I do differently.”</p>
+    </div>
+
+    <div id="visibility" class="fade-in mb-12">
+      <h2 class="text-2xl font-bold text-blue-900 mb-4">3. Get Found Where Clients Are Searching</h2>
+      <p class="text-lg mb-4">In 2025, it’s no longer enough to just “be available.” You’ve got to show up where decision-makers hang out.</p>
+      <p class="text-lg mb-4">One of the biggest shifts for me came when I stopped hiding. I started posting weekly on LinkedIn—even if I had no likes. I shared writing tips, behind-the-scenes of my process, and lessons from tough client experiences. Slowly, I became visible. People started tagging me. Referrals happened.</p>
+      <p class="text-lg mb-4">I know it’s scary. But visibility isn't vanity. It’s strategy.</p>
+      <p class="text-lg font-semibold italic">Action Tip:</p>
+      <p class="text-lg">Pick one platform (LinkedIn is gold for writers) and commit to showing up once or twice a week. Don’t overthink it. Just share what you’re learning.</p>
+    </div>
+
+    <div id="proof" class="fade-in mb-12">
+      <h2 class="text-2xl font-bold text-blue-900 mb-4">4. Show Proof. Not Just Promises.</h2>
+      <p class="text-lg mb-4">Clients are done reading, “I’ll deliver high-quality articles.” Everyone says that.</p>
+      <p class="text-lg mb-4">What they want to see is proof.</p>
+      <p class="text-lg mb-4">That could mean:</p>
+      <ul class="list-disc list-inside mb-4 text-lg">
+        <li>A screenshot of an article ranking on Google.</li>
+        <li>A testimonial from a happy client.</li>
+        <li>A case study showing how your copy helped increase conversions.</li>
+      </ul>
+      <p class="text-lg mb-4">When I started using social proof—even just a kind DM or email reply—it made a difference. One founder told me, “I could tell people trusted you, and that’s why I did too.”</p>
+      <p class="text-lg font-semibold italic">Action Tip:</p>
+      <p class="text-lg">Create a simple “Proof” section on your portfolio. Add screenshots, data, testimonials—anything that shows you don’t just write, you deliver.</p>
+    </div>
+
+    <div id="emotion" class="fade-in mb-12">
+      <h2 class="text-2xl font-bold text-blue-900 mb-4">5. Make Clients Feel Something</h2>
+      <p class="text-lg mb-4">This one might be the most important.</p>
+      <p class="text-lg mb-4">Great writers don’t just inform—they make people feel. If you can make your clients feel heard, respected, and excited to work with you, you're not just a writer—you’re unforgettable.</p>
+      <p class="text-lg mb-4">I remember once, after a particularly chaotic project, I sent the client a handwritten thank-you email with a Loom video explaining how I approached their brand tone. That tiny gesture? Got me 3 referrals.</p>
+      <p class="text-lg mb-4">In a world of AI tools and automation, being human is your biggest edge.</p>
+      <p class="text-lg font-semibold italic">Action Tip:</p>
+      <p class="text-lg">Be the freelancer who:</p>
+      <ul class="list-disc list-inside mb-4 text-lg">
+        <li>Responds warmly.</li>
+        <li>Delivers early.</li>
+        <li>Adds thoughtful touches.</li>
+        <li>Asks good questions.</li>
+      </ul>
+      <p class="text-lg">It’s never “just business.” Relationships are the business.</p>
+    </div>
+
+    <div id="final" class="fade-in mb-12">
+      <h2 class="text-2xl font-bold text-blue-900 mb-4">Final Thoughts: You’re Closer Than You Think</h2>
+      <p class="text-lg mb-4">Listen, I know how easy it is to feel like just another name in a sea of writers. But here’s the truth that took me two years to believe:</p>
+      <p class="text-lg mb-4">There’s space for you. But you have to show up as YOU.</p>
+      <p class="text-lg mb-4">Not the perfect version. Not the “hustle 24/7” version. Just you—with your story, your quirks, your values, and your care for the craft.</p>
+      <p class="text-lg mb-4">Freelancing isn’t a lottery. It’s a path. One where you build brick by brick—client by client.</p>
+      <p class="text-lg mb-4">So if you’re reading this and you’ve been doubting whether you’ll ever stand out… I want you to bookmark this moment. Because this right here might just be the start of your best chapter yet.</p>
+      <p class="text-lg font-bold text-black">Go get ‘em.</p>
+    </div>
+  </div>
+  <footer class="bg-blue-900 text-white py-6 mt-12">
+  <div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+    <p class="text-sm">&copy; 2025 <span class="font-semibold text-yellow-400">Veritas KE</span>. All rights reserved.</p>
+    <div class="flex space-x-4 text-sm">
+      <a href="#" class="hover:text-yellow-400 transition">Privacy Policy</a>
+      <a href="#" class="hover:text-yellow-400 transition">Terms</a>
+      <a href="#" class="hover:text-yellow-400 transition">Contact</a>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  const toggleBtn = document.getElementById('menu-toggle');
+  const hamburgerIcon = document.getElementById('hamburger-icon');
+  const closeIcon = document.getElementById('close-icon');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  toggleBtn.addEventListener('click', () => {
+    hamburgerIcon.classList.toggle('hidden');
+    closeIcon.classList.toggle('hidden');
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      hamburgerIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+    });
+  });
+</script>
+
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.2 });
+
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  </script>
+
+</body>
+</html>
