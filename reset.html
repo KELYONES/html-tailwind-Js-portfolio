@@ -399,21 +399,29 @@
 
         // Your Firebase configuration
         const firebaseConfig = {
-  apiKey: "AIzaSyB433CjEYeAy7KVkqCFM6H2GeMcTTmhJpY",
-  authDomain: "veritas-39f21.firebaseapp.com",
-  projectId: "veritas-39f21",
-  storageBucket: "veritas-39f21.firebasestorage.app",
-  messagingSenderId: "938004758888",
-  appId: "1:938004758888:web:ccda2e11d5eafdc11296dd"
-};
+            apiKey: "AIzaSyB433CjEYeAy7KVkqCFM6H2GeMcTTmhJpY",
+            authDomain: "veritas-39f21.firebaseapp.com",
+            projectId: "veritas-39f21",
+            storageBucket: "veritas-39f21.firebasestorage.app",
+            messagingSenderId: "938004758888",
+            appId: "1:938004758888:web:ccda2e11d5eafdc11296dd"
+        };
 
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
 
-        // Make auth available globally
+        console.log('🔥 Firebase initialized successfully');
+
+        // Make Firebase functions available globally for the form handler
         window.firebaseAuth = auth;
         window.sendPasswordResetEmail = sendPasswordResetEmail;
+        
+        // Signal that Firebase is ready
+        window.firebaseReady = true;
+        
+        // Dispatch custom event to notify that Firebase is ready
+        window.dispatchEvent(new CustomEvent('firebaseReady'));
     </script>
 
     <script>
@@ -449,7 +457,7 @@
             }
         });
 
-        // Form Validation and Submission
+        // Form elements
         const resetForm = document.getElementById("resetForm");
         const errorMsg = document.getElementById("errorMsg");
         const successMsg = document.getElementById("successMsg");
@@ -493,53 +501,97 @@
             return emailRegex.test(email);
         }
 
-        // Form submission handler
-        resetForm.addEventListener("submit", async function(e) {
-            e.preventDefault();
-            hideMessages();
-
-            const formData = new FormData(resetForm);
-            const email = formData.get('email');
-
-            // Basic validation
-            if (!email) {
-                showError("Please enter your email address.");
-                return;
-            }
-
-            if (!validateEmail(email)) {
-                showError("Please enter a valid email address.");
-                return;
-            }
-
-            // Set loading state
-            setLoading(true);
-
-            // Simulate API call delay
-            setTimeout(() => {
-                // Check if email exists (in production, this would be an API call)
-                const emailExists = registeredEmails.includes(email);
+        // Form submission handler - Fixed to use Firebase
+        async function handlePasswordReset(email) {
+            try {
+                console.log('Attempting to send password reset email to:', email);
                 
-                if (emailExists) {
-                    // Show success message (in production, actually send email)
-                    showSuccess();
-                    
-                    // Clear form
-                    resetForm.reset();
-                    
-                    // In production, you might redirect to a confirmation page
-                    console.log(`Password reset email would be sent to: ${email}`);
-                } else {
-                    // For security reasons, we usually don't reveal if an email exists
-                    // But for demo purposes, we'll show different messages
-                    showSuccess(); // In production, always show success
-                    resetForm.reset();
-                    console.log(`Email ${email} not found in system, but showing success for security`);
+                // Check if Firebase is ready
+                if (!window.firebaseReady || !window.firebaseAuth || !window.sendPasswordResetEmail) {
+                    throw new Error('Firebase not properly initialized');
                 }
 
-                setLoading(false);
-            }, 2000);
-        });
+                // Send password reset email using Firebase
+                await window.sendPasswordResetEmail(window.firebaseAuth, email);
+                
+                console.log('Password reset email sent successfully');
+                return { success: true };
+                
+            } catch (error) {
+                console.error('Error sending password reset email:', error);
+                
+                // Handle specific Firebase error codes
+                let errorMessage = 'An error occurred. Please try again.';
+                
+                switch (error.code) {
+                    case 'auth/user-not-found':
+                        errorMessage = 'No account found with this email address.';
+                        break;
+                    case 'auth/invalid-email':
+                        errorMessage = 'Please enter a valid email address.';
+                        break;
+                    case 'auth/too-many-requests':
+                        errorMessage = 'Too many requests. Please try again later.';
+                        break;
+                    case 'auth/network-request-failed':
+                        errorMessage = 'Network error. Please check your connection.';
+                        break;
+                    default:
+                        errorMessage = error.message || 'An error occurred. Please try again.';
+                }
+                
+                return { success: false, error: errorMessage };
+            }
+        }
+
+        // Wait for Firebase to be ready before setting up form handler
+        function setupFormHandler() {
+            resetForm.addEventListener("submit", async function(e) {
+                e.preventDefault();
+                hideMessages();
+
+                const formData = new FormData(resetForm);
+                const email = formData.get('email');
+
+                // Basic validation
+                if (!email) {
+                    showError("Please enter your email address.");
+                    return;
+                }
+
+                if (!validateEmail(email)) {
+                    showError("Please enter a valid email address.");
+                    return;
+                }
+
+                // Set loading state
+                setLoading(true);
+
+                try {
+                    // Send password reset email using Firebase
+                    const result = await handlePasswordReset(email);
+                    
+                    if (result.success) {
+                        showSuccess();
+                        resetForm.reset();
+                    } else {
+                        showError(result.error);
+                    }
+                } catch (error) {
+                    console.error('Unexpected error:', error);
+                    showError('An unexpected error occurred. Please try again.');
+                } finally {
+                    setLoading(false);
+                }
+            });
+        }
+
+        // Setup form handler when Firebase is ready
+        if (window.firebaseReady) {
+            setupFormHandler();
+        } else {
+            window.addEventListener('firebaseReady', setupFormHandler);
+        }
 
         // Back to top functionality
         const backToTopBtn = document.getElementById('backToTop');
@@ -582,8 +634,7 @@
             document.getElementById('email').focus();
         });
 
-        console.log('Veritas KE Reset Password Page with Firebase - Ready!');
-        console.log('Make sure to configure your Firebase project settings.');
+        console.log('✅ Veritas KE Reset Password Page with Firebase - Ready!');
     </script>
 </body>
 </html>
