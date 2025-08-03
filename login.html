@@ -333,7 +333,7 @@
                                     <div class="mt-6 text-center">
                                         <p class="text-sm text-accent-600">
                                             Don't have an account? 
-                                            <a href="./getStarted.html.html" class="text-primary-600 font-semibold hover:text-primary-700 hover:underline transition-colors">
+                                            <a href="./getStarted.html" class="text-primary-600 font-semibold hover:text-primary-700 hover:underline transition-colors">
                                                 Create one here
                                             </a>
                                         </p>
@@ -447,6 +447,43 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Import Firebase modules
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+        import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+
+        // Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyB433CjEYeAy7KVkqCFM6H2GeMcTTmhJpY",
+            authDomain: "veritas-39f21.firebaseapp.com",
+            projectId: "veritas-39f21",
+            storageBucket: "veritas-39f21.firebasestorage.app",
+            messagingSenderId: "938004758888",
+            appId: "1:938004758888:web:ccda2e11d5eafdc11296dd"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        console.log('🔥 Firebase initialized successfully');
+
+        // Make Firebase functions available globally
+        window.firebaseAuth = auth;
+        window.firebaseDb = db;
+        window.signInWithEmailAndPassword = signInWithEmailAndPassword;
+        window.onAuthStateChanged = onAuthStateChanged;
+        window.getDoc = getDoc;
+        window.doc = doc;
+        
+        // Signal that Firebase is ready
+        window.firebaseReady = true;
+        window.dispatchEvent(new CustomEvent('firebaseReady'));
+    </script>
+
     <script>
         // Initialize AOS
         AOS.init({
@@ -542,83 +579,168 @@
             return emailRegex.test(email);
         }
 
-        // Simulate user database (in production, this would be handled by backend)
-        const validUsers = [
-            { email: "admin@veritaske.com", password: "admin123" },
-            { email: "demo@veritaske.com", password: "demo123" },
-            { email: "user@example.com", password: "password123" }
-        ];
-
-        // Form submission handler
-        loginForm.addEventListener("submit", async function(e) {
-            e.preventDefault();
-            hideMessages();
-
-            const formData = new FormData(loginForm);
-            const email = formData.get('email');
-            const password = formData.get('password');
-            const remember = formData.get('remember');
-
-            // Basic validation
-            if (!email || !password) {
-                showError("Please fill in all required fields.");
-                return;
-            }
-
-            if (!validateEmail(email)) {
-                showError("Please enter a valid email address.");
-                return;
-            }
-
-            if (password.length < 6) {
-                showError("Password must be at least 6 characters long.");
-                return;
-            }
-
-            // Set loading state
-            setLoading(true);
-
-            // Simulate API call delay
-            setTimeout(() => {
-                // Check credentials (in production, this would be an API call)
-                const user = validUsers.find(u => u.email === email && u.password === password);
+        // Firebase Login Handler
+        async function handleLogin(email, password) {
+            try {
+                console.log('Attempting to sign in user with email:', email);
                 
-                if (user) {
-                    // Store login state if remember me is checked
-                    if (remember) {
-                        // In production, use secure session management
-                        const userData = { email: user.email, loginTime: Date.now() };
-                        try {
-                            // Note: Using in-memory storage since localStorage isn't available
-                            window.userSession = userData;
-                        } catch (e) {
-                            console.log("Session storage not available, continuing without persistence");
-                        }
-                    }
-
-                    // Show success message
-                    showSuccess();
-                    
-                    // Redirect after 2 seconds
-                    setTimeout(() => {
-                        // In production, redirect to actual dashboard
-                        window.location.href = "./dashboard.html";
-                    }, 2000);
-                } else {
-                    showError("Invalid email or password. Please try again.");
+                // Check if Firebase is ready
+                if (!window.firebaseReady || !window.firebaseAuth || !window.signInWithEmailAndPassword) {
+                    throw new Error('Firebase not properly initialized');
                 }
 
-                setLoading(false);
-            }, 1500);
-        });
+                // Sign in user with email and password
+                const userCredential = await window.signInWithEmailAndPassword(window.firebaseAuth, email, password);
+                const user = userCredential.user;
+                
+                console.log('✅ User signed in successfully:', user.uid);
+                console.log('User email:', user.email);
 
-        // Social login handlers
+                // Optionally fetch additional user data from Firestore
+                if (window.firebaseDb && window.getDoc && window.doc) {
+                    try {
+                        const userDoc = await window.getDoc(window.doc(window.firebaseDb, 'users', user.uid));
+                        if (userDoc.exists()) {
+                            const userData = userDoc.data();
+                            console.log('✅ User data loaded from Firestore:', userData);
+                        }
+                    } catch (firestoreError) {
+                        console.log('⚠️ Firestore read failed (optional):', firestoreError);
+                        // Don't throw error here as login was successful
+                    }
+                }
+                
+                return { success: true, user: user };
+                
+            } catch (error) {
+                console.error('❌ Error signing in user:', error);
+                
+                // Handle specific Firebase error codes
+                let errorMessage = 'An error occurred during login.';
+                
+                switch (error.code) {
+                    case 'auth/user-not-found':
+                        errorMessage = 'No account found with this email address. Please check your email or create a new account.';
+                        break;
+                    case 'auth/wrong-password':
+                        errorMessage = 'Incorrect password. Please try again or reset your password.';
+                        break;
+                    case 'auth/invalid-email':
+                        errorMessage = 'Please enter a valid email address.';
+                        break;
+                    case 'auth/user-disabled':
+                        errorMessage = 'This account has been disabled. Please contact support.';
+                        break;
+                    case 'auth/too-many-requests':
+                        errorMessage = 'Too many failed login attempts. Please try again later or reset your password.';
+                        break;
+                    case 'auth/network-request-failed':
+                        errorMessage = 'Network error. Please check your connection and try again.';
+                        break;
+                    case 'auth/invalid-credential':
+                        errorMessage = 'Invalid login credentials. Please check your email and password.';
+                        break;
+                    default:
+                        errorMessage = error.message || 'Login failed. Please try again.';
+                }
+                
+                return { success: false, error: errorMessage };
+            }
+        }
+
+        // Check if user is already logged in
+        function checkAuthState() {
+            if (window.firebaseAuth && window.onAuthStateChanged) {
+                window.onAuthStateChanged(window.firebaseAuth, (user) => {
+                    if (user) {
+                        console.log('User is already logged in:', user.email);
+                        // Optionally redirect to dashboard if user is already logged in
+                        // window.location.href = './dashboard.html';
+                    } else {
+                        console.log('No user is logged in');
+                    }
+                });
+            }
+        }
+
+        // Setup form handler
+        function setupFormHandler() {
+            loginForm.addEventListener("submit", async function(e) {
+                e.preventDefault();
+                hideMessages();
+
+                const formData = new FormData(loginForm);
+                const email = formData.get('email');
+                const password = formData.get('password');
+                const remember = document.getElementById('remember').checked;
+
+                // Basic validation
+                if (!email || !password) {
+                    showError("Please fill in all required fields.");
+                    return;
+                }
+
+                if (!validateEmail(email)) {
+                    showError("Please enter a valid email address.");
+                    return;
+                }
+
+                if (password.length < 6) {
+                    showError("Password must be at least 6 characters long.");
+                    return;
+                }
+
+                // Set loading state
+                setLoading(true);
+
+                try {
+                    // Sign in user using Firebase
+                    const result = await handleLogin(email, password);
+                    
+                    if (result.success) {
+                        showSuccess();
+                        
+                        // Store remember preference (if needed)
+                        if (remember) {
+                            // In production, this would be handled by Firebase Auth persistence
+                            console.log('Remember me checked - Firebase will persist session');
+                        }
+                        
+                        // Redirect to dashboard after successful login
+                        setTimeout(() => {
+                            window.location.href = './dashboard.html';
+                        }, 2000);
+                    } else {
+                        showError(result.error);
+                    }
+                } catch (error) {
+                    console.error('Unexpected error:', error);
+                    showError('An unexpected error occurred. Please try again.');
+                } finally {
+                    setLoading(false);
+                }
+            });
+
+            // Check authentication state
+            checkAuthState();
+        }
+
+        // Setup form handler when Firebase is ready
+        if (window.firebaseReady) {
+            setupFormHandler();
+        } else {
+            window.addEventListener('firebaseReady', setupFormHandler);
+        }
+
+        // Social login handlers (placeholder for OAuth integration)
         document.getElementById('googleLogin').addEventListener('click', function() {
-            alert('Google OAuth integration would be implemented here in production.');
+            // In a real app, this would integrate with Google OAuth
+            alert('Google OAuth integration would be implemented here. This would use Firebase Auth Google provider.');
         });
 
         document.getElementById('facebookLogin').addEventListener('click', function() {
-            alert('Facebook OAuth integration would be implemented here in production.');
+            // In a real app, this would integrate with Facebook OAuth
+            alert('Facebook OAuth integration would be implemented here. This would use Firebase Auth Facebook provider.');
         });
 
         // Back to top functionality
@@ -662,21 +784,30 @@
             document.getElementById('email').focus();
         });
 
-        // Add some demo hints for testing
-        const demoHints = document.createElement('div');
-        demoHints.className = 'mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg text-sm text-blue-700';
-        demoHints.innerHTML = `
-            <div class="font-medium mb-1">Demo Credentials:</div>
-            <div>Email: demo@veritaske.com</div>
-            <div>Password: demo123</div>
-        `;
+        // Enhanced form UX
+        const formInputs = document.querySelectorAll('input[type="email"], input[type="password"]');
         
-        // Insert demo hints after the form
-        const formContainer = document.querySelector('.bg-white\\/80');
-        formContainer.appendChild(demoHints);
+        formInputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('ring-2', 'ring-primary-500');
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.classList.remove('ring-2', 'ring-primary-500');
+            });
+        });
 
-        console.log('Veritas KE Login Page - Ready!');
-        console.log('Demo credentials: demo@veritaske.com / demo123');
+        // Progressive enhancement for older browsers
+        if (!CSS.supports('backdrop-filter', 'blur(10px)')) {
+            // Fallback for browsers that don't support backdrop-filter
+            const blurElements = document.querySelectorAll('.backdrop-blur-sm');
+            blurElements.forEach(el => {
+                el.classList.add('bg-opacity-95');
+            });
+        }
+
+        console.log('✅ Veritas KE Login Page with Firebase Authentication - Ready!');
+        console.log('🔐 Use any account created through the registration page to login');
     </script>
 </body>
 </html>
