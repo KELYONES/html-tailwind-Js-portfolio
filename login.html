@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Login - Veritas KE | Sign In to Your Account</title>
+    <meta name="description" content="Sign in to your Veritas KE account and access our professional digital solutions. Secure login for web design, content writing, and graphic design services.">
+    <meta name="keywords" content="login, sign in, Veritas KE, digital solutions, web design, content writing, graphic design">
+    <meta name="author" content="Veritas KE">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://veritaske.com/login">
+    <meta property="og:title" content="Login to Veritas KE - Access Your Account">
+    <meta property="og:description" content="Sign in to your Veritas KE account and manage your digital solutions.">
+    <meta property="og:image" content="https://veritaske.com/assets/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    
+    <!-- Stylesheets -->
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e'
+                        },
+                        secondary: {
+                            50: '#fefce8',
+                            100: '#fef9c3',
+                            200: '#fef08a',
+                            300: '#fde047',
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            700: '#a16207',
+                            800: '#854d0e',
+                            900: '#713f12'
+                        },
+                        accent: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a'
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gradient-to-br from-primary-50 to-accent-100 font-sans antialiased min-h-screen">
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary-600 text-white px-4 py-2 rounded-md z-50">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav class="bg-primary-900/95 backdrop-blur-sm p-4 fixed top-0 left-0 w-full z-50 shadow-lg transition-all duration-300" role="navigation" aria-label="Main navigation">
+        <div class="container mx-auto">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3" role="banner">
+                    <div class="w-12 h-12 bg-gradient-to-br from-secondary-400 to-primary-400 rounded-lg flex items-center justify-center animate-pulse">
+                        <i class="fas fa-shield-alt text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-secondary-400 tracking-tight">Veritas KE</h1>
+                        <p class="text-secondary-200 text-sm font-medium">Truth In Every Task</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="./index.html" class="text-secondary-200 hover:text-secondary-400 font-medium transition-colors duration-200 relative group">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary-400 transition-all duration-200 group-hover:w-full"></span>
+                    </a>
+                    <a href="./about.html" class="text-secondary-200 hover:text-secondary-400 font-medium transition-colors duration-200 relative group">
+                        About
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary-400 transition-all duration-200 group-hover:w-full"></span>
+                    </a>
+                    <a href="./service.html" class="text-secondary-200 hover:text-secondary-400 font-medium transition-colors duration-200 relative group">
+                        Services
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary-400 transition-all duration-200 group-hover:w-full"></span>
+                    </a>
+                    <a href="./contact.html" class="text-secondary-200 hover:text-secondary-400 font-medium transition-colors duration-200 relative group">
+                        Contact
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary-400 transition-all duration-200 group-hover:w-full"></span>
+                    </a>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex items-center space-x-3 ml-8">
+                        <a href="./login.html" class="bg-secondary-400/20 text-secondary-400 font-medium border border-secondary-400 px-4 py-2 rounded-lg transition-all duration-200">
+                            Login
+                        </a>
+                        <a href="./getStarted.html" class="bg-secondary-400 text-primary-900 font-semibold px-6 py-2 rounded-lg hover:bg-secondary-500 transform hover:scale-105 transition-all duration-200 shadow-md">
+                            Get Started
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menu-toggle" class="lg:hidden p-2 text-secondary-400 hover:text-secondary-300 transition-colors" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="lg:hidden hidden mt-6 pb-4">
+                <div class="bg-primary-800/50 backdrop-blur-sm rounded-xl p-6 space-y-4">
+                    <a href="./index.html" class="block text-secondary-200 hover:text-secondary-400 font-medium py-2 transition-colors">Home</a>
+                    <a href="./about.html" class="block text-secondary-200 hover:text-secondary-400 font-medium py-2 transition-colors">About</a>
+                    <a href="./service.html" class="block text-secondary-200 hover:text-secondary-400 font-medium py-2 transition-colors">Services</a>
+                    <a href="./contact.html" class="block text-secondary-200 hover:text-secondary-400 font-medium py-2 transition-colors">Contact</a>
+                    <hr class="border-primary-700 my-4">
+                    <a href="./login.html" class="block text-secondary-400 font-medium border border-secondary-400 px-4 py-2 rounded-lg transition-all text-center bg-secondary-400/10">Login</a>
+                    <a href="./getStarted.html" class="block bg-secondary-400 text-primary-900 font-semibold px-4 py-2 rounded-lg hover:bg-secondary-500 transition-all text-center">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content" class="pt-24 min-h-screen flex items-center">
+        <!-- Login Section -->
+        <section class="w-full py-12">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <!-- Left Side - Welcome Back Content -->
+                        <div class="text-center lg:text-left" data-aos="fade-right">
+                            <div class="mb-8">
+                                <h2 class="text-4xl md:text-5xl font-bold text-primary-900 mb-6 leading-tight">
+                                    Welcome Back to 
+                                    <span class="text-secondary-400">Veritas KE</span>
+                                </h2>
+                                <p class="text-xl text-accent-600 mb-8 leading-relaxed">
+                                    Sign in to access your dashboard and continue your digital transformation journey with our professional services.
+                                </p>
+                            </div>
+
+                            <!-- Key Features List -->
+                            <div class="space-y-4 mb-8">
+                                <div class="flex items-center justify-center lg:justify-start space-x-3">
+                                    <div class="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-tachometer-alt text-primary-600 text-sm"></i>
+                                    </div>
+                                    <span class="text-accent-700 font-medium">Access your personalized dashboard</span>
+                                </div>
+                                <div class="flex items-center justify-center lg:justify-start space-x-3">
+                                    <div class="w-6 h-6 bg-secondary-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-project-diagram text-secondary-600 text-sm"></i>
+                                    </div>
+                                    <span class="text-accent-700 font-medium">Manage your ongoing projects</span>
+                                </div>
+                                <div class="flex items-center justify-center lg:justify-start space-x-3">
+                                    <div class="w-6 h-6 bg-accent-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-comments text-accent-600 text-sm"></i>
+                                    </div>
+                                    <span class="text-accent-700 font-medium">Connect with your dedicated team</span>
+                                </div>
+                                <div class="flex items-center justify-center lg:justify-start space-x-3">
+                                    <div class="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-chart-line text-primary-600 text-sm"></i>
+                                    </div>
+                                    <span class="text-accent-700 font-medium">Track your business growth</span>
+                                </div>
+                            </div>
+
+                            <!-- Trust Indicators -->
+                            <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-white/30">
+                                <div class="text-center">
+                                    <h3 class="text-lg font-semibold text-primary-900 mb-4">Trusted by Businesses Worldwide</h3>
+                                    <div class="grid grid-cols-3 gap-4">
+                                        <div>
+                                            <div class="text-2xl font-bold text-primary-600">500+</div>
+                                            <div class="text-sm text-accent-600">Active Users</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-2xl font-bold text-secondary-600">99.9%</div>
+                                            <div class="text-sm text-accent-600">Uptime</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-2xl font-bold text-accent-600">24/7</div>
+                                            <div class="text-sm text-accent-600">Support</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Side - Login Form -->
+                        <div class="flex justify-center lg:justify-end" data-aos="fade-left">
+                            <div class="w-full max-w-md">
+                                <!-- Form Container -->
+                                <div class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-2xl border border-white/20">
+                                    <div class="text-center mb-8">
+                                        <div class="w-16 h-16 bg-gradient-to-br from-primary-600 to-secondary-400 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                            <i class="fas fa-sign-in-alt text-white text-2xl"></i>
+                                        </div>
+                                        <h3 class="text-2xl font-bold text-primary-900 mb-2">Sign In</h3>
+                                        <p class="text-accent-600">Access your account to continue</p>
+                                    </div>
+                                    
+                                    <form id="loginForm" class="space-y-6">
+                                        <!-- Email Field -->
+                                        <div class="space-y-2">
+                                            <label for="email" class="block text-sm font-medium text-accent-700">
+                                                Email Address
+                                            </label>
+                                            <div class="relative">
+                                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                    <i class="fas fa-envelope text-accent-400"></i>
+                                                </div>
+                                                <input 
+                                                    type="email" 
+                                                    name="email" 
+                                                    id="email" 
+                                                    required 
+                                                    class="w-full pl-10 pr-4 py-3 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 bg-white/50 backdrop-blur-sm"
+                                                    placeholder="Enter your email address"
+                                                    autocomplete="email"
+                                                >
+                                            </div>
+                                        </div>
+
+                                        <!-- Password Field -->
+                                        <div class="space-y-2">
+                                            <label for="password" class="block text-sm font-medium text-accent-700">
+                                                Password
+                                            </label>
+                                            <div class="relative">
+                                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                    <i class="fas fa-lock text-accent-400"></i>
+                                                </div>
+                                                <input 
+                                                    type="password" 
+                                                    name="password" 
+                                                    id="password" 
+                                                    required 
+                                                    class="w-full pl-10 pr-12 py-3 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 bg-white/50 backdrop-blur-sm"
+                                                    placeholder="Enter your password"
+                                                    autocomplete="current-password"
+                                                >
+                                                <button type="button" id="togglePassword" class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                                    <i class="fas fa-eye text-accent-400 hover:text-accent-600 transition-colors" id="passwordIcon"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <!-- Remember Me & Forgot Password -->
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center space-x-2">
+                                                <input 
+                                                    type="checkbox" 
+                                                    id="remember" 
+                                                    class="w-4 h-4 text-primary-600 bg-white border-accent-300 rounded focus:ring-primary-500 focus:ring-2"
+                                                >
+                                                <label for="remember" class="text-sm text-accent-600">Remember me</label>
+                                            </div>
+                                            <a href="./reset.html" class="text-sm text-primary-600 hover:text-primary-700 font-medium underline">
+                                                Forgot password?
+                                            </a>
+                                        </div>
+
+                                        <!-- Error Message -->
+                                        <div id="errorMsg" class="hidden bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                                            <div class="flex items-center space-x-2">
+                                                <i class="fas fa-exclamation-triangle text-red-500"></i>
+                                                <span id="errorText"></span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Success Message -->
+                                        <div id="successMsg" class="hidden bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg text-sm">
+                                            <div class="flex items-center space-x-2">
+                                                <i class="fas fa-check-circle text-green-500"></i>
+                                                <span>Login successful! Redirecting to dashboard...</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Submit Button -->
+                                        <button 
+                                            type="submit" 
+                                            class="w-full bg-gradient-to-r from-primary-600 to-secondary-400 text-white font-semibold py-3 rounded-lg hover:from-primary-700 hover:to-secondary-500 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                                            id="submitBtn"
+                                        >
+                                            <span id="submitText">Sign In</span>
+                                            <i id="submitIcon" class="fas fa-arrow-right ml-2"></i>
+                                        </button>
+                                    </form>
+
+                                    <!-- Register Link -->
+                                    <div class="mt-6 text-center">
+                                        <p class="text-sm text-accent-600">
+                                            Don't have an account? 
+                                            <a href="./getStarted.html.html" class="text-primary-600 font-semibold hover:text-primary-700 hover:underline transition-colors">
+                                                Create one here
+                                            </a>
+                                        </p>
+                                    </div>
+
+                                    <!-- Social Login Options -->
+                                    <div class="mt-6">
+                                        <div class="relative">
+                                            <div class="absolute inset-0 flex items-center">
+                                                <div class="w-full border-t border-accent-300"></div>
+                                            </div>
+                                            <div class="relative flex justify-center text-sm">
+                                                <span class="px-2 bg-white text-accent-500">Or continue with</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="mt-4 grid grid-cols-2 gap-3">
+                                            <button type="button" id="googleLogin" class="w-full inline-flex justify-center py-2 px-4 border border-accent-300 rounded-lg shadow-sm bg-white text-sm font-medium text-accent-700 hover:bg-accent-50 transition-colors">
+                                                <i class="fab fa-google text-red-500 mr-2"></i>
+                                                Google
+                                            </button>
+                                            <button type="button" id="facebookLogin" class="w-full inline-flex justify-center py-2 px-4 border border-accent-300 rounded-lg shadow-sm bg-white text-sm font-medium text-accent-700 hover:bg-accent-50 transition-colors">
+                                                <i class="fab fa-facebook text-blue-600 mr-2"></i>
+                                                Facebook
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Security Indicators -->
+                                <div class="mt-6 text-center">
+                                    <div class="flex items-center justify-center space-x-4 text-sm text-accent-500">
+                                        <div class="flex items-center space-x-1">
+                                            <i class="fas fa-shield-alt text-green-500"></i>
+                                            <span>Secure Login</span>
+                                        </div>
+                                        <div class="flex items-center space-x-1">
+                                            <i class="fas fa-lock text-blue-500"></i>
+                                            <span>Encrypted</span>
+                                        </div>
+                                        <div class="flex items-center space-x-1">
+                                            <i class="fas fa-user-shield text-purple-500"></i>
+                                            <span>Protected</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-secondary-400 to-primary-400 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-shield-alt text-white"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-secondary-400">Veritas KE</h2>
+                            <p class="text-secondary-200 text-sm">Truth In Every Task</p>
+                        </div>
+                    </div>
+                    <p class="text-primary-200 mb-4 leading-relaxed">
+                        Empowering businesses through innovative digital solutions.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-secondary-400">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="./index.html" class="text-primary-200 hover:text-secondary-400 transition-colors">Home</a></li>
+                        <li><a href="./about.html" class="text-primary-200 hover:text-secondary-400 transition-colors">About</a></li>
+                        <li><a href="./service.html" class="text-primary-200 hover:text-secondary-400 transition-colors">Services</a></li>
+                        <li><a href="./contact.html" class="text-primary-200 hover:text-secondary-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-secondary-400">Get in Touch</h3>
+                    <div class="space-y-2 text-primary-200">
+                        <p><i class="fas fa-phone mr-2"></i> +254-745-754-496</p>
+                        <p><i class="fas fa-envelope mr-2"></i> veritas.ke.agency@gmail.com</p>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i> Nakuru, Kenya</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="border-t border-primary-700 mt-8 pt-8 text-center">
+                <p class="text-primary-300 text-sm">
+                    &copy; <span id="year"></span> Veritas KE. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-secondary-400 text-primary-900 w-12 h-12 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-200 opacity-0 invisible" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const toggleBtn = document.getElementById('menu-toggle');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const closeIcon = document.getElementById('close-icon');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        toggleBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                hamburgerIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+                toggleBtn.setAttribute('aria-expanded', 'true');
+            } else {
+                mobileMenu.classList.add('hidden');
+                hamburgerIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+                toggleBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Password Toggle
+        const togglePassword = document.getElementById('togglePassword');
+        const password = document.getElementById('password');
+        const passwordIcon = document.getElementById('passwordIcon');
+
+        togglePassword.addEventListener('click', function () {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            
+            if (type === 'password') {
+                passwordIcon.classList.remove('fa-eye-slash');
+                passwordIcon.classList.add('fa-eye');
+            } else {
+                passwordIcon.classList.remove('fa-eye');
+                passwordIcon.classList.add('fa-eye-slash');
+            }
+        });
+
+        // Form Validation and Submission
+        const loginForm = document.getElementById("loginForm");
+        const errorMsg = document.getElementById("errorMsg");
+        const successMsg = document.getElementById("successMsg");
+        const errorText = document.getElementById("errorText");
+        const submitBtn = document.getElementById("submitBtn");
+        const submitText = document.getElementById("submitText");
+        const submitIcon = document.getElementById("submitIcon");
+
+        function showError(message) {
+            errorText.textContent = message;
+            errorMsg.classList.remove("hidden");
+            successMsg.classList.add("hidden");
+        }
+
+        function showSuccess() {
+            successMsg.classList.remove("hidden");
+            errorMsg.classList.add("hidden");
+        }
+
+        function hideMessages() {
+            errorMsg.classList.add("hidden");
+            successMsg.classList.add("hidden");
+        }
+
+        function setLoading(loading) {
+            if (loading) {
+                submitBtn.disabled = true;
+                submitText.textContent = "Signing In...";
+                submitIcon.classList.remove("fa-arrow-right");
+                submitIcon.classList.add("fa-spinner", "fa-spin");
+            } else {
+                submitBtn.disabled = false;
+                submitText.textContent = "Sign In";
+                submitIcon.classList.remove("fa-spinner", "fa-spin");
+                submitIcon.classList.add("fa-arrow-right");
+            }
+        }
+
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Simulate user database (in production, this would be handled by backend)
+        const validUsers = [
+            { email: "admin@veritaske.com", password: "admin123" },
+            { email: "demo@veritaske.com", password: "demo123" },
+            { email: "user@example.com", password: "password123" }
+        ];
+
+        // Form submission handler
+        loginForm.addEventListener("submit", async function(e) {
+            e.preventDefault();
+            hideMessages();
+
+            const formData = new FormData(loginForm);
+            const email = formData.get('email');
+            const password = formData.get('password');
+            const remember = formData.get('remember');
+
+            // Basic validation
+            if (!email || !password) {
+                showError("Please fill in all required fields.");
+                return;
+            }
+
+            if (!validateEmail(email)) {
+                showError("Please enter a valid email address.");
+                return;
+            }
+
+            if (password.length < 6) {
+                showError("Password must be at least 6 characters long.");
+                return;
+            }
+
+            // Set loading state
+            setLoading(true);
+
+            // Simulate API call delay
+            setTimeout(() => {
+                // Check credentials (in production, this would be an API call)
+                const user = validUsers.find(u => u.email === email && u.password === password);
+                
+                if (user) {
+                    // Store login state if remember me is checked
+                    if (remember) {
+                        // In production, use secure session management
+                        const userData = { email: user.email, loginTime: Date.now() };
+                        try {
+                            // Note: Using in-memory storage since localStorage isn't available
+                            window.userSession = userData;
+                        } catch (e) {
+                            console.log("Session storage not available, continuing without persistence");
+                        }
+                    }
+
+                    // Show success message
+                    showSuccess();
+                    
+                    // Redirect after 2 seconds
+                    setTimeout(() => {
+                        // In production, redirect to actual dashboard
+                        window.location.href = "./dashboard.html";
+                    }, 2000);
+                } else {
+                    showError("Invalid email or password. Please try again.");
+                }
+
+                setLoading(false);
+            }, 1500);
+        });
+
+        // Social login handlers
+        document.getElementById('googleLogin').addEventListener('click', function() {
+            alert('Google OAuth integration would be implemented here in production.');
+        });
+
+        document.getElementById('facebookLogin').addEventListener('click', function() {
+            alert('Facebook OAuth integration would be implemented here in production.');
+        });
+
+        // Back to top functionality
+        const backToTopBtn = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Keyboard accessibility
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                // Close mobile menu if open
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    hamburgerIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                    toggleBtn.setAttribute('aria-expanded', 'false');
+                }
+                
+                // Hide messages
+                hideMessages();
+            }
+        });
+
+        // Auto-focus email field when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('email').focus();
+        });
+
+        // Add some demo hints for testing
+        const demoHints = document.createElement('div');
+        demoHints.className = 'mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg text-sm text-blue-700';
+        demoHints.innerHTML = `
+            <div class="font-medium mb-1">Demo Credentials:</div>
+            <div>Email: demo@veritaske.com</div>
+            <div>Password: demo123</div>
+        `;
+        
+        // Insert demo hints after the form
+        const formContainer = document.querySelector('.bg-white\\/80');
+        formContainer.appendChild(demoHints);
+
+        console.log('Veritas KE Login Page - Ready!');
+        console.log('Demo credentials: demo@veritaske.com / demo123');
+    </script>
+</body>
+</html>
