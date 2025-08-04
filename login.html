@@ -94,9 +94,7 @@
             <div class="flex justify-between items-center">
                 <!-- Logo -->
                 <div class="flex items-center space-x-3" role="banner">
-                    <div class="w-12 h-12 bg-gradient-to-br from-secondary-400 to-primary-400 rounded-lg flex items-center justify-center animate-pulse">
-                        <i class="fas fa-shield-alt text-white text-xl"></i>
-                    </div>
+                    <img src="./images/Veritas.png" alt="Veritas KE Logo" class="w-12 h-12 object-contain animate-pulse">
                     <div>
                         <h1 class="text-2xl font-bold text-secondary-400 tracking-tight">Veritas KE</h1>
                         <p class="text-secondary-200 text-sm font-medium">Truth In Every Task</p>
@@ -127,7 +125,7 @@
                         <a href="./login.html" class="bg-secondary-400/20 text-secondary-400 font-medium border border-secondary-400 px-4 py-2 rounded-lg transition-all duration-200">
                             Login
                         </a>
-                        <a href="./getStarted.html" class="bg-secondary-400 text-primary-900 font-semibold px-6 py-2 rounded-lg hover:bg-secondary-500 transform hover:scale-105 transition-all duration-200 shadow-md">
+                        <a href="./getstarted.html" class="bg-secondary-400 text-primary-900 font-semibold px-6 py-2 rounded-lg hover:bg-secondary-500 transform hover:scale-105 transition-all duration-200 shadow-md">
                             Get Started
                         </a>
                     </div>
@@ -153,7 +151,7 @@
                     <a href="./contact.html" class="block text-secondary-200 hover:text-secondary-400 font-medium py-2 transition-colors">Contact</a>
                     <hr class="border-primary-700 my-4">
                     <a href="./login.html" class="block text-secondary-400 font-medium border border-secondary-400 px-4 py-2 rounded-lg transition-all text-center bg-secondary-400/10">Login</a>
-                    <a href="./getStarted.html" class="block bg-secondary-400 text-primary-900 font-semibold px-4 py-2 rounded-lg hover:bg-secondary-500 transition-all text-center">Get Started</a>
+                    <a href="./getstarted.html" class="block bg-secondary-400 text-primary-900 font-semibold px-4 py-2 rounded-lg hover:bg-secondary-500 transition-all text-center">Get Started</a>
                 </div>
             </div>
         </div>
@@ -176,6 +174,19 @@
                                 <p class="text-xl text-accent-600 mb-8 leading-relaxed">
                                     Sign in to access your dashboard and continue your digital transformation journey with our professional services.
                                 </p>
+                            </div>
+
+                            <!-- Role Indicator -->
+                            <div id="roleIndicator" class="mb-8 p-4 rounded-xl border-2 border-dashed border-accent-300 bg-white/50 backdrop-blur-sm hidden">
+                                <div class="flex items-center justify-center space-x-3">
+                                    <div id="roleIcon" class="w-8 h-8 rounded-full flex items-center justify-center">
+                                        <!-- Icon will be set dynamically -->
+                                    </div>
+                                    <div class="text-left">
+                                        <div id="roleTitle" class="font-semibold text-accent-800"></div>
+                                        <div id="roleDescription" class="text-sm text-accent-600"></div>
+                                    </div>
+                                </div>
                             </div>
 
                             <!-- Key Features List -->
@@ -241,7 +252,31 @@
                                         <p class="text-accent-600">Access your account to continue</p>
                                     </div>
                                     
+                                    <!-- Role Selection (if no role in URL) -->
+                                    <div id="roleSelection" class="mb-6 hidden">
+                                        <label class="block text-sm font-medium text-accent-700 mb-3">
+                                            Select Your Role
+                                        </label>
+                                        <div class="grid grid-cols-2 gap-3">
+                                            <button type="button" id="clientRoleBtn" class="role-btn p-3 border-2 border-accent-300 rounded-lg hover:border-primary-500 hover:bg-primary-50 transition-all duration-200 text-center group">
+                                                <div class="w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center mx-auto mb-2 group-hover:bg-primary-200">
+                                                    <i class="fas fa-user text-primary-600 text-sm"></i>
+                                                </div>
+                                                <div class="text-sm font-medium text-accent-700">Client</div>
+                                            </button>
+                                            <button type="button" id="adminRoleBtn" class="role-btn p-3 border-2 border-accent-300 rounded-lg hover:border-red-500 hover:bg-red-50 transition-all duration-200 text-center group">
+                                                <div class="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-2 group-hover:bg-red-200">
+                                                    <i class="fas fa-shield-alt text-red-600 text-sm"></i>
+                                                </div>
+                                                <div class="text-sm font-medium text-accent-700">Admin</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
                                     <form id="loginForm" class="space-y-6">
+                                        <!-- Hidden Role Field -->
+                                        <input type="hidden" id="selectedRole" name="role" value="">
+
                                         <!-- Email Field -->
                                         <div class="space-y-2">
                                             <label for="email" class="block text-sm font-medium text-accent-700">
@@ -314,7 +349,7 @@
                                         <div id="successMsg" class="hidden bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg text-sm">
                                             <div class="flex items-center space-x-2">
                                                 <i class="fas fa-check-circle text-green-500"></i>
-                                                <span>Login successful! Redirecting to dashboard...</span>
+                                                <span id="successText">Login successful! Redirecting to dashboard...</span>
                                             </div>
                                         </div>
 
@@ -333,7 +368,7 @@
                                     <div class="mt-6 text-center">
                                         <p class="text-sm text-accent-600">
                                             Don't have an account? 
-                                            <a href="./getStarted.html" class="text-primary-600 font-semibold hover:text-primary-700 hover:underline transition-colors">
+                                            <a href="./getstarted.html" class="text-primary-600 font-semibold hover:text-primary-700 hover:underline transition-colors">
                                                 Create one here
                                             </a>
                                         </p>
@@ -395,9 +430,7 @@
                 <!-- Company Info -->
                 <div>
                     <div class="flex items-center space-x-3 mb-6">
-                        <div class="w-10 h-10 bg-gradient-to-br from-secondary-400 to-primary-400 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-shield-alt text-white"></i>
-                        </div>
+                        <img src="./images/Veritas.png" alt="Veritas KE Logo" class="w-10 h-10 object-contain">
                         <div>
                             <h2 class="text-xl font-bold text-secondary-400">Veritas KE</h2>
                             <p class="text-secondary-200 text-sm">Truth In Every Task</p>
@@ -495,6 +528,90 @@
         // Set current year in footer
         document.getElementById('year').textContent = new Date().getFullYear();
 
+        // Role-based login system
+        let selectedUserRole = null;
+
+        // Get role from URL parameters
+        function getRoleFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('role');
+        }
+
+        // Update role indicator UI
+        function updateRoleIndicator(role) {
+            const roleIndicator = document.getElementById('roleIndicator');
+            const roleIcon = document.getElementById('roleIcon');
+            const roleTitle = document.getElementById('roleTitle');
+            const roleDescription = document.getElementById('roleDescription');
+
+            if (role === 'client') {
+                roleIcon.className = 'w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center';
+                roleIcon.innerHTML = '<i class="fas fa-user text-primary-600"></i>';
+                roleTitle.textContent = 'Client Login';
+                roleDescription.textContent = 'Access your projects and collaborate with our team';
+                roleIndicator.classList.remove('hidden');
+            } else if (role === 'admin') {
+                roleIcon.className = 'w-8 h-8 bg-red-100 rounded-full flex items-center justify-center';
+                roleIcon.innerHTML = '<i class="fas fa-shield-alt text-red-600"></i>';
+                roleTitle.textContent = 'Admin Login';
+                roleDescription.textContent = 'Manage projects, clients, and system settings';
+                roleIndicator.classList.remove('hidden');
+            } else {
+                roleIndicator.classList.add('hidden');
+            }
+        }
+
+        // Initialize role selection
+        function initializeRoleSelection() {
+            const urlRole = getRoleFromURL();
+            const roleSelection = document.getElementById('roleSelection');
+            const selectedRoleInput = document.getElementById('selectedRole');
+            const clientRoleBtn = document.getElementById('clientRoleBtn');
+            const adminRoleBtn = document.getElementById('adminRoleBtn');
+
+            if (urlRole && (urlRole === 'client' || urlRole === 'admin')) {
+                // Role specified in URL
+                selectedUserRole = urlRole;
+                selectedRoleInput.value = urlRole;
+                updateRoleIndicator(urlRole);
+                roleSelection.classList.add('hidden');
+            } else {
+                // No role specified, show role selection
+                roleSelection.classList.remove('hidden');
+                
+                // Add click handlers for role selection
+                clientRoleBtn.addEventListener('click', function() {
+                    selectRole('client', this);
+                });
+
+                adminRoleBtn.addEventListener('click', function() {
+                    selectRole('admin', this);
+                });
+            }
+        }
+
+        // Handle role selection
+        function selectRole(role, buttonElement) {
+            selectedUserRole = role;
+            document.getElementById('selectedRole').value = role;
+            
+            // Update button styles
+            document.querySelectorAll('.role-btn').forEach(btn => {
+                btn.classList.remove('border-primary-500', 'bg-primary-50', 'border-red-500', 'bg-red-50');
+                btn.classList.add('border-accent-300');
+            });
+
+            if (role === 'client') {
+                buttonElement.classList.remove('border-accent-300');
+                buttonElement.classList.add('border-primary-500', 'bg-primary-50');
+            } else {
+                buttonElement.classList.remove('border-accent-300');
+                buttonElement.classList.add('border-red-500', 'bg-red-50');
+            }
+
+            updateRoleIndicator(role);
+        }
+
         // Mobile Menu Toggle
         const toggleBtn = document.getElementById('menu-toggle');
         const hamburgerIcon = document.getElementById('hamburger-icon');
@@ -540,6 +657,7 @@
         const errorMsg = document.getElementById("errorMsg");
         const successMsg = document.getElementById("successMsg");
         const errorText = document.getElementById("errorText");
+        const successText = document.getElementById("successText");
         const submitBtn = document.getElementById("submitBtn");
         const submitText = document.getElementById("submitText");
         const submitIcon = document.getElementById("submitIcon");
@@ -550,7 +668,8 @@
             successMsg.classList.add("hidden");
         }
 
-        function showSuccess() {
+        function showSuccess(message = "Login successful! Redirecting to dashboard...") {
+            successText.textContent = message;
             successMsg.classList.remove("hidden");
             errorMsg.classList.add("hidden");
         }
@@ -579,10 +698,19 @@
             return emailRegex.test(email);
         }
 
-        // Firebase Login Handler
-        async function handleLogin(email, password) {
+        // Determine redirect URL based on user role
+        function getRedirectUrl(role) {
+            if (role === 'admin') {
+                return './admin-dashboard.html';
+            } else {
+                return './dashboard.html';
+            }
+        }
+
+        // Firebase Login Handler with Role-Based Redirect
+        async function handleLogin(email, password, role) {
             try {
-                console.log('Attempting to sign in user with email:', email);
+                console.log('Attempting to sign in user with email:', email, 'and role:', role);
                 
                 // Check if Firebase is ready
                 if (!window.firebaseReady || !window.firebaseAuth || !window.signInWithEmailAndPassword) {
@@ -596,21 +724,40 @@
                 console.log('✅ User signed in successfully:', user.uid);
                 console.log('User email:', user.email);
 
-                // Optionally fetch additional user data from Firestore
+                // Check user role in Firestore (if available)
+                let userRole = role; // Default to selected role
                 if (window.firebaseDb && window.getDoc && window.doc) {
                     try {
                         const userDoc = await window.getDoc(window.doc(window.firebaseDb, 'users', user.uid));
                         if (userDoc.exists()) {
                             const userData = userDoc.data();
                             console.log('✅ User data loaded from Firestore:', userData);
+                            
+                            // Use role from database if available, otherwise use selected role
+                            if (userData.role) {
+                                userRole = userData.role;
+                                console.log('📋 User role from database:', userRole);
+                            }
                         }
                     } catch (firestoreError) {
                         console.log('⚠️ Firestore read failed (optional):', firestoreError);
                         // Don't throw error here as login was successful
                     }
                 }
+
+                // Validate role permissions (optional security check)
+                if (role && role !== userRole) {
+                    console.warn('⚠️ Role mismatch: Selected role', role, 'but user role is', userRole);
+                    // You could either use the database role or throw an error
+                    // For this implementation, we'll use the database role if available
+                }
                 
-                return { success: true, user: user };
+                return { 
+                    success: true, 
+                    user: user, 
+                    role: userRole,
+                    redirectUrl: getRedirectUrl(userRole)
+                };
                 
             } catch (error) {
                 console.error('❌ Error signing in user:', error);
@@ -654,8 +801,10 @@
                 window.onAuthStateChanged(window.firebaseAuth, (user) => {
                     if (user) {
                         console.log('User is already logged in:', user.email);
-                        // Optionally redirect to dashboard if user is already logged in
-                        // window.location.href = './dashboard.html';
+                        // Optionally redirect to appropriate dashboard
+                        // Uncomment the lines below if you want automatic redirect
+                        // const role = selectedUserRole || 'client';
+                        // window.location.href = getRedirectUrl(role);
                     } else {
                         console.log('No user is logged in');
                     }
@@ -673,6 +822,7 @@
                 const email = formData.get('email');
                 const password = formData.get('password');
                 const remember = document.getElementById('remember').checked;
+                const role = selectedUserRole || formData.get('role');
 
                 // Basic validation
                 if (!email || !password) {
@@ -690,25 +840,38 @@
                     return;
                 }
 
+                // Check if role is selected (when not from URL)
+                if (!role) {
+                    showError("Please select your role (Client or Admin).");
+                    return;
+                }
+
                 // Set loading state
                 setLoading(true);
 
                 try {
                     // Sign in user using Firebase
-                    const result = await handleLogin(email, password);
+                    const result = await handleLogin(email, password, role);
                     
                     if (result.success) {
-                        showSuccess();
+                        const redirectMessage = role === 'admin' 
+                            ? "Login successful! Redirecting to admin dashboard..." 
+                            : "Login successful! Redirecting to client dashboard...";
+                        
+                        showSuccess(redirectMessage);
                         
                         // Store remember preference (if needed)
                         if (remember) {
-                            // In production, this would be handled by Firebase Auth persistence
                             console.log('Remember me checked - Firebase will persist session');
                         }
                         
-                        // Redirect to dashboard after successful login
+                        // Log successful login with role
+                        console.log(`🎉 ${role.charAt(0).toUpperCase() + role.slice(1)} login successful!`);
+                        console.log('🚀 Redirecting to:', result.redirectUrl);
+                        
+                        // Redirect to appropriate dashboard after successful login
                         setTimeout(() => {
-                            window.location.href = './dashboard.html';
+                            window.location.href = result.redirectUrl;
                         }, 2000);
                     } else {
                         showError(result.error);
@@ -724,6 +887,9 @@
             // Check authentication state
             checkAuthState();
         }
+
+        // Initialize role selection on page load
+        initializeRoleSelection();
 
         // Setup form handler when Firebase is ready
         if (window.firebaseReady) {
@@ -806,9 +972,12 @@
             });
         }
 
-        console.log('✅ Veritas KE Login Page with Firebase Authentication - Ready!');
+        console.log('✅ Veritas KE Enhanced Login Page with Role-Based Authentication - Ready!');
+        console.log('👥 Supports both Client and Admin login with automatic dashboard redirection');
         console.log('🔐 Use any account created through the registration page to login');
+        console.log('📋 Role-based redirect: Clients → ./dashboard.html | Admins → ./admin-dashboard.html');
     </script>
 </body>
 </html>
+
 
