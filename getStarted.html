@@ -542,7 +542,7 @@
                                 <i class="fas fa-user text-white text-sm"></i>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-primary-900">Client Registration</h3>
+                                <h3 class="text-lg font-bold text-primary-900">Client Registration</h3>
                                 <p class="text-accent-600 text-sm">Create your client account</p>
                             </div>
                         </div>
@@ -553,53 +553,69 @@
                 </div>
 
                 <div class="p-6">
-                    <form id="clientRegistrationForm" class="space-y-4">
+                    <form id="clientRegForm" class="space-y-4">
                         <div class="space-y-2">
-                            <label for="clientEmail" class="block text-sm font-medium text-accent-700">Email Address</label>
+                            <label class="block text-sm font-medium text-accent-700">Full Name</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-user text-accent-400"></i>
+                                </div>
+                                <input 
+                                    type="text" 
+                                    id="clientName"
+                                    required 
+                                    class="w-full pl-10 pr-4 py-2.5 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all"
+                                    placeholder="Enter your full name"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="block text-sm font-medium text-accent-700">Email Address</label>
                             <div class="relative">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <i class="fas fa-envelope text-accent-400"></i>
                                 </div>
                                 <input 
                                     type="email" 
-                                    id="clientEmail" 
+                                    id="clientEmail"
                                     required 
-                                    class="w-full pl-10 pr-4 py-3 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200"
-                                    placeholder="Enter your email"
+                                    class="w-full pl-10 pr-4 py-2.5 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all"
+                                    placeholder="Enter your email address"
                                 >
                             </div>
                         </div>
 
                         <div class="space-y-2">
-                            <label for="clientPassword" class="block text-sm font-medium text-accent-700">Password</label>
+                            <label class="block text-sm font-medium text-accent-700">Password</label>
                             <div class="relative">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <i class="fas fa-lock text-accent-400"></i>
                                 </div>
                                 <input 
                                     type="password" 
-                                    id="clientPassword" 
+                                    id="clientPassword"
                                     required 
                                     minlength="6"
-                                    class="w-full pl-10 pr-4 py-3 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200"
-                                    placeholder="Create a password"
+                                    class="w-full pl-10 pr-4 py-2.5 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all"
+                                    placeholder="Create a secure password"
                                 >
                             </div>
                             <p class="text-xs text-accent-500">Must be at least 6 characters long</p>
                         </div>
 
                         <div class="space-y-2">
-                            <label for="clientConfirmPassword" class="block text-sm font-medium text-accent-700">Confirm Password</label>
+                            <label class="block text-sm font-medium text-accent-700">Confirm Password</label>
                             <div class="relative">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <i class="fas fa-lock text-accent-400"></i>
                                 </div>
                                 <input 
                                     type="password" 
-                                    id="clientConfirmPassword" 
+                                    id="clientConfirmPassword"
                                     required 
-                                    class="w-full pl-10 pr-4 py-3 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200"
-                                    placeholder="Confirm password"
+                                    class="w-full pl-10 pr-4 py-2.5 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all"
+                                    placeholder="Confirm your password"
                                 >
                             </div>
                         </div>
@@ -616,14 +632,14 @@
                             </label>
                         </div>
 
-                        <div id="clientErrorMsg" class="hidden bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                        <div id="clientError" class="hidden bg-red-50 border border-red-200 text-red-700 px-3 py-2 rounded-lg text-sm">
                             <div class="flex items-center space-x-2">
                                 <i class="fas fa-exclamation-triangle text-red-500"></i>
                                 <span id="clientErrorText"></span>
                             </div>
                         </div>
 
-                        <div id="clientSuccessMsg" class="hidden bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg text-sm">
+                        <div id="clientSuccess" class="hidden bg-green-50 border border-green-200 text-green-700 px-3 py-2 rounded-lg text-sm">
                             <div class="flex items-center space-x-2">
                                 <i class="fas fa-check-circle text-green-500"></i>
                                 <span>Account created successfully! Redirecting to login...</span>
@@ -632,37 +648,42 @@
 
                         <button 
                             type="submit" 
-                            class="w-full bg-gradient-to-r from-primary-600 to-secondary-400 text-white font-semibold py-3 rounded-lg hover:from-primary-700 hover:to-secondary-500 transform hover:scale-105 transition-all duration-200 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                             id="clientSubmitBtn"
+                            class="w-full bg-gradient-to-r from-primary-600 to-secondary-400 text-white font-semibold py-2.5 rounded-lg hover:from-primary-700 hover:to-secondary-500 transform hover:scale-105 transition-all duration-200 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                         >
                             <span id="clientSubmitText">Create Client Account</span>
-                            <i id="clientSubmitIcon" class="fas fa-user-plus ml-2"></i>
+                            <i id="clientSubmitIcon" class="fas fa-arrow-right ml-2"></i>
                         </button>
                     </form>
+                </div>
 
-                    <div class="mt-4 text-center">
-                        <button onclick="showRegistrationOptions()" class="text-primary-600 hover:text-primary-700 font-medium text-sm">
-                            <i class="fas fa-arrow-left mr-1"></i>
-                            Back to options
+                <div class="px-6 py-4 border-t border-accent-200 bg-accent-50/50 rounded-b-2xl">
+                    <div class="flex items-center justify-between text-sm">
+                        <button onclick="resetModal()" class="text-primary-600 hover:text-primary-700 font-medium">
+                            <i class="fas fa-arrow-left mr-1"></i> Back to options
                         </button>
+                        <div class="flex items-center space-x-2 text-accent-500">
+                            <i class="fas fa-shield-alt text-green-500"></i>
+                            <span>Secure Registration</span>
+                        </div>
                     </div>
                 </div>
             `;
-
-            setupClientFormHandlers();
+            
+            setupClientForm();
         }
 
         function showAdminRegistrationForm() {
             // Replace modal content with admin registration form
             modalContent.innerHTML = `
-                <div class="px-6 py-4 border-b border-accent-200">
+                <div class="px-6 py-4 border-b border-red-200">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center space-x-3">
                             <div class="w-10 h-10 bg-gradient-to-br from-red-500 to-orange-400 rounded-lg flex items-center justify-center">
                                 <i class="fas fa-user-shield text-white text-sm"></i>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-red-900">Admin Registration</h3>
+                                <h3 class="text-lg font-bold text-red-900">Admin Registration</h3>
                                 <p class="text-accent-600 text-sm">Requires security key</p>
                             </div>
                         </div>
@@ -676,70 +697,74 @@
                     <div class="bg-red-50 border border-red-200 rounded-lg p-3 mb-4">
                         <div class="flex items-center">
                             <i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>
-                            <span class="text-red-800 text-sm font-medium">Admin access requires a valid security key</span>
+                            <div>
+                                <p class="text-red-800 font-medium text-sm">Restricted Access</p>
+                                <p class="text-red-700 text-xs">Admin registration requires a valid security key.</p>
+                            </div>
                         </div>
                     </div>
 
-                    <form id="adminRegistrationForm" class="space-y-4">
+                    <form id="adminRegForm" class="space-y-4">
                         <div class="space-y-2">
-                            <label for="adminKey" class="block text-sm font-medium text-accent-700">Security Key *</label>
+                            <label class="block text-sm font-medium text-accent-700">Admin Security Key *</label>
                             <div class="relative">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <i class="fas fa-key text-red-500"></i>
                                 </div>
                                 <input 
                                     type="password" 
-                                    id="adminKey" 
+                                    id="adminKey"
                                     required 
-                                    class="w-full pl-10 pr-4 py-3 border border-red-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-200"
+                                    class="w-full pl-10 pr-4 py-2.5 border border-red-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all"
                                     placeholder="Enter admin security key"
                                 >
                             </div>
+                            <p class="text-xs text-accent-500">Contact system administrator for the security key</p>
                         </div>
 
                         <div class="space-y-2">
-                            <label for="adminFullName" class="block text-sm font-medium text-accent-700">Full Name *</label>
+                            <label class="block text-sm font-medium text-accent-700">Full Name *</label>
                             <div class="relative">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <i class="fas fa-user text-accent-400"></i>
                                 </div>
                                 <input 
                                     type="text" 
-                                    id="adminFullName" 
+                                    id="adminName"
                                     required 
-                                    class="w-full pl-10 pr-4 py-3 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200"
+                                    class="w-full pl-10 pr-4 py-2.5 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all"
                                     placeholder="Enter your full name"
                                 >
                             </div>
                         </div>
 
                         <div class="space-y-2">
-                            <label for="adminEmail" class="block text-sm font-medium text-accent-700">Email Address *</label>
+                            <label class="block text-sm font-medium text-accent-700">Email Address *</label>
                             <div class="relative">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <i class="fas fa-envelope text-accent-400"></i>
                                 </div>
                                 <input 
                                     type="email" 
-                                    id="adminEmail" 
+                                    id="adminEmail"
                                     required 
-                                    class="w-full pl-10 pr-4 py-3 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200"
-                                    placeholder="Enter your email"
+                                    class="w-full pl-10 pr-4 py-2.5 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all"
+                                    placeholder="Enter your email address"
                                 >
                             </div>
                         </div>
 
                         <div class="space-y-2">
-                            <label for="adminPassword" class="block text-sm font-medium text-accent-700">Password *</label>
+                            <label class="block text-sm font-medium text-accent-700">Password *</label>
                             <div class="relative">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <i class="fas fa-lock text-accent-400"></i>
                                 </div>
                                 <input 
                                     type="password" 
-                                    id="adminPassword" 
+                                    id="adminPassword"
                                     required 
-                                    class="w-full pl-10 pr-4 py-3 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200"
+                                    class="w-full pl-10 pr-4 py-2.5 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all"
                                     placeholder="Create a strong password"
                                 >
                             </div>
@@ -747,26 +772,10 @@
                         </div>
 
                         <div class="space-y-2">
-                            <label for="adminConfirmPassword" class="block text-sm font-medium text-accent-700">Confirm Password *</label>
-                            <div class="relative">
-                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <i class="fas fa-lock text-accent-400"></i>
-                                </div>
-                                <input 
-                                    type="password" 
-                                    id="adminConfirmPassword" 
-                                    required 
-                                    class="w-full pl-10 pr-4 py-3 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200"
-                                    placeholder="Confirm password"
-                                >
-                            </div>
-                        </div>
-
-                        <div class="space-y-2">
-                            <label for="adminLevel" class="block text-sm font-medium text-accent-700">Admin Level</label>
+                            <label class="block text-sm font-medium text-accent-700">Admin Level</label>
                             <select 
                                 id="adminLevel" 
-                                class="w-full px-3 py-3 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200"
+                                class="w-full px-3 py-2.5 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all"
                             >
                                 <option value="admin">Admin</option>
                                 <option value="super-admin">Super Admin</option>
@@ -781,18 +790,18 @@
                                 class="w-4 h-4 mt-1 text-primary-600 bg-white border-accent-300 rounded focus:ring-primary-500 focus:ring-2"
                             >
                             <label for="adminTerms" class="text-sm text-accent-600">
-                                I acknowledge that I am authorized to create an admin account and agree to maintain system security.
+                                I acknowledge that I am authorized to create an admin account and agree to maintain security and confidentiality.
                             </label>
                         </div>
 
-                        <div id="adminErrorMsg" class="hidden bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                        <div id="adminError" class="hidden bg-red-50 border border-red-200 text-red-700 px-3 py-2 rounded-lg text-sm">
                             <div class="flex items-center space-x-2">
                                 <i class="fas fa-exclamation-triangle text-red-500"></i>
                                 <span id="adminErrorText"></span>
                             </div>
                         </div>
 
-                        <div id="adminSuccessMsg" class="hidden bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg text-sm">
+                        <div id="adminSuccess" class="hidden bg-green-50 border border-green-200 text-green-700 px-3 py-2 rounded-lg text-sm">
                             <div class="flex items-center space-x-2">
                                 <i class="fas fa-check-circle text-green-500"></i>
                                 <span>Admin account created successfully! Redirecting to login...</span>
@@ -801,27 +810,32 @@
 
                         <button 
                             type="submit" 
-                            class="w-full bg-gradient-to-r from-red-600 to-orange-400 text-white font-semibold py-3 rounded-lg hover:from-red-700 hover:to-orange-500 transform hover:scale-105 transition-all duration-200 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                             id="adminSubmitBtn"
+                            class="w-full bg-gradient-to-r from-red-600 to-orange-400 text-white font-semibold py-2.5 rounded-lg hover:from-red-700 hover:to-orange-500 transform hover:scale-105 transition-all duration-200 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                         >
                             <span id="adminSubmitText">Create Admin Account</span>
                             <i id="adminSubmitIcon" class="fas fa-user-shield ml-2"></i>
                         </button>
                     </form>
+                </div>
 
-                    <div class="mt-4 text-center">
-                        <button onclick="showRegistrationOptions()" class="text-primary-600 hover:text-primary-700 font-medium text-sm">
-                            <i class="fas fa-arrow-left mr-1"></i>
-                            Back to options
+                <div class="px-6 py-4 border-t border-accent-200 bg-accent-50/50 rounded-b-2xl">
+                    <div class="flex items-center justify-between text-sm">
+                        <button onclick="resetModal()" class="text-primary-600 hover:text-primary-700 font-medium">
+                            <i class="fas fa-arrow-left mr-1"></i> Back to options
                         </button>
+                        <div class="flex items-center space-x-2 text-accent-500">
+                            <i class="fas fa-key text-red-500"></i>
+                            <span>Key Protected</span>
+                        </div>
                     </div>
                 </div>
             `;
-
-            setupAdminFormHandlers();
+            
+            setupAdminForm();
         }
 
-        function showRegistrationOptions() {
+        function resetModal() {
             // Reset to original modal content
             modalContent.innerHTML = `
                 <div class="px-6 py-4 border-b border-accent-200">
@@ -883,14 +897,56 @@
             `;
         }
 
-        // Firebase configuration and initialization
+        // Make functions global for onclick handlers
+        window.closeModal = closeModal;
+        window.resetModal = resetModal;
+        window.showClientRegistrationForm = showClientRegistrationForm;
+        window.showAdminRegistrationForm = showAdminRegistrationForm;
+
+        // Firebase configuration
         const ADMIN_SECURITY_KEY = "VeritasKE2025Admin!";
 
-        // Client form handlers
-        function setupClientFormHandlers() {
-            const form = document.getElementById('clientRegistrationForm');
-            const errorMsg = document.getElementById('clientErrorMsg');
-            const successMsg = document.getElementById('clientSuccessMsg');
+        // Import Firebase dynamically when needed
+        async function initializeFirebase() {
+            if (window.firebaseReady) return;
+            
+            try {
+                const { initializeApp } = await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js');
+                const { getAuth, createUserWithEmailAndPassword, updateProfile } = await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js');
+                const { getFirestore, doc, setDoc, serverTimestamp } = await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js');
+
+                const firebaseConfig = {
+                    apiKey: "AIzaSyB433CjEYeAy7KVkqCFM6H2GeMcTTmhJpY",
+                    authDomain: "veritas-39f21.firebaseapp.com",
+                    projectId: "veritas-39f21",
+                    storageBucket: "veritas-39f21.firebasestorage.app",
+                    messagingSenderId: "938004758888",
+                    appId: "1:938004758888:web:ccda2e11d5eafdc11296dd"
+                };
+
+                const app = initializeApp(firebaseConfig);
+                const auth = getAuth(app);
+                const db = getFirestore(app);
+
+                window.firebaseAuth = auth;
+                window.firebaseDb = db;
+                window.createUserWithEmailAndPassword = createUserWithEmailAndPassword;
+                window.updateProfile = updateProfile;
+                window.setDoc = setDoc;
+                window.doc = doc;
+                window.serverTimestamp = serverTimestamp;
+                window.firebaseReady = true;
+
+                console.log('🔥 Firebase initialized successfully');
+            } catch (error) {
+                console.error('❌ Error initializing Firebase:', error);
+            }
+        }
+
+        function setupClientForm() {
+            const form = document.getElementById('clientRegForm');
+            const errorDiv = document.getElementById('clientError');
+            const successDiv = document.getElementById('clientSuccess');
             const errorText = document.getElementById('clientErrorText');
             const submitBtn = document.getElementById('clientSubmitBtn');
             const submitText = document.getElementById('clientSubmitText');
@@ -898,84 +954,122 @@
 
             function showError(message) {
                 errorText.textContent = message;
-                errorMsg.classList.remove('hidden');
-                successMsg.classList.add('hidden');
+                errorDiv.classList.remove('hidden');
+                successDiv.classList.add('hidden');
             }
 
             function showSuccess() {
-                successMsg.classList.remove('hidden');
-                errorMsg.classList.add('hidden');
+                successDiv.classList.remove('hidden');
+                errorDiv.classList.add('hidden');
             }
 
             function setLoading(loading) {
                 if (loading) {
                     submitBtn.disabled = true;
                     submitText.textContent = "Creating Account...";
-                    submitIcon.classList.remove("fa-user-plus");
+                    submitIcon.classList.remove("fa-arrow-right");
                     submitIcon.classList.add("fa-spinner", "fa-spin");
                 } else {
                     submitBtn.disabled = false;
                     submitText.textContent = "Create Client Account";
                     submitIcon.classList.remove("fa-spinner", "fa-spin");
-                    submitIcon.classList.add("fa-user-plus");
+                    submitIcon.classList.add("fa-arrow-right");
                 }
             }
 
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 
+                const name = document.getElementById('clientName').value;
                 const email = document.getElementById('clientEmail').value;
                 const password = document.getElementById('clientPassword').value;
                 const confirmPassword = document.getElementById('clientConfirmPassword').value;
                 const termsAccepted = document.getElementById('clientTerms').checked;
 
                 // Validation
-                if (!email || !password || !confirmPassword) {
-                    showError('Please fill in all fields.');
-                    return;
-                }
-
-                if (password.length < 6) {
-                    showError('Password must be at least 6 characters long.');
+                if (!name || !email || !password || !confirmPassword) {
+                    showError("Please fill in all fields.");
                     return;
                 }
 
                 if (password !== confirmPassword) {
-                    showError('Passwords do not match.');
+                    showError("Passwords do not match.");
+                    return;
+                }
+
+                if (password.length < 6) {
+                    showError("Password must be at least 6 characters long.");
                     return;
                 }
 
                 if (!termsAccepted) {
-                    showError('Please accept the Terms of Service.');
+                    showError("Please accept the Terms of Service and Privacy Policy.");
                     return;
                 }
 
                 setLoading(true);
 
                 try {
-                    // Simulate registration process
-                    await new Promise(resolve => setTimeout(resolve, 2000));
-                    
+                    await initializeFirebase();
+
+                    if (!window.firebaseReady) {
+                        throw new Error('Firebase not initialized');
+                    }
+
+                    // Create user account
+                    const userCredential = await window.createUserWithEmailAndPassword(window.firebaseAuth, email, password);
+                    const user = userCredential.user;
+
+                    // Update profile with display name
+                    await window.updateProfile(user, {
+                        displayName: name
+                    });
+
+                    // Save user data to Firestore
+                    await window.setDoc(window.doc(window.firebaseDb, 'users', user.uid), {
+                        email: email,
+                        fullName: name,
+                        role: 'client',
+                        isAdmin: false,
+                        createdAt: window.serverTimestamp(),
+                        status: 'active'
+                    });
+
                     showSuccess();
                     
-                    // Redirect to login after 2 seconds
                     setTimeout(() => {
                         window.location.href = './login.html';
                     }, 2000);
-                    
+
                 } catch (error) {
-                    showError('Registration failed. Please try again.');
+                    console.error('Error creating client account:', error);
+                    
+                    let errorMessage = 'Failed to create account.';
+                    switch (error.code) {
+                        case 'auth/email-already-in-use':
+                            errorMessage = 'An account with this email already exists.';
+                            break;
+                        case 'auth/invalid-email':
+                            errorMessage = 'Please enter a valid email address.';
+                            break;
+                        case 'auth/weak-password':
+                            errorMessage = 'Password is too weak.';
+                            break;
+                        default:
+                            errorMessage = error.message || 'An unexpected error occurred.';
+                    }
+                    
+                    showError(errorMessage);
                 } finally {
                     setLoading(false);
                 }
             });
         }
 
-        // Admin form handlers
-        function setupAdminFormHandlers() {
-            const form = document.getElementById('adminRegistrationForm');
-            const errorMsg = document.getElementById('adminErrorMsg');
-            const successMsg = document.getElementById('adminSuccessMsg');
+        function setupAdminForm() {
+            const form = document.getElementById('adminRegForm');
+            const errorDiv = document.getElementById('adminError');
+            const successDiv = document.getElementById('adminSuccess');
             const errorText = document.getElementById('adminErrorText');
             const submitBtn = document.getElementById('adminSubmitBtn');
             const submitText = document.getElementById('adminSubmitText');
@@ -983,13 +1077,13 @@
 
             function showError(message) {
                 errorText.textContent = message;
-                errorMsg.classList.remove('hidden');
-                successMsg.classList.add('hidden');
+                errorDiv.classList.remove('hidden');
+                successDiv.classList.add('hidden');
             }
 
             function showSuccess() {
-                successMsg.classList.remove('hidden');
-                errorMsg.classList.add('hidden');
+                successDiv.classList.remove('hidden');
+                errorDiv.classList.add('hidden');
             }
 
             function setLoading(loading) {
@@ -1019,59 +1113,103 @@
                 e.preventDefault();
                 
                 const adminKey = document.getElementById('adminKey').value;
-                const fullName = document.getElementById('adminFullName').value;
+                const name = document.getElementById('adminName').value;
                 const email = document.getElementById('adminEmail').value;
                 const password = document.getElementById('adminPassword').value;
-                const confirmPassword = document.getElementById('adminConfirmPassword').value;
                 const adminLevel = document.getElementById('adminLevel').value;
                 const termsAccepted = document.getElementById('adminTerms').checked;
 
                 // Validation
                 if (!adminKey) {
-                    showError('Admin security key is required.');
+                    showError("Admin security key is required.");
                     return;
                 }
 
                 if (adminKey !== ADMIN_SECURITY_KEY) {
-                    showError('Invalid admin security key. Contact system administrator.');
+                    showError("Invalid admin security key. Contact system administrator.");
                     return;
                 }
 
-                if (!fullName || !email || !password || !confirmPassword) {
-                    showError('Please fill in all required fields.');
+                if (!name || !email || !password) {
+                    showError("Please fill in all required fields.");
                     return;
                 }
 
                 if (!validatePassword(password)) {
-                    showError('Password must be at least 8 characters with uppercase, lowercase, and numbers.');
-                    return;
-                }
-
-                if (password !== confirmPassword) {
-                    showError('Passwords do not match.');
+                    showError("Password must be at least 8 characters with uppercase, lowercase, and numbers.");
                     return;
                 }
 
                 if (!termsAccepted) {
-                    showError('Please accept the terms and conditions.');
+                    showError("Please accept the terms and conditions.");
                     return;
                 }
 
                 setLoading(true);
 
                 try {
-                    // Simulate admin registration process
-                    await new Promise(resolve => setTimeout(resolve, 2000));
-                    
+                    await initializeFirebase();
+
+                    if (!window.firebaseReady) {
+                        throw new Error('Firebase not initialized');
+                    }
+
+                    // Create user account
+                    const userCredential = await window.createUserWithEmailAndPassword(window.firebaseAuth, email, password);
+                    const user = userCredential.user;
+
+                    // Update profile
+                    await window.updateProfile(user, {
+                        displayName: name
+                    });
+
+                    // Create admin user document
+                    await window.setDoc(window.doc(window.firebaseDb, 'users', user.uid), {
+                        email: email,
+                        fullName: name,
+                        role: 'admin',
+                        adminLevel: adminLevel,
+                        isAdmin: true,
+                        createdAt: window.serverTimestamp(),
+                        status: 'active'
+                    });
+
+                    // Create admin profile document
+                    await window.setDoc(window.doc(window.firebaseDb, 'admins', user.uid), {
+                        email: email,
+                        fullName: name,
+                        adminLevel: adminLevel,
+                        permissions: adminLevel === 'super-admin' ? ['all'] : ['read', 'write', 'update'],
+                        createdAt: window.serverTimestamp(),
+                        lastLogin: null,
+                        status: 'active'
+                    });
+
                     showSuccess();
                     
-                    // Redirect to login after 3 seconds
                     setTimeout(() => {
                         window.location.href = './login.html';
                     }, 3000);
-                    
+
                 } catch (error) {
-                    showError('Admin registration failed. Please try again.');
+                    console.error('Error creating admin account:', error);
+                    
+                    let errorMessage = 'Failed to create admin account.';
+                    switch (error.code) {
+                        case 'auth/email-already-in-use':
+                            errorMessage = 'An account with this email already exists.';
+                            break;
+                        case 'auth/invalid-email':
+                            errorMessage = 'Please enter a valid email address.';
+                            break;
+                        case 'auth/weak-password':
+                            errorMessage = 'Password is too weak.';
+                            break;
+                        default:
+                            errorMessage = error.message || 'An unexpected error occurred.';
+                    }
+                    
+                    showError(errorMessage);
                 } finally {
                     setLoading(false);
                 }
@@ -1098,8 +1236,30 @@
             });
         });
 
+        // Enhanced form UX
+        document.addEventListener('focus', function(e) {
+            if (e.target.matches('input[type="email"], input[type="password"], input[type="text"]')) {
+                e.target.parentElement.classList.add('ring-2', 'ring-primary-500');
+            }
+        }, true);
+        
+        document.addEventListener('blur', function(e) {
+            if (e.target.matches('input[type="email"], input[type="password"], input[type="text"]')) {
+                e.target.parentElement.classList.remove('ring-2', 'ring-primary-500');
+            }
+        }, true);
+
+        // Progressive enhancement for older browsers
+        if (!CSS.supports('backdrop-filter', 'blur(10px)')) {
+            const blurElements = document.querySelectorAll('.backdrop-blur-sm');
+            blurElements.forEach(el => {
+                el.classList.add('bg-opacity-95');
+            });
+        }
+
         console.log('✅ Veritas KE Get Started Page with Registration Options - Ready!');
         console.log('🔑 Admin Security Key: VeritasKE2025Admin!');
     </script>
 </body>
 </html>
+
