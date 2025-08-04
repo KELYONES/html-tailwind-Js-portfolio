@@ -155,71 +155,12 @@
                     
                     <!-- CTA Buttons -->
                     <div class="flex items-center space-x-3 ml-8">
-                        <!-- Login Dropdown -->
-                        <div class="relative" id="loginDropdown">
-                            <button id="loginBtn" class="text-secondary-200 hover:text-white font-medium border border-secondary-400/50 px-4 py-2 rounded-lg hover:bg-secondary-400/10 transition-all duration-200 flex items-center space-x-2">
-                                <span>Login</span>
-                                <i class="fas fa-chevron-down text-xs transition-transform duration-200" id="loginChevron"></i>
-                            </button>
-                            
-                            <!-- Login Dropdown Menu -->
-                            <div id="loginMenu" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-accent-200 opacity-0 invisible transform translate-y-2 transition-all duration-200 z-50">
-                                <div class="py-2">
-                                    <a href="./login.html?role=client" class="flex items-center px-4 py-3 text-accent-700 hover:bg-primary-50 transition-colors group">
-                                        <div class="w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center mr-3 group-hover:bg-primary-200 transition-colors">
-                                            <i class="fas fa-user text-primary-600 text-sm"></i>
-                                        </div>
-                                        <div>
-                                            <div class="font-medium">Client Login</div>
-                                            <div class="text-xs text-accent-500">Access your projects</div>
-                                        </div>
-                                    </a>
-                                    <hr class="border-accent-100 my-1">
-                                    <a href="./login.html?role=admin" class="flex items-center px-4 py-3 text-accent-700 hover:bg-red-50 transition-colors group">
-                                        <div class="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center mr-3 group-hover:bg-red-200 transition-colors">
-                                            <i class="fas fa-shield-alt text-red-600 text-sm"></i>
-                                        </div>
-                                        <div>
-                                            <div class="font-medium">Admin Login</div>
-                                            <div class="text-xs text-accent-500">Staff access only</div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Get Started Dropdown -->
-                        <div class="relative" id="getStartedDropdown">
-                            <button id="getStartedBtn" class="bg-secondary-400 text-primary-900 font-semibold px-6 py-2 rounded-lg hover:bg-secondary-500 transform hover:scale-105 transition-all duration-200 shadow-md flex items-center space-x-2">
-                                <span>Get Started</span>
-                                <i class="fas fa-chevron-down text-xs transition-transform duration-200" id="getStartedChevron"></i>
-                            </button>
-                            
-                            <!-- Get Started Dropdown Menu -->
-                            <div id="getStartedMenu" class="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-accent-200 opacity-0 invisible transform translate-y-2 transition-all duration-200 z-50">
-                                <div class="py-2">
-                                    <a href="./getstarted.html" class="flex items-center px-4 py-3 text-accent-700 hover:bg-primary-50 transition-colors group">
-                                        <div class="w-10 h-10 bg-gradient-to-br from-primary-600 to-secondary-400 rounded-lg flex items-center justify-center mr-3">
-                                            <i class="fas fa-rocket text-white text-sm"></i>
-                                        </div>
-                                        <div>
-                                            <div class="font-medium">I'm a Client</div>
-                                            <div class="text-xs text-accent-500">Start your project today</div>
-                                        </div>
-                                    </a>
-                                    <hr class="border-accent-100 my-1">
-                                    <a href="./admin-register.html" class="flex items-center px-4 py-3 text-accent-700 hover:bg-red-50 transition-colors group">
-                                        <div class="w-10 h-10 bg-gradient-to-br from-red-600 to-orange-400 rounded-lg flex items-center justify-center mr-3">
-                                            <i class="fas fa-user-shield text-white text-sm"></i>
-                                        </div>
-                                        <div>
-                                            <div class="font-medium">I'm Staff</div>
-                                            <div class="text-xs text-accent-500">Admin registration</div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        <a href="./login.html" class="text-secondary-200 hover:text-white font-medium border border-secondary-400/50 px-4 py-2 rounded-lg hover:bg-secondary-400/10 transition-all duration-200">
+                            Login
+                        </a>
+                        <a href="./getstarted.html" class="bg-secondary-400 text-primary-900 font-semibold px-6 py-2 rounded-lg hover:bg-secondary-500 transform hover:scale-105 transition-all duration-200 shadow-md">
+                            Get Started
+                        </a>
                     </div>
                 </div>
 
@@ -243,31 +184,15 @@
                     <a href="./contact.html" class="block text-secondary-200 hover:text-secondary-400 font-medium py-2 transition-colors">Contact</a>
                     <hr class="border-primary-700 my-4">
                     
-                    <!-- Mobile Login Options -->
+                    <!-- Mobile Login and Get Started -->
                     <div class="space-y-3">
-                        <div class="text-secondary-400 text-sm font-medium">Login Options:</div>
-                        <a href="./login.html?role=client" class="flex items-center text-secondary-200 hover:text-white font-medium py-2 transition-colors">
+                        <a href="./login.html" class="flex items-center text-secondary-200 hover:text-white font-medium py-2 transition-colors">
                             <i class="fas fa-user mr-3 text-primary-400"></i>
-                            Client Login
+                            Login
                         </a>
-                        <a href="./login.html?role=admin" class="flex items-center text-secondary-200 hover:text-white font-medium py-2 transition-colors">
-                            <i class="fas fa-shield-alt mr-3 text-red-400"></i>
-                            Admin Login
-                        </a>
-                    </div>
-                    
-                    <hr class="border-primary-700 my-4">
-                    
-                    <!-- Mobile Get Started Options -->
-                    <div class="space-y-3">
-                        <div class="text-secondary-400 text-sm font-medium">Get Started:</div>
                         <a href="./getstarted.html" class="flex items-center bg-secondary-400 text-primary-900 font-semibold px-4 py-2 rounded-lg hover:bg-secondary-500 transition-all text-center">
                             <i class="fas fa-rocket mr-3"></i>
-                            I'm a Client
-                        </a>
-                        <a href="./admin-register.html" class="flex items-center bg-red-500 text-white font-semibold px-4 py-2 rounded-lg hover:bg-red-600 transition-all text-center">
-                            <i class="fas fa-user-shield mr-3"></i>
-                            I'm Staff
+                            Get Started
                         </a>
                     </div>
                 </div>
@@ -811,65 +736,6 @@
                 toggleBtn.setAttribute('aria-expanded', 'false');
             });
         });
-
-        // Dropdown functionality for desktop
-        const loginDropdown = document.getElementById('loginDropdown');
-        const loginBtn = document.getElementById('loginBtn');
-        const loginMenu = document.getElementById('loginMenu');
-        const loginChevron = document.getElementById('loginChevron');
-
-        const getStartedDropdown = document.getElementById('getStartedDropdown');
-        const getStartedBtn = document.getElementById('getStartedBtn');
-        const getStartedMenu = document.getElementById('getStartedMenu');
-        const getStartedChevron = document.getElementById('getStartedChevron');
-
-        // Login dropdown
-        loginBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const isVisible = !loginMenu.classList.contains('opacity-0');
-            
-            if (isVisible) {
-                loginMenu.classList.add('opacity-0', 'invisible', 'translate-y-2');
-                loginChevron.classList.remove('rotate-180');
-            } else {
-                // Close other dropdown first
-                getStartedMenu.classList.add('opacity-0', 'invisible', 'translate-y-2');
-                getStartedChevron.classList.remove('rotate-180');
-                
-                loginMenu.classList.remove('opacity-0', 'invisible', 'translate-y-2');
-                loginChevron.classList.add('rotate-180');
-            }
-        });
-
-        // Get Started dropdown
-        getStartedBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const isVisible = !getStartedMenu.classList.contains('opacity-0');
-            
-            if (isVisible) {
-                getStartedMenu.classList.add('opacity-0', 'invisible', 'translate-y-2');
-                getStartedChevron.classList.remove('rotate-180');
-            } else {
-                // Close other dropdown first
-                loginMenu.classList.add('opacity-0', 'invisible', 'translate-y-2');
-                loginChevron.classList.remove('rotate-180');
-                
-                getStartedMenu.classList.remove('opacity-0', 'invisible', 'translate-y-2');
-                getStartedChevron.classList.add('rotate-180');
-            }
-        });
-
-        // Close dropdowns when clicking outside
-        document.addEventListener('click', () => {
-            loginMenu.classList.add('opacity-0', 'invisible', 'translate-y-2');
-            loginChevron.classList.remove('rotate-180');
-            getStartedMenu.classList.add('opacity-0', 'invisible', 'translate-y-2');
-            getStartedChevron.classList.remove('rotate-180');
-        });
-
-        // Prevent dropdown from closing when clicking inside
-        loginMenu.addEventListener('click', (e) => e.stopPropagation());
-        getStartedMenu.addEventListener('click', (e) => e.stopPropagation());
 
         // Carousel functionality
         const carousel = document.getElementById('carousel');
