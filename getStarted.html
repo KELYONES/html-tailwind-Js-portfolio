@@ -158,9 +158,9 @@
     </nav>
 
     <!-- Registration Type Selection Modal -->
-    <div id="registrationModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden">
-        <div class="flex items-center justify-center min-h-screen p-4">
-            <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-auto transform transition-all duration-300 scale-95" id="modalContent">
+    <div id="registrationModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden overflow-y-auto">
+        <div class="flex items-start justify-center min-h-screen p-4 py-8">
+            <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-auto transform transition-all duration-300 scale-95 my-8" id="modalContent">
                 <!-- Modal Header -->
                 <div class="px-6 py-4 border-b border-accent-200">
                     <div class="flex items-center justify-between">
@@ -535,7 +535,7 @@
         function showClientRegistrationForm() {
             // Replace modal content with client registration form
             modalContent.innerHTML = `
-                <div class="px-6 py-4 border-b border-accent-200">
+                <div class="px-6 py-4 border-b border-accent-200 sticky top-0 bg-white z-10 rounded-t-2xl">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center space-x-3">
                             <div class="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-400 rounded-lg flex items-center justify-center">
@@ -552,7 +552,7 @@
                     </div>
                 </div>
 
-                <div class="p-6">
+                <div class="p-6 max-h-96 overflow-y-auto">
                     <form id="clientRegForm" class="space-y-4">
                         <div class="space-y-2">
                             <label class="block text-sm font-medium text-accent-700">Full Name</label>
@@ -676,7 +676,7 @@
         function showAdminRegistrationForm() {
             // Replace modal content with admin registration form
             modalContent.innerHTML = `
-                <div class="px-6 py-4 border-b border-red-200">
+                <div class="px-6 py-4 border-b border-red-200 sticky top-0 bg-white z-10 rounded-t-2xl">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center space-x-3">
                             <div class="w-10 h-10 bg-gradient-to-br from-red-500 to-orange-400 rounded-lg flex items-center justify-center">
@@ -693,7 +693,7 @@
                     </div>
                 </div>
 
-                <div class="p-6">
+                <div class="p-6 max-h-96 overflow-y-auto">
                     <div class="bg-red-50 border border-red-200 rounded-lg p-3 mb-4">
                         <div class="flex items-center">
                             <i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>
@@ -764,11 +764,28 @@
                                     type="password" 
                                     id="adminPassword"
                                     required 
+                                    minlength="8"
                                     class="w-full pl-10 pr-4 py-2.5 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all"
                                     placeholder="Create a strong password"
                                 >
                             </div>
                             <p class="text-xs text-accent-500">Minimum 8 characters with uppercase, lowercase, and numbers</p>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="block text-sm font-medium text-accent-700">Confirm Password *</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-lock text-accent-400"></i>
+                                </div>
+                                <input 
+                                    type="password" 
+                                    id="adminConfirmPassword"
+                                    required 
+                                    class="w-full pl-10 pr-4 py-2.5 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all"
+                                    placeholder="Confirm your password"
+                                >
+                            </div>
                         </div>
 
                         <div class="space-y-2">
@@ -1116,6 +1133,7 @@
                 const name = document.getElementById('adminName').value;
                 const email = document.getElementById('adminEmail').value;
                 const password = document.getElementById('adminPassword').value;
+                const confirmPassword = document.getElementById('adminConfirmPassword').value;
                 const adminLevel = document.getElementById('adminLevel').value;
                 const termsAccepted = document.getElementById('adminTerms').checked;
 
@@ -1130,8 +1148,13 @@
                     return;
                 }
 
-                if (!name || !email || !password) {
+                if (!name || !email || !password || !confirmPassword) {
                     showError("Please fill in all required fields.");
+                    return;
+                }
+
+                if (password !== confirmPassword) {
+                    showError("Passwords do not match.");
                     return;
                 }
 
@@ -1262,4 +1285,3 @@
     </script>
 </body>
 </html>
-
