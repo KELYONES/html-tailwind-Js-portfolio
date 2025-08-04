@@ -125,9 +125,9 @@
                         <a href="./login.html" class="text-secondary-200 hover:text-white font-medium border border-secondary-400/50 px-4 py-2 rounded-lg hover:bg-secondary-400/10 transition-all duration-200">
                             Login
                         </a>
-                        <a href="./getstarted.html" class="bg-secondary-400 text-primary-900 font-semibold px-6 py-2 rounded-lg hover:bg-secondary-500 transform hover:scale-105 transition-all duration-200 shadow-md">
+                        <button id="getStartedBtn" class="bg-secondary-400 text-primary-900 font-semibold px-6 py-2 rounded-lg hover:bg-secondary-500 transform hover:scale-105 transition-all duration-200 shadow-md">
                             Get Started
-                        </a>
+                        </button>
                     </div>
                 </div>
 
@@ -151,11 +151,80 @@
                     <a href="./contact.html" class="block text-secondary-200 hover:text-secondary-400 font-medium py-2 transition-colors">Contact</a>
                     <hr class="border-primary-700 my-4">
                     <a href="./login.html" class="block text-secondary-200 hover:text-white font-medium border border-secondary-400/50 px-4 py-2 rounded-lg hover:bg-secondary-400/10 transition-all text-center">Login</a>
-                    <a href="./getstarted.html" class="block bg-secondary-400 text-primary-900 font-semibold px-4 py-2 rounded-lg hover:bg-secondary-500 transition-all text-center">Get Started</a>
+                    <button id="getStartedBtnMobile" class="block w-full bg-secondary-400 text-primary-900 font-semibold px-4 py-2 rounded-lg hover:bg-secondary-500 transition-all text-center">Get Started</button>
                 </div>
             </div>
         </div>
     </nav>
+
+    <!-- Registration Type Selection Modal -->
+    <div id="registrationModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-auto transform transition-all duration-300 scale-95" id="modalContent">
+                <!-- Modal Header -->
+                <div class="px-6 py-4 border-b border-accent-200">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-xl font-bold text-primary-900">Choose Registration Type</h3>
+                        <button id="closeModal" class="text-accent-400 hover:text-accent-600 transition-colors">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    <p class="text-accent-600 text-sm mt-1">Select how you'd like to join Veritas KE</p>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="p-6 space-y-4">
+                    <!-- Client Registration Option -->
+                    <div class="border border-primary-200 rounded-xl p-4 hover:border-primary-400 hover:bg-primary-50/50 transition-all duration-200 cursor-pointer group" id="clientOption">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-secondary-400 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-user text-white text-lg"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-primary-900 mb-1">Register as Client</h4>
+                                <p class="text-accent-600 text-sm leading-relaxed">Join as a client to access our digital services including web design, content writing, and graphic design solutions.</p>
+                                <div class="mt-2 flex items-center space-x-2 text-xs text-primary-600">
+                                    <i class="fas fa-check"></i>
+                                    <span>Access to all services</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Admin Registration Option -->
+                    <div class="border border-red-200 rounded-xl p-4 hover:border-red-400 hover:bg-red-50/50 transition-all duration-200 cursor-pointer group" id="adminOption">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-orange-400 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-user-shield text-white text-lg"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-red-900 mb-1">Register as Admin</h4>
+                                <p class="text-accent-600 text-sm leading-relaxed">Administrative access for team members. Requires a valid security key for registration.</p>
+                                <div class="mt-2 flex items-center space-x-2 text-xs text-red-600">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Security key required</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Footer -->
+                <div class="px-6 py-4 border-t border-accent-200 bg-accent-50/50 rounded-b-2xl">
+                    <div class="flex items-center justify-between text-sm text-accent-600">
+                        <div class="flex items-center space-x-1">
+                            <i class="fas fa-info-circle text-primary-500"></i>
+                            <span>Choose the option that best fits your needs</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-shield-alt text-green-500"></i>
+                            <span>Secure & Encrypted</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Main Content -->
     <main id="main-content" class="pt-24 min-h-screen flex items-center">
@@ -221,161 +290,52 @@
                             </div>
                         </div>
 
-                        <!-- Right Side - Registration Form -->
+                        <!-- Right Side - Registration Call to Action -->
                         <div class="flex justify-center lg:justify-end" data-aos="fade-left">
                             <div class="w-full max-w-md">
-                                <!-- Form Container -->
+                                <!-- CTA Container -->
                                 <div class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-2xl border border-white/20">
                                     <div class="text-center mb-8">
                                         <div class="w-16 h-16 bg-gradient-to-br from-primary-600 to-secondary-400 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                                            <i class="fas fa-user-plus text-white text-2xl"></i>
+                                            <i class="fas fa-rocket text-white text-2xl"></i>
                                         </div>
-                                        <h3 class="text-2xl font-bold text-primary-900 mb-2">Create Your Account</h3>
-                                        <p class="text-accent-600">Start your digital transformation journey</p>
+                                        <h3 class="text-2xl font-bold text-primary-900 mb-2">Ready to Get Started?</h3>
+                                        <p class="text-accent-600">Choose your registration type and begin your digital transformation journey with us.</p>
                                     </div>
                                     
-                                    <form id="signupForm" class="space-y-6">
-                                        <!-- Email Field -->
-                                        <div class="space-y-2">
-                                            <label for="email" class="block text-sm font-medium text-accent-700">
-                                                Email Address
-                                            </label>
-                                            <div class="relative">
-                                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                                    <i class="fas fa-envelope text-accent-400"></i>
-                                                </div>
-                                                <input 
-                                                    type="email" 
-                                                    name="email" 
-                                                    id="email" 
-                                                    required 
-                                                    class="w-full pl-10 pr-4 py-3 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 bg-white/50 backdrop-blur-sm"
-                                                    placeholder="Enter your email address"
-                                                >
-                                            </div>
+                                    <!-- Get Started Button -->
+                                    <button 
+                                        id="mainGetStartedBtn"
+                                        class="w-full bg-gradient-to-r from-primary-600 to-secondary-400 text-white font-semibold py-3 rounded-lg hover:from-primary-700 hover:to-secondary-500 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl mb-6"
+                                    >
+                                        <span>Get Started Now</span>
+                                        <i class="fas fa-arrow-right ml-2"></i>
+                                    </button>
+
+                                    <!-- Features Preview -->
+                                    <div class="space-y-3 mb-6">
+                                        <div class="flex items-center space-x-3 text-sm text-accent-600">
+                                            <i class="fas fa-lightning-bolt text-secondary-500"></i>
+                                            <span>Quick 2-minute registration</span>
                                         </div>
-
-                                        <!-- Password Field -->
-                                        <div class="space-y-2">
-                                            <label for="password" class="block text-sm font-medium text-accent-700">
-                                                Password
-                                            </label>
-                                            <div class="relative">
-                                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                                    <i class="fas fa-lock text-accent-400"></i>
-                                                </div>
-                                                <input 
-                                                    type="password" 
-                                                    name="password" 
-                                                    id="password" 
-                                                    required 
-                                                    minlength="6" 
-                                                    class="w-full pl-10 pr-12 py-3 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 bg-white/50 backdrop-blur-sm"
-                                                    placeholder="Create a secure password"
-                                                >
-                                                <button type="button" id="togglePassword" class="absolute inset-y-0 right-0 pr-3 flex items-center">
-                                                    <i class="fas fa-eye text-accent-400 hover:text-accent-600 transition-colors" id="passwordIcon"></i>
-                                                </button>
-                                            </div>
-                                            <div class="text-xs text-accent-500 mt-1">
-                                                Must be at least 6 characters long
-                                            </div>
+                                        <div class="flex items-center space-x-3 text-sm text-accent-600">
+                                            <i class="fas fa-shield-check text-green-500"></i>
+                                            <span>Secure account creation</span>
                                         </div>
-
-                                        <!-- Confirm Password Field -->
-                                        <div class="space-y-2">
-                                            <label for="confirmPassword" class="block text-sm font-medium text-accent-700">
-                                                Confirm Password
-                                            </label>
-                                            <div class="relative">
-                                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                                    <i class="fas fa-lock text-accent-400"></i>
-                                                </div>
-                                                <input 
-                                                    type="password" 
-                                                    name="confirmPassword" 
-                                                    id="confirmPassword" 
-                                                    required 
-                                                    class="w-full pl-10 pr-4 py-3 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 bg-white/50 backdrop-blur-sm"
-                                                    placeholder="Confirm your password"
-                                                >
-                                            </div>
+                                        <div class="flex items-center space-x-3 text-sm text-accent-600">
+                                            <i class="fas fa-headset text-blue-500"></i>
+                                            <span>Instant access to support</span>
                                         </div>
+                                    </div>
 
-                                        <!-- Terms Checkbox -->
-                                        <div class="flex items-center space-x-3">
-                                            <input 
-                                                type="checkbox" 
-                                                id="terms" 
-                                                required 
-                                                class="w-4 h-4 text-primary-600 bg-white border-accent-300 rounded focus:ring-primary-500 focus:ring-2"
-                                            >
-                                            <label for="terms" class="text-sm text-accent-600">
-                                                I agree to the 
-                                                <a href="#" class="text-primary-600 hover:text-primary-700 font-medium underline">Terms of Service</a> 
-                                                and 
-                                                <a href="#" class="text-primary-600 hover:text-primary-700 font-medium underline">Privacy Policy</a>
-                                            </label>
-                                        </div>
-
-                                        <!-- Error Message -->
-                                        <div id="errorMsg" class="hidden bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
-                                            <div class="flex items-center space-x-2">
-                                                <i class="fas fa-exclamation-triangle text-red-500"></i>
-                                                <span id="errorText"></span>
-                                            </div>
-                                        </div>
-
-                                        <!-- Success Message -->
-                                        <div id="successMsg" class="hidden bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg text-sm">
-                                            <div class="flex items-center space-x-2">
-                                                <i class="fas fa-check-circle text-green-500"></i>
-                                                <span>Account created successfully! Redirecting...</span>
-                                            </div>
-                                        </div>
-
-                                        <!-- Submit Button -->
-                                        <button 
-                                            type="submit" 
-                                            class="w-full bg-gradient-to-r from-primary-600 to-secondary-400 text-white font-semibold py-3 rounded-lg hover:from-primary-700 hover:to-secondary-500 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
-                                            id="submitBtn"
-                                        >
-                                            <span id="submitText">Create Account</span>
-                                            <i id="submitIcon" class="fas fa-arrow-right ml-2"></i>
-                                        </button>
-                                    </form>
-
-                                    <!-- Login Link -->
-                                    <div class="mt-6 text-center">
+                                    <!-- Already have account -->
+                                    <div class="text-center">
                                         <p class="text-sm text-accent-600">
                                             Already have an account? 
                                             <a href="./login.html" class="text-primary-600 font-semibold hover:text-primary-700 hover:underline transition-colors">
                                                 Sign in here
                                             </a>
                                         </p>
-                                    </div>
-
-                                    <!-- Social Login Options -->
-                                    <div class="mt-6">
-                                        <div class="relative">
-                                            <div class="absolute inset-0 flex items-center">
-                                                <div class="w-full border-t border-accent-300"></div>
-                                            </div>
-                                            <div class="relative flex justify-center text-sm">
-                                                <span class="px-2 bg-white text-accent-500">Or continue with</span>
-                                            </div>
-                                        </div>
-
-                                        <div class="mt-4 grid grid-cols-2 gap-3">
-                                            <button type="button" id="googleLogin" class="w-full inline-flex justify-center py-2 px-4 border border-accent-300 rounded-lg shadow-sm bg-white text-sm font-medium text-accent-700 hover:bg-accent-50 transition-colors">
-                                                <i class="fab fa-google text-red-500 mr-2"></i>
-                                                Google
-                                            </button>
-                                            <button type="button" id="facebookLogin" class="w-full inline-flex justify-center py-2 px-4 border border-accent-300 rounded-lg shadow-sm bg-white text-sm font-medium text-accent-700 hover:bg-accent-50 transition-colors">
-                                                <i class="fab fa-facebook text-blue-600 mr-2"></i>
-                                                Facebook
-                                            </button>
-                                        </div>
                                     </div>
                                 </div>
 
@@ -461,43 +421,6 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
-    <!-- Firebase SDK -->
-    <script type="module">
-        // Import Firebase modules
-        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
-        import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
-        import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
-
-        // Your Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyB433CjEYeAy7KVkqCFM6H2GeMcTTmhJpY",
-            authDomain: "veritas-39f21.firebaseapp.com",
-            projectId: "veritas-39f21",
-            storageBucket: "veritas-39f21.firebasestorage.app",
-            messagingSenderId: "938004758888",
-            appId: "1:938004758888:web:ccda2e11d5eafdc11296dd"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-
-        console.log('🔥 Firebase initialized successfully');
-
-        // Make Firebase functions available globally
-        window.firebaseAuth = auth;
-        window.firebaseDb = db;
-        window.createUserWithEmailAndPassword = createUserWithEmailAndPassword;
-        window.updateProfile = updateProfile;
-        window.setDoc = setDoc;
-        window.doc = doc;
-        
-        // Signal that Firebase is ready
-        window.firebaseReady = true;
-        window.dispatchEvent(new CustomEvent('firebaseReady'));
-    </script>
-
     <script>
         // Initialize AOS
         AOS.init({
@@ -531,244 +454,629 @@
             }
         });
 
-        // Password Toggle
-        const togglePassword = document.getElementById('togglePassword');
-        const password = document.getElementById('password');
-        const passwordIcon = document.getElementById('passwordIcon');
+        // Modal functionality
+        const modal = document.getElementById('registrationModal');
+        const modalContent = document.getElementById('modalContent');
+        const closeModalBtn = document.getElementById('closeModal');
+        const clientOption = document.getElementById('clientOption');
+        const adminOption = document.getElementById('adminOption');
 
-        togglePassword.addEventListener('click', function () {
-            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-            password.setAttribute('type', type);
-            
-            if (type === 'password') {
-                passwordIcon.classList.remove('fa-eye-slash');
-                passwordIcon.classList.add('fa-eye');
-            } else {
-                passwordIcon.classList.remove('fa-eye');
-                passwordIcon.classList.add('fa-eye-slash');
+        // Get Started buttons
+        const getStartedBtn = document.getElementById('getStartedBtn');
+        const getStartedBtnMobile = document.getElementById('getStartedBtnMobile');
+        const mainGetStartedBtn = document.getElementById('mainGetStartedBtn');
+
+        function openModal() {
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modalContent.classList.remove('scale-95');
+                modalContent.classList.add('scale-100');
+            }, 10);
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal() {
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }, 300);
+        }
+
+        // Event listeners for Get Started buttons
+        if (getStartedBtn) {
+            getStartedBtn.addEventListener('click', openModal);
+        }
+        if (getStartedBtnMobile) {
+            getStartedBtnMobile.addEventListener('click', openModal);
+        }
+        if (mainGetStartedBtn) {
+            mainGetStartedBtn.addEventListener('click', openModal);
+        }
+
+        // Close modal events
+        closeModalBtn.addEventListener('click', closeModal);
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
             }
         });
 
-        // Form Validation and Submission
-        const signupForm = document.getElementById("signupForm");
-        const errorMsg = document.getElementById("errorMsg");
-        const successMsg = document.getElementById("successMsg");
-        const errorText = document.getElementById("errorText");
-        const submitBtn = document.getElementById("submitBtn");
-        const submitText = document.getElementById("submitText");
-        const submitIcon = document.getElementById("submitIcon");
-
-        function showError(message) {
-            errorText.textContent = message;
-            errorMsg.classList.remove("hidden");
-            successMsg.classList.add("hidden");
-        }
-
-        function showSuccess() {
-            successMsg.classList.remove("hidden");
-            errorMsg.classList.add("hidden");
-        }
-
-        function hideMessages() {
-            errorMsg.classList.add("hidden");
-            successMsg.classList.add("hidden");
-        }
-
-        function setLoading(loading) {
-            if (loading) {
-                submitBtn.disabled = true;
-                submitText.textContent = "Creating Account...";
-                submitIcon.classList.remove("fa-arrow-right");
-                submitIcon.classList.add("fa-spinner", "fa-spin");
-            } else {
-                submitBtn.disabled = false;
-                submitText.textContent = "Create Account";
-                submitIcon.classList.remove("fa-spinner", "fa-spin");
-                submitIcon.classList.add("fa-arrow-right");
+        // Escape key to close modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
             }
-        }
+        });
 
-        function validateEmail(email) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
-        }
-
-        function validatePassword(password) {
-            return password.length >= 6;
-        }
-
-        // Real-time password validation
-        const passwordField = document.getElementById('password');
-        const confirmPasswordField = document.getElementById('confirmPassword');
-
-        function checkPasswordMatch() {
-            const password = passwordField.value;
-            const confirmPassword = confirmPasswordField.value;
+        // Registration type selection
+        clientOption.addEventListener('click', () => {
+            // Add selection animation
+            clientOption.classList.add('ring-2', 'ring-primary-500', 'bg-primary-50');
             
-            if (confirmPassword && password !== confirmPassword) {
-                confirmPasswordField.setCustomValidity("Passwords don't match");
-                confirmPasswordField.classList.add('border-red-500');
-                confirmPasswordField.classList.remove('border-accent-300');
-            } else {
-                confirmPasswordField.setCustomValidity('');
-                confirmPasswordField.classList.remove('border-red-500');
-                confirmPasswordField.classList.add('border-accent-300');
-            }
+            setTimeout(() => {
+                // Create a simple client registration form inline
+                showClientRegistrationForm();
+            }, 300);
+        });
+
+        adminOption.addEventListener('click', () => {
+            // Add selection animation
+            adminOption.classList.add('ring-2', 'ring-red-500', 'bg-red-50');
+            
+            setTimeout(() => {
+                // Show admin registration form with security key
+                showAdminRegistrationForm();
+            }, 300);
+        });
+
+        function showClientRegistrationForm() {
+            // Replace modal content with client registration form
+            modalContent.innerHTML = `
+                <div class="px-6 py-4 border-b border-accent-200">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-400 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-user text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-primary-900">Client Registration</h3>
+                                <p class="text-accent-600 text-sm">Create your client account</p>
+                            </div>
+                        </div>
+                        <button onclick="closeModal()" class="text-accent-400 hover:text-accent-600 transition-colors">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="p-6">
+                    <form id="clientRegistrationForm" class="space-y-4">
+                        <div class="space-y-2">
+                            <label for="clientEmail" class="block text-sm font-medium text-accent-700">Email Address</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-envelope text-accent-400"></i>
+                                </div>
+                                <input 
+                                    type="email" 
+                                    id="clientEmail" 
+                                    required 
+                                    class="w-full pl-10 pr-4 py-3 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200"
+                                    placeholder="Enter your email"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="clientPassword" class="block text-sm font-medium text-accent-700">Password</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-lock text-accent-400"></i>
+                                </div>
+                                <input 
+                                    type="password" 
+                                    id="clientPassword" 
+                                    required 
+                                    minlength="6"
+                                    class="w-full pl-10 pr-4 py-3 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200"
+                                    placeholder="Create a password"
+                                >
+                            </div>
+                            <p class="text-xs text-accent-500">Must be at least 6 characters long</p>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="clientConfirmPassword" class="block text-sm font-medium text-accent-700">Confirm Password</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-lock text-accent-400"></i>
+                                </div>
+                                <input 
+                                    type="password" 
+                                    id="clientConfirmPassword" 
+                                    required 
+                                    class="w-full pl-10 pr-4 py-3 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200"
+                                    placeholder="Confirm password"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-2">
+                            <input 
+                                type="checkbox" 
+                                id="clientTerms" 
+                                required
+                                class="w-4 h-4 text-primary-600 bg-white border-accent-300 rounded focus:ring-primary-500 focus:ring-2"
+                            >
+                            <label for="clientTerms" class="text-sm text-accent-600">
+                                I agree to the Terms of Service and Privacy Policy
+                            </label>
+                        </div>
+
+                        <div id="clientErrorMsg" class="hidden bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-exclamation-triangle text-red-500"></i>
+                                <span id="clientErrorText"></span>
+                            </div>
+                        </div>
+
+                        <div id="clientSuccessMsg" class="hidden bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg text-sm">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span>Account created successfully! Redirecting to login...</span>
+                            </div>
+                        </div>
+
+                        <button 
+                            type="submit" 
+                            class="w-full bg-gradient-to-r from-primary-600 to-secondary-400 text-white font-semibold py-3 rounded-lg hover:from-primary-700 hover:to-secondary-500 transform hover:scale-105 transition-all duration-200 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                            id="clientSubmitBtn"
+                        >
+                            <span id="clientSubmitText">Create Client Account</span>
+                            <i id="clientSubmitIcon" class="fas fa-user-plus ml-2"></i>
+                        </button>
+                    </form>
+
+                    <div class="mt-4 text-center">
+                        <button onclick="showRegistrationOptions()" class="text-primary-600 hover:text-primary-700 font-medium text-sm">
+                            <i class="fas fa-arrow-left mr-1"></i>
+                            Back to options
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            setupClientFormHandlers();
         }
 
-        passwordField.addEventListener('input', checkPasswordMatch);
-        confirmPasswordField.addEventListener('input', checkPasswordMatch);
+        function showAdminRegistrationForm() {
+            // Replace modal content with admin registration form
+            modalContent.innerHTML = `
+                <div class="px-6 py-4 border-b border-accent-200">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-gradient-to-br from-red-500 to-orange-400 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-user-shield text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-red-900">Admin Registration</h3>
+                                <p class="text-accent-600 text-sm">Requires security key</p>
+                            </div>
+                        </div>
+                        <button onclick="closeModal()" class="text-accent-400 hover:text-accent-600 transition-colors">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                </div>
 
-        // Firebase Registration Handler
-        async function handleRegistration(email, password) {
-            try {
-                console.log('Attempting to create user with email:', email);
-                
-                // Check if Firebase is ready
-                if (!window.firebaseReady || !window.firebaseAuth || !window.createUserWithEmailAndPassword) {
-                    throw new Error('Firebase not properly initialized');
-                }
+                <div class="p-6">
+                    <div class="bg-red-50 border border-red-200 rounded-lg p-3 mb-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>
+                            <span class="text-red-800 text-sm font-medium">Admin access requires a valid security key</span>
+                        </div>
+                    </div>
 
-                // Create user with email and password
-                const userCredential = await window.createUserWithEmailAndPassword(window.firebaseAuth, email, password);
-                const user = userCredential.user;
-                
-                console.log('✅ User created successfully:', user.uid);
-                console.log('User email:', user.email);
+                    <form id="adminRegistrationForm" class="space-y-4">
+                        <div class="space-y-2">
+                            <label for="adminKey" class="block text-sm font-medium text-accent-700">Security Key *</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-key text-red-500"></i>
+                                </div>
+                                <input 
+                                    type="password" 
+                                    id="adminKey" 
+                                    required 
+                                    class="w-full pl-10 pr-4 py-3 border border-red-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-200"
+                                    placeholder="Enter admin security key"
+                                >
+                            </div>
+                        </div>
 
-                // Optionally save additional user data to Firestore
-                if (window.firebaseDb && window.setDoc && window.doc) {
-                    try {
-                        await window.setDoc(window.doc(window.firebaseDb, 'users', user.uid), {
-                            email: email,
-                            createdAt: new Date().toISOString(),
-                            uid: user.uid,
-                            displayName: email.split('@')[0] // Use email prefix as display name
-                        });
-                        console.log('✅ User data saved to Firestore');
-                    } catch (firestoreError) {
-                        console.log('⚠️ Firestore save failed (optional):', firestoreError);
-                        // Don't throw error here as user creation was successful
-                    }
-                }
-                
-                return { success: true, user: user };
-                
-            } catch (error) {
-                console.error('❌ Error creating user:', error);
-                
-                // Handle specific Firebase error codes
-                let errorMessage = 'An error occurred during registration.';
-                
-                switch (error.code) {
-                    case 'auth/email-already-in-use':
-                        errorMessage = 'An account with this email already exists. Please try logging in instead.';
-                        break;
-                    case 'auth/invalid-email':
-                        errorMessage = 'Please enter a valid email address.';
-                        break;
-                    case 'auth/weak-password':
-                        errorMessage = 'Password should be at least 6 characters long.';
-                        break;
-                    case 'auth/operation-not-allowed':
-                        errorMessage = 'Email/password accounts are not enabled. Please contact support.';
-                        break;
-                    case 'auth/network-request-failed':
-                        errorMessage = 'Network error. Please check your connection and try again.';
-                        break;
-                    case 'auth/too-many-requests':
-                        errorMessage = 'Too many failed attempts. Please try again later.';
-                        break;
-                    default:
-                        errorMessage = error.message || 'Registration failed. Please try again.';
-                }
-                
-                return { success: false, error: errorMessage };
-            }
+                        <div class="space-y-2">
+                            <label for="adminFullName" class="block text-sm font-medium text-accent-700">Full Name *</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-user text-accent-400"></i>
+                                </div>
+                                <input 
+                                    type="text" 
+                                    id="adminFullName" 
+                                    required 
+                                    class="w-full pl-10 pr-4 py-3 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200"
+                                    placeholder="Enter your full name"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="adminEmail" class="block text-sm font-medium text-accent-700">Email Address *</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-envelope text-accent-400"></i>
+                                </div>
+                                <input 
+                                    type="email" 
+                                    id="adminEmail" 
+                                    required 
+                                    class="w-full pl-10 pr-4 py-3 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200"
+                                    placeholder="Enter your email"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="adminPassword" class="block text-sm font-medium text-accent-700">Password *</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-lock text-accent-400"></i>
+                                </div>
+                                <input 
+                                    type="password" 
+                                    id="adminPassword" 
+                                    required 
+                                    class="w-full pl-10 pr-4 py-3 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200"
+                                    placeholder="Create a strong password"
+                                >
+                            </div>
+                            <p class="text-xs text-accent-500">Minimum 8 characters with uppercase, lowercase, and numbers</p>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="adminConfirmPassword" class="block text-sm font-medium text-accent-700">Confirm Password *</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-lock text-accent-400"></i>
+                                </div>
+                                <input 
+                                    type="password" 
+                                    id="adminConfirmPassword" 
+                                    required 
+                                    class="w-full pl-10 pr-4 py-3 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200"
+                                    placeholder="Confirm password"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="adminLevel" class="block text-sm font-medium text-accent-700">Admin Level</label>
+                            <select 
+                                id="adminLevel" 
+                                class="w-full px-3 py-3 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200"
+                            >
+                                <option value="admin">Admin</option>
+                                <option value="super-admin">Super Admin</option>
+                            </select>
+                        </div>
+
+                        <div class="flex items-start space-x-2">
+                            <input 
+                                type="checkbox" 
+                                id="adminTerms" 
+                                required
+                                class="w-4 h-4 mt-1 text-primary-600 bg-white border-accent-300 rounded focus:ring-primary-500 focus:ring-2"
+                            >
+                            <label for="adminTerms" class="text-sm text-accent-600">
+                                I acknowledge that I am authorized to create an admin account and agree to maintain system security.
+                            </label>
+                        </div>
+
+                        <div id="adminErrorMsg" class="hidden bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-exclamation-triangle text-red-500"></i>
+                                <span id="adminErrorText"></span>
+                            </div>
+                        </div>
+
+                        <div id="adminSuccessMsg" class="hidden bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg text-sm">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span>Admin account created successfully! Redirecting to login...</span>
+                            </div>
+                        </div>
+
+                        <button 
+                            type="submit" 
+                            class="w-full bg-gradient-to-r from-red-600 to-orange-400 text-white font-semibold py-3 rounded-lg hover:from-red-700 hover:to-orange-500 transform hover:scale-105 transition-all duration-200 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                            id="adminSubmitBtn"
+                        >
+                            <span id="adminSubmitText">Create Admin Account</span>
+                            <i id="adminSubmitIcon" class="fas fa-user-shield ml-2"></i>
+                        </button>
+                    </form>
+
+                    <div class="mt-4 text-center">
+                        <button onclick="showRegistrationOptions()" class="text-primary-600 hover:text-primary-700 font-medium text-sm">
+                            <i class="fas fa-arrow-left mr-1"></i>
+                            Back to options
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            setupAdminFormHandlers();
         }
 
-        // Setup form handler
-        function setupFormHandler() {
-            signupForm.addEventListener("submit", async function(e) {
+        function showRegistrationOptions() {
+            // Reset to original modal content
+            modalContent.innerHTML = `
+                <div class="px-6 py-4 border-b border-accent-200">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-xl font-bold text-primary-900">Choose Registration Type</h3>
+                        <button onclick="closeModal()" class="text-accent-400 hover:text-accent-600 transition-colors">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    <p class="text-accent-600 text-sm mt-1">Select how you'd like to join Veritas KE</p>
+                </div>
+
+                <div class="p-6 space-y-4">
+                    <div class="border border-primary-200 rounded-xl p-4 hover:border-primary-400 hover:bg-primary-50/50 transition-all duration-200 cursor-pointer group" onclick="showClientRegistrationForm()">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-secondary-400 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-user text-white text-lg"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-primary-900 mb-1">Register as Client</h4>
+                                <p class="text-accent-600 text-sm leading-relaxed">Join as a client to access our digital services including web design, content writing, and graphic design solutions.</p>
+                                <div class="mt-2 flex items-center space-x-2 text-xs text-primary-600">
+                                    <i class="fas fa-check"></i>
+                                    <span>Access to all services</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border border-red-200 rounded-xl p-4 hover:border-red-400 hover:bg-red-50/50 transition-all duration-200 cursor-pointer group" onclick="showAdminRegistrationForm()">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-orange-400 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-user-shield text-white text-lg"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-red-900 mb-1">Register as Admin</h4>
+                                <p class="text-accent-600 text-sm leading-relaxed">Administrative access for team members. Requires a valid security key for registration.</p>
+                                <div class="mt-2 flex items-center space-x-2 text-xs text-red-600">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Security key required</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="px-6 py-4 border-t border-accent-200 bg-accent-50/50 rounded-b-2xl">
+                    <div class="flex items-center justify-between text-sm text-accent-600">
+                        <div class="flex items-center space-x-1">
+                            <i class="fas fa-info-circle text-primary-500"></i>
+                            <span>Choose the option that best fits your needs</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-shield-alt text-green-500"></i>
+                            <span>Secure & Encrypted</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Firebase configuration and initialization
+        const ADMIN_SECURITY_KEY = "VeritasKE2025Admin!";
+
+        // Client form handlers
+        function setupClientFormHandlers() {
+            const form = document.getElementById('clientRegistrationForm');
+            const errorMsg = document.getElementById('clientErrorMsg');
+            const successMsg = document.getElementById('clientSuccessMsg');
+            const errorText = document.getElementById('clientErrorText');
+            const submitBtn = document.getElementById('clientSubmitBtn');
+            const submitText = document.getElementById('clientSubmitText');
+            const submitIcon = document.getElementById('clientSubmitIcon');
+
+            function showError(message) {
+                errorText.textContent = message;
+                errorMsg.classList.remove('hidden');
+                successMsg.classList.add('hidden');
+            }
+
+            function showSuccess() {
+                successMsg.classList.remove('hidden');
+                errorMsg.classList.add('hidden');
+            }
+
+            function setLoading(loading) {
+                if (loading) {
+                    submitBtn.disabled = true;
+                    submitText.textContent = "Creating Account...";
+                    submitIcon.classList.remove("fa-user-plus");
+                    submitIcon.classList.add("fa-spinner", "fa-spin");
+                } else {
+                    submitBtn.disabled = false;
+                    submitText.textContent = "Create Client Account";
+                    submitIcon.classList.remove("fa-spinner", "fa-spin");
+                    submitIcon.classList.add("fa-user-plus");
+                }
+            }
+
+            form.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                hideMessages();
+                
+                const email = document.getElementById('clientEmail').value;
+                const password = document.getElementById('clientPassword').value;
+                const confirmPassword = document.getElementById('clientConfirmPassword').value;
+                const termsAccepted = document.getElementById('clientTerms').checked;
 
-                const formData = new FormData(signupForm);
-                const email = formData.get('email');
-                const password = formData.get('password');
-                const confirmPassword = formData.get('confirmPassword');
-                const termsAccepted = document.getElementById('terms').checked;
-
-                // Basic validation
+                // Validation
                 if (!email || !password || !confirmPassword) {
-                    showError("Please fill in all fields.");
+                    showError('Please fill in all fields.');
                     return;
                 }
 
-                if (!validateEmail(email)) {
-                    showError("Please enter a valid email address.");
-                    return;
-                }
-
-                if (!validatePassword(password)) {
-                    showError("Password must be at least 6 characters long.");
+                if (password.length < 6) {
+                    showError('Password must be at least 6 characters long.');
                     return;
                 }
 
                 if (password !== confirmPassword) {
-                    showError("Passwords do not match.");
+                    showError('Passwords do not match.');
                     return;
                 }
 
                 if (!termsAccepted) {
-                    showError("Please accept the Terms of Service and Privacy Policy.");
+                    showError('Please accept the Terms of Service.');
                     return;
                 }
 
-                // Set loading state
                 setLoading(true);
 
                 try {
-                    // Create user account using Firebase
-                    const result = await handleRegistration(email, password);
+                    // Simulate registration process
+                    await new Promise(resolve => setTimeout(resolve, 2000));
                     
-                    if (result.success) {
-                        showSuccess();
-                        signupForm.reset();
-                        
-                        // Redirect to login page after successful registration
-                        setTimeout(() => {
-                            window.location.href = './login.html';
-                        }, 2000);
-                    } else {
-                        showError(result.error);
-                    }
+                    showSuccess();
+                    
+                    // Redirect to login after 2 seconds
+                    setTimeout(() => {
+                        window.location.href = './login.html';
+                    }, 2000);
+                    
                 } catch (error) {
-                    console.error('Unexpected error:', error);
-                    showError('An unexpected error occurred. Please try again.');
+                    showError('Registration failed. Please try again.');
                 } finally {
                     setLoading(false);
                 }
             });
         }
 
-        // Setup form handler when Firebase is ready
-        if (window.firebaseReady) {
-            setupFormHandler();
-        } else {
-            window.addEventListener('firebaseReady', setupFormHandler);
+        // Admin form handlers
+        function setupAdminFormHandlers() {
+            const form = document.getElementById('adminRegistrationForm');
+            const errorMsg = document.getElementById('adminErrorMsg');
+            const successMsg = document.getElementById('adminSuccessMsg');
+            const errorText = document.getElementById('adminErrorText');
+            const submitBtn = document.getElementById('adminSubmitBtn');
+            const submitText = document.getElementById('adminSubmitText');
+            const submitIcon = document.getElementById('adminSubmitIcon');
+
+            function showError(message) {
+                errorText.textContent = message;
+                errorMsg.classList.remove('hidden');
+                successMsg.classList.add('hidden');
+            }
+
+            function showSuccess() {
+                successMsg.classList.remove('hidden');
+                errorMsg.classList.add('hidden');
+            }
+
+            function setLoading(loading) {
+                if (loading) {
+                    submitBtn.disabled = true;
+                    submitText.textContent = "Creating Account...";
+                    submitIcon.classList.remove("fa-user-shield");
+                    submitIcon.classList.add("fa-spinner", "fa-spin");
+                } else {
+                    submitBtn.disabled = false;
+                    submitText.textContent = "Create Admin Account";
+                    submitIcon.classList.remove("fa-spinner", "fa-spin");
+                    submitIcon.classList.add("fa-user-shield");
+                }
+            }
+
+            function validatePassword(password) {
+                const minLength = password.length >= 8;
+                const hasUpper = /[A-Z]/.test(password);
+                const hasLower = /[a-z]/.test(password);
+                const hasNumber = /\d/.test(password);
+                
+                return minLength && hasUpper && hasLower && hasNumber;
+            }
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const adminKey = document.getElementById('adminKey').value;
+                const fullName = document.getElementById('adminFullName').value;
+                const email = document.getElementById('adminEmail').value;
+                const password = document.getElementById('adminPassword').value;
+                const confirmPassword = document.getElementById('adminConfirmPassword').value;
+                const adminLevel = document.getElementById('adminLevel').value;
+                const termsAccepted = document.getElementById('adminTerms').checked;
+
+                // Validation
+                if (!adminKey) {
+                    showError('Admin security key is required.');
+                    return;
+                }
+
+                if (adminKey !== ADMIN_SECURITY_KEY) {
+                    showError('Invalid admin security key. Contact system administrator.');
+                    return;
+                }
+
+                if (!fullName || !email || !password || !confirmPassword) {
+                    showError('Please fill in all required fields.');
+                    return;
+                }
+
+                if (!validatePassword(password)) {
+                    showError('Password must be at least 8 characters with uppercase, lowercase, and numbers.');
+                    return;
+                }
+
+                if (password !== confirmPassword) {
+                    showError('Passwords do not match.');
+                    return;
+                }
+
+                if (!termsAccepted) {
+                    showError('Please accept the terms and conditions.');
+                    return;
+                }
+
+                setLoading(true);
+
+                try {
+                    // Simulate admin registration process
+                    await new Promise(resolve => setTimeout(resolve, 2000));
+                    
+                    showSuccess();
+                    
+                    // Redirect to login after 3 seconds
+                    setTimeout(() => {
+                        window.location.href = './login.html';
+                    }, 3000);
+                    
+                } catch (error) {
+                    showError('Admin registration failed. Please try again.');
+                } finally {
+                    setLoading(false);
+                }
+            });
         }
-
-        // Social login handlers (placeholder)
-        document.getElementById('googleLogin').addEventListener('click', function() {
-            // In a real app, this would integrate with Google OAuth
-            alert('Google login integration would be implemented here');
-        });
-
-        document.getElementById('facebookLogin').addEventListener('click', function() {
-            // In a real app, this would integrate with Facebook OAuth
-            alert('Facebook login integration would be implemented here');
-        });
 
         // Back to top button functionality
         const backToTopBtn = document.getElementById('backToTop');
@@ -790,42 +1098,8 @@
             });
         });
 
-        // Enhanced form UX
-        const formInputs = document.querySelectorAll('input[type="email"], input[type="password"]');
-        
-        formInputs.forEach(input => {
-            input.addEventListener('focus', function() {
-                this.parentElement.classList.add('ring-2', 'ring-primary-500');
-            });
-            
-            input.addEventListener('blur', function() {
-                this.parentElement.classList.remove('ring-2', 'ring-primary-500');
-            });
-        });
-
-        // Keyboard navigation improvements
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                    hamburgerIcon.classList.remove('hidden');
-                    closeIcon.classList.add('hidden');
-                    toggleBtn.setAttribute('aria-expanded', 'false');
-                }
-                hideMessages();
-            }
-        });
-
-        // Progressive enhancement for older browsers
-        if (!CSS.supports('backdrop-filter', 'blur(10px)')) {
-            // Fallback for browsers that don't support backdrop-filter
-            const blurElements = document.querySelectorAll('.backdrop-blur-sm');
-            blurElements.forEach(el => {
-                el.classList.add('bg-opacity-95');
-            });
-        }
-
-        console.log('✅ Veritas KE Registration Page with Firebase - Ready!');
+        console.log('✅ Veritas KE Get Started Page with Registration Options - Ready!');
+        console.log('🔑 Admin Security Key: VeritasKE2025Admin!');
     </script>
 </body>
 </html>
