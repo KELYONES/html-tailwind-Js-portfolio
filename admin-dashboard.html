@@ -73,32 +73,62 @@
             }
         }
     </script>
+    
+    <style>
+        /* Custom mobile styles */
+        @media (max-width: 768px) {
+            .mobile-table-scroll {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .mobile-tab-scroll {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .mobile-tab-scroll::-webkit-scrollbar {
+                display: none;
+            }
+        }
+        
+        /* Hide scrollbar for mobile tab navigation */
+        .mobile-tab-scroll {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+    </style>
 </head>
 
 <body class="bg-accent-50 font-sans antialiased">
+    <!-- Mobile Menu Button -->
+    <button id="mobileMenuBtn" class="fixed top-4 left-4 z-50 md:hidden bg-white shadow-lg rounded-lg p-2 text-accent-700">
+        <i class="fas fa-bars text-lg"></i>
+    </button>
+
     <!-- Navigation Header -->
-    <nav class="bg-white shadow-lg border-b border-accent-200 sticky top-0 z-50" role="navigation" aria-label="Admin navigation">
+    <nav class="bg-white shadow-lg border-b border-accent-200 sticky top-0 z-40" role="navigation" aria-label="Admin navigation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo & Admin Title -->
-                <div class="flex items-center space-x-4">
-                    <div class="flex items-center space-x-2">
+                <div class="flex items-center space-x-2 sm:space-x-4 min-w-0 flex-1">
+                    <div class="flex items-center space-x-2 flex-shrink-0">
                         <div class="w-8 h-8 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center">
                             <i class="fas fa-shield-alt text-white text-sm"></i>
                         </div>
-                        <span class="text-lg font-bold text-primary-900">Veritas KE</span>
+                        <span class="text-base sm:text-lg font-bold text-primary-900">Veritas KE</span>
                     </div>
-                    <div class="text-accent-500">|</div>
-                    <h1 class="text-lg font-semibold text-accent-800">Admin Dashboard</h1>
-                    <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs font-medium">
-                        <i class="fas fa-shield-alt mr-1"></i>Administrator
+                    <div class="text-accent-500 hidden sm:block">|</div>
+                    <h1 class="text-sm sm:text-lg font-semibold text-accent-800 truncate hidden sm:block">Admin Dashboard</h1>
+                    <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs font-medium hidden sm:inline-flex">
+                        <i class="fas fa-shield-alt mr-1"></i>Admin
                     </span>
                 </div>
 
                 <!-- Quick Actions & User Menu -->
-                <div class="flex items-center space-x-4">
-                    <!-- Quick Stats -->
-                    <div class="hidden md:flex items-center space-x-4 text-sm">
+                <div class="flex items-center space-x-2 sm:space-x-4 flex-shrink-0">
+                    <!-- Quick Stats - Hidden on mobile, shown on md+ -->
+                    <div class="hidden lg:flex items-center space-x-4 text-sm">
                         <div class="bg-yellow-50 text-yellow-800 px-3 py-1 rounded-full">
                             <i class="fas fa-clock mr-1"></i>
                             <span id="pendingCount">0</span> Pending
@@ -117,11 +147,11 @@
 
                     <!-- User Dropdown -->
                     <div class="relative">
-                        <button id="userMenuButton" class="flex items-center space-x-2 p-2 text-accent-700 hover:bg-accent-100 rounded-lg transition-colors" aria-expanded="false">
-                            <div class="w-8 h-8 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center">
+                        <button id="userMenuButton" class="flex items-center space-x-1 sm:space-x-2 p-2 text-accent-700 hover:bg-accent-100 rounded-lg transition-colors" aria-expanded="false">
+                            <div class="w-8 h-8 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center flex-shrink-0">
                                 <span class="text-white font-medium text-sm" id="userInitials">A</span>
                             </div>
-                            <span class="font-medium" id="userName">Admin</span>
+                            <span class="font-medium hidden sm:block" id="userName">Admin</span>
                             <i class="fas fa-chevron-down text-sm"></i>
                         </button>
                         
@@ -156,19 +186,19 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
         <!-- Welcome Section -->
-        <div class="mb-8" data-aos="fade-down">
-            <div class="bg-gradient-to-r from-red-600 to-purple-600 rounded-2xl p-8 text-white">
+        <div class="mb-6 sm:mb-8" data-aos="fade-down">
+            <div class="bg-gradient-to-r from-red-600 to-purple-600 rounded-2xl p-4 sm:p-8 text-white">
                 <div class="flex items-center justify-between">
                     <div>
-                        <h2 class="text-3xl font-bold mb-2">Admin Control Panel 🛡️</h2>
-                        <p class="text-red-100 text-lg">Manage projects, clients, and system operations</p>
-                        <p class="text-red-200 text-sm mt-2">Last updated: <span id="lastUpdate">Just now</span></p>
+                        <h2 class="text-xl sm:text-3xl font-bold mb-2">Admin Control Panel 🛡️</h2>
+                        <p class="text-red-100 text-sm sm:text-lg">Manage projects, clients, and system operations</p>
+                        <p class="text-red-200 text-xs sm:text-sm mt-2">Last updated: <span id="lastUpdate">Just now</span></p>
                     </div>
-                    <div class="hidden lg:block">
-                        <div class="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center">
-                            <i class="fas fa-shield-alt text-4xl"></i>
+                    <div class="hidden md:block">
+                        <div class="w-16 h-16 lg:w-24 lg:h-24 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-shield-alt text-2xl lg:text-4xl"></i>
                         </div>
                     </div>
                 </div>
@@ -176,101 +206,117 @@
         </div>
 
         <!-- Stats Overview -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8" data-aos="fade-up" data-aos-delay="100">
-            <div class="bg-white rounded-xl shadow-md p-6 border border-accent-200">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 mb-6 sm:mb-8" data-aos="fade-up" data-aos-delay="100">
+            <div class="bg-white rounded-xl shadow-md p-3 sm:p-6 border border-accent-200">
                 <div class="flex items-center justify-between">
                     <div>
-                        <p class="text-accent-600 text-sm font-medium">Total Projects</p>
-                        <p class="text-3xl font-bold text-accent-900" id="totalProjects">0</p>
-                        <p class="text-xs text-green-600 mt-1">
+                        <p class="text-accent-600 text-xs sm:text-sm font-medium">Total Projects</p>
+                        <p class="text-xl sm:text-3xl font-bold text-accent-900" id="totalProjects">0</p>
+                        <p class="text-xs text-green-600 mt-1 hidden sm:block">
                             <i class="fas fa-arrow-up mr-1"></i>+12% from last month
                         </p>
                     </div>
-                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                        <i class="fas fa-project-diagram text-blue-600 text-xl"></i>
+                    <div class="w-8 h-8 sm:w-12 sm:h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-project-diagram text-blue-600 text-sm sm:text-xl"></i>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white rounded-xl shadow-md p-6 border border-accent-200">
+            <div class="bg-white rounded-xl shadow-md p-3 sm:p-6 border border-accent-200">
                 <div class="flex items-center justify-between">
                     <div>
-                        <p class="text-accent-600 text-sm font-medium">Pending Review</p>
-                        <p class="text-3xl font-bold text-yellow-600" id="pendingProjects">0</p>
-                        <p class="text-xs text-yellow-600 mt-1">
+                        <p class="text-accent-600 text-xs sm:text-sm font-medium">Pending Review</p>
+                        <p class="text-xl sm:text-3xl font-bold text-yellow-600" id="pendingProjects">0</p>
+                        <p class="text-xs text-yellow-600 mt-1 hidden sm:block">
                             <i class="fas fa-exclamation-triangle mr-1"></i>Needs attention
                         </p>
                     </div>
-                    <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
-                        <i class="fas fa-clock text-yellow-600 text-xl"></i>
+                    <div class="w-8 h-8 sm:w-12 sm:h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-clock text-yellow-600 text-sm sm:text-xl"></i>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white rounded-xl shadow-md p-6 border border-accent-200">
+            <div class="bg-white rounded-xl shadow-md p-3 sm:p-6 border border-accent-200">
                 <div class="flex items-center justify-between">
                     <div>
-                        <p class="text-accent-600 text-sm font-medium">Active Projects</p>
-                        <p class="text-3xl font-bold text-blue-600" id="inProgressProjects">0</p>
-                        <p class="text-xs text-blue-600 mt-1">
+                        <p class="text-accent-600 text-xs sm:text-sm font-medium">Active Projects</p>
+                        <p class="text-xl sm:text-3xl font-bold text-blue-600" id="inProgressProjects">0</p>
+                        <p class="text-xs text-blue-600 mt-1 hidden sm:block">
                             <i class="fas fa-spinner mr-1"></i>In development
                         </p>
                     </div>
-                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                        <i class="fas fa-cogs text-blue-600 text-xl"></i>
+                    <div class="w-8 h-8 sm:w-12 sm:h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-cogs text-blue-600 text-sm sm:text-xl"></i>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white rounded-xl shadow-md p-6 border border-accent-200">
+            <div class="bg-white rounded-xl shadow-md p-3 sm:p-6 border border-accent-200">
                 <div class="flex items-center justify-between">
                     <div>
-                        <p class="text-accent-600 text-sm font-medium">Completed</p>
-                        <p class="text-3xl font-bold text-green-600" id="completedProjects">0</p>
-                        <p class="text-xs text-green-600 mt-1">
+                        <p class="text-accent-600 text-xs sm:text-sm font-medium">Completed</p>
+                        <p class="text-xl sm:text-3xl font-bold text-green-600" id="completedProjects">0</p>
+                        <p class="text-xs text-green-600 mt-1 hidden sm:block">
                             <i class="fas fa-check-circle mr-1"></i>Successfully delivered
                         </p>
                     </div>
-                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                        <i class="fas fa-check-circle text-green-600 text-xl"></i>
+                    <div class="w-8 h-8 sm:w-12 sm:h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-check-circle text-green-600 text-sm sm:text-xl"></i>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Tab Navigation -->
-        <div class="mb-8" data-aos="fade-up" data-aos-delay="200">
+        <div class="mb-6 sm:mb-8" data-aos="fade-up" data-aos-delay="200">
             <div class="bg-white rounded-xl shadow-md border border-accent-200">
                 <div class="border-b border-accent-200">
-                    <nav class="flex space-x-8 px-6" aria-label="Admin tabs">
-                        <button class="tab-button active py-4 px-2 border-b-2 border-red-500 font-medium text-red-600 whitespace-nowrap" data-tab="projects">
-                            <i class="fas fa-project-diagram mr-2"></i>Project Management
-                        </button>
-                        <button class="tab-button py-4 px-2 border-b-2 border-transparent font-medium text-accent-500 hover:text-accent-700 hover:border-accent-300 whitespace-nowrap" data-tab="clients">
-                            <i class="fas fa-users mr-2"></i>Client Management
-                        </button>
-                        <button class="tab-button py-4 px-2 border-b-2 border-transparent font-medium text-accent-500 hover:text-accent-700 hover:border-accent-300 whitespace-nowrap" data-tab="analytics">
-                            <i class="fas fa-chart-bar mr-2"></i>Analytics
-                        </button>
-                        <button class="tab-button py-4 px-2 border-b-2 border-transparent font-medium text-accent-500 hover:text-accent-700 hover:border-accent-300 whitespace-nowrap" data-tab="settings">
-                            <i class="fas fa-cog mr-2"></i>Settings
-                        </button>
-                    </nav>
+                    <div class="mobile-tab-scroll overflow-x-auto">
+                        <nav class="flex space-x-4 sm:space-x-8 px-4 sm:px-6 min-w-max" aria-label="Admin tabs">
+                            <button class="tab-button active py-4 px-2 border-b-2 border-red-500 font-medium text-red-600 whitespace-nowrap text-sm sm:text-base" data-tab="projects">
+                                <i class="fas fa-project-diagram mr-1 sm:mr-2"></i>
+                                <span class="hidden sm:inline">Project </span>Management
+                            </button>
+                            <button class="tab-button py-4 px-2 border-b-2 border-transparent font-medium text-accent-500 hover:text-accent-700 hover:border-accent-300 whitespace-nowrap text-sm sm:text-base" data-tab="clients">
+                                <i class="fas fa-users mr-1 sm:mr-2"></i>
+                                <span class="hidden sm:inline">Client </span>Management
+                            </button>
+                            <button class="tab-button py-4 px-2 border-b-2 border-transparent font-medium text-accent-500 hover:text-accent-700 hover:border-accent-300 whitespace-nowrap text-sm sm:text-base" data-tab="analytics">
+                                <i class="fas fa-chart-bar mr-1 sm:mr-2"></i>Analytics
+                            </button>
+                            <button class="tab-button py-4 px-2 border-b-2 border-transparent font-medium text-accent-500 hover:text-accent-700 hover:border-accent-300 whitespace-nowrap text-sm sm:text-base" data-tab="settings">
+                                <i class="fas fa-cog mr-1 sm:mr-2"></i>Settings
+                            </button>
+                        </nav>
+                    </div>
                 </div>
 
                 <!-- Projects Tab Content -->
-                <div id="projects-tab" class="tab-content p-6">
+                <div id="projects-tab" class="tab-content p-4 sm:p-6">
+                    <!-- Mobile Quick Stats -->
+                    <div class="flex justify-between items-center mb-4 lg:hidden">
+                        <div class="bg-yellow-50 text-yellow-800 px-2 py-1 rounded-full text-xs">
+                            <i class="fas fa-clock mr-1"></i>
+                            <span id="pendingCountMobile">0</span> Pending
+                        </div>
+                        <div class="bg-blue-50 text-blue-800 px-2 py-1 rounded-full text-xs">
+                            <i class="fas fa-spinner mr-1"></i>
+                            <span id="activeCountMobile">0</span> Active
+                        </div>
+                    </div>
+
                     <!-- Project Filters -->
-                    <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
-                        <div class="flex items-center space-x-4">
-                            <select id="statusFilter" class="px-3 py-2 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+                        <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-2 sm:space-y-0 sm:space-x-4">
+                            <select id="statusFilter" class="px-3 py-2 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-sm">
                                 <option value="">All Status</option>
                                 <option value="pending">Pending</option>
                                 <option value="in-progress">In Progress</option>
                                 <option value="completed">Completed</option>
                                 <option value="cancelled">Cancelled</option>
                             </select>
-                            <select id="typeFilter" class="px-3 py-2 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                            <select id="typeFilter" class="px-3 py-2 border border-accent-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-sm">
                                 <option value="">All Types</option>
                                 <option value="web-design">Web Design</option>
                                 <option value="content-writing">Content Writing</option>
@@ -278,29 +324,29 @@
                                 <option value="seo">SEO Services</option>
                                 <option value="other">Other</option>
                             </select>
-                            <button id="refreshProjects" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
+                            <button id="refreshProjects" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors text-sm">
                                 <i class="fas fa-sync-alt mr-2"></i>Refresh
                             </button>
                         </div>
                         <div class="flex items-center space-x-2">
-                            <button id="exportProjects" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                            <button id="exportProjects" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm">
                                 <i class="fas fa-download mr-2"></i>Export CSV
                             </button>
                         </div>
                     </div>
 
                     <!-- Projects Table -->
-                    <div class="overflow-x-auto">
+                    <div class="mobile-table-scroll overflow-x-auto">
                         <table class="min-w-full divide-y divide-accent-200">
                             <thead class="bg-accent-50">
                                 <tr>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-accent-500 uppercase tracking-wider">Project</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-accent-500 uppercase tracking-wider">Client</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-accent-500 uppercase tracking-wider">Type</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-accent-500 uppercase tracking-wider">Budget</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-accent-500 uppercase tracking-wider">Status</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-accent-500 uppercase tracking-wider">Date</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-accent-500 uppercase tracking-wider">Actions</th>
+                                    <th class="px-3 sm:px-6 py-3 text-left text-xs font-medium text-accent-500 uppercase tracking-wider">Project</th>
+                                    <th class="px-3 sm:px-6 py-3 text-left text-xs font-medium text-accent-500 uppercase tracking-wider">Client</th>
+                                    <th class="px-3 sm:px-6 py-3 text-left text-xs font-medium text-accent-500 uppercase tracking-wider">Type</th>
+                                    <th class="px-3 sm:px-6 py-3 text-left text-xs font-medium text-accent-500 uppercase tracking-wider">Budget</th>
+                                    <th class="px-3 sm:px-6 py-3 text-left text-xs font-medium text-accent-500 uppercase tracking-wider">Status</th>
+                                    <th class="px-3 sm:px-6 py-3 text-left text-xs font-medium text-accent-500 uppercase tracking-wider">Date</th>
+                                    <th class="px-3 sm:px-6 py-3 text-left text-xs font-medium text-accent-500 uppercase tracking-wider">Actions</th>
                                 </tr>
                             </thead>
                             <tbody id="projectsTableBody" class="bg-white divide-y divide-accent-200">
@@ -311,42 +357,42 @@
 
                     <!-- Empty State -->
                     <div id="noProjectsMessage" class="hidden text-center py-12">
-                        <i class="fas fa-project-diagram text-6xl text-accent-300 mb-4"></i>
-                        <h3 class="text-xl font-semibold text-accent-600 mb-2">No Projects Found</h3>
-                        <p class="text-accent-500">Projects will appear here when clients submit requests.</p>
+                        <i class="fas fa-project-diagram text-4xl sm:text-6xl text-accent-300 mb-4"></i>
+                        <h3 class="text-lg sm:text-xl font-semibold text-accent-600 mb-2">No Projects Found</h3>
+                        <p class="text-accent-500 text-sm sm:text-base">Projects will appear here when clients submit requests.</p>
                     </div>
                 </div>
 
                 <!-- Clients Tab Content -->
-                <div id="clients-tab" class="tab-content hidden p-6">
+                <div id="clients-tab" class="tab-content hidden p-4 sm:p-6">
                     <div class="text-center py-12">
-                        <i class="fas fa-users text-6xl text-accent-300 mb-4"></i>
-                        <h3 class="text-xl font-semibold text-accent-600 mb-2">Client Management</h3>
-                        <p class="text-accent-500">Advanced client management features coming soon.</p>
+                        <i class="fas fa-users text-4xl sm:text-6xl text-accent-300 mb-4"></i>
+                        <h3 class="text-lg sm:text-xl font-semibold text-accent-600 mb-2">Client Management</h3>
+                        <p class="text-accent-500 text-sm sm:text-base">Advanced client management features coming soon.</p>
                     </div>
                 </div>
 
                 <!-- Analytics Tab Content -->
-                <div id="analytics-tab" class="tab-content hidden p-6">
+                <div id="analytics-tab" class="tab-content hidden p-4 sm:p-6">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                         <!-- Revenue Chart Placeholder -->
-                        <div class="bg-accent-50 rounded-lg p-6">
-                            <h3 class="text-lg font-semibold text-accent-900 mb-4">Revenue Overview</h3>
-                            <div class="h-64 flex items-center justify-center text-accent-500">
+                        <div class="bg-accent-50 rounded-lg p-4 sm:p-6">
+                            <h3 class="text-base sm:text-lg font-semibold text-accent-900 mb-4">Revenue Overview</h3>
+                            <div class="h-48 sm:h-64 flex items-center justify-center text-accent-500">
                                 <div class="text-center">
-                                    <i class="fas fa-chart-line text-4xl mb-2"></i>
-                                    <p>Revenue charts coming soon</p>
+                                    <i class="fas fa-chart-line text-3xl sm:text-4xl mb-2"></i>
+                                    <p class="text-sm sm:text-base">Revenue charts coming soon</p>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Project Types Chart Placeholder -->
-                        <div class="bg-accent-50 rounded-lg p-6">
-                            <h3 class="text-lg font-semibold text-accent-900 mb-4">Project Types</h3>
-                            <div class="h-64 flex items-center justify-center text-accent-500">
+                        <div class="bg-accent-50 rounded-lg p-4 sm:p-6">
+                            <h3 class="text-base sm:text-lg font-semibold text-accent-900 mb-4">Project Types</h3>
+                            <div class="h-48 sm:h-64 flex items-center justify-center text-accent-500">
                                 <div class="text-center">
-                                    <i class="fas fa-chart-pie text-4xl mb-2"></i>
-                                    <p>Project type analytics coming soon</p>
+                                    <i class="fas fa-chart-pie text-3xl sm:text-4xl mb-2"></i>
+                                    <p class="text-sm sm:text-base">Project type analytics coming soon</p>
                                 </div>
                             </div>
                         </div>
@@ -354,10 +400,10 @@
                 </div>
 
                 <!-- Settings Tab Content -->
-                <div id="settings-tab" class="tab-content hidden p-6">
+                <div id="settings-tab" class="tab-content hidden p-4 sm:p-6">
                     <div class="space-y-6">
                         <div>
-                            <h3 class="text-lg font-semibold text-accent-900 mb-4">System Settings</h3>
+                            <h3 class="text-base sm:text-lg font-semibold text-accent-900 mb-4">System Settings</h3>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div class="p-4 border border-accent-200 rounded-lg">
                                     <h4 class="font-medium text-accent-900 mb-2">Auto-refresh</h4>
@@ -387,25 +433,25 @@
     <!-- Project Details Modal -->
     <div id="projectModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden">
         <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            <div class="p-6 border-b border-accent-200">
+            <div class="p-4 sm:p-6 border-b border-accent-200">
                 <div class="flex items-center justify-between">
-                    <h3 class="text-xl font-semibold text-accent-900">Project Details</h3>
+                    <h3 class="text-lg sm:text-xl font-semibold text-accent-900">Project Details</h3>
                     <button id="closeModal" class="text-accent-500 hover:text-accent-700">
                         <i class="fas fa-times text-xl"></i>
                     </button>
                 </div>
             </div>
-            <div class="p-6" id="modalContent">
+            <div class="p-4 sm:p-6" id="modalContent">
                 <!-- Project details will be loaded here -->
             </div>
         </div>
     </div>
 
     <!-- Success/Error Messages -->
-    <div id="messageAlert" class="fixed top-4 right-4 p-4 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300 z-50">
+    <div id="messageAlert" class="fixed top-4 right-4 p-4 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300 z-50 max-w-sm">
         <div class="flex items-center">
             <i id="alertIcon" class="fas fa-check-circle mr-3"></i>
-            <span id="alertText">Success!</span>
+            <span id="alertText" class="text-sm">Success!</span>
         </div>
     </div>
 
@@ -466,13 +512,13 @@
             const text = document.getElementById('alertText');
 
             if (type === 'success') {
-                alert.className = 'fixed top-4 right-4 p-4 rounded-lg shadow-lg bg-green-100 text-green-800 border border-green-200 transform translate-x-full transition-transform duration-300 z-50';
+                alert.className = 'fixed top-4 right-4 p-4 rounded-lg shadow-lg bg-green-100 text-green-800 border border-green-200 transform translate-x-full transition-transform duration-300 z-50 max-w-sm';
                 icon.className = 'fas fa-check-circle mr-3 text-green-600';
             } else if (type === 'error') {
-                alert.className = 'fixed top-4 right-4 p-4 rounded-lg shadow-lg bg-red-100 text-red-800 border border-red-200 transform translate-x-full transition-transform duration-300 z-50';
+                alert.className = 'fixed top-4 right-4 p-4 rounded-lg shadow-lg bg-red-100 text-red-800 border border-red-200 transform translate-x-full transition-transform duration-300 z-50 max-w-sm';
                 icon.className = 'fas fa-exclamation-circle mr-3 text-red-600';
             } else if (type === 'info') {
-                alert.className = 'fixed top-4 right-4 p-4 rounded-lg shadow-lg bg-blue-100 text-blue-800 border border-blue-200 transform translate-x-full transition-transform duration-300 z-50';
+                alert.className = 'fixed top-4 right-4 p-4 rounded-lg shadow-lg bg-blue-100 text-blue-800 border border-blue-200 transform translate-x-full transition-transform duration-300 z-50 max-w-sm';
                 icon.className = 'fas fa-info-circle mr-3 text-blue-600';
             }
 
@@ -588,6 +634,10 @@
             // Update quick stats in header
             document.getElementById('pendingCount').textContent = pendingCount;
             document.getElementById('activeCount').textContent = inProgressCount;
+            
+            // Update mobile quick stats
+            document.getElementById('pendingCountMobile').textContent = pendingCount;
+            document.getElementById('activeCountMobile').textContent = inProgressCount;
         }
 
         // Update notifications
@@ -623,12 +673,6 @@
                 'cancelled': 'bg-red-100 text-red-800'
             };
 
-            const priorityColors = {
-                'high': 'text-red-600',
-                'medium': 'text-yellow-600',
-                'low': 'text-green-600'
-            };
-
             tbody.innerHTML = filteredProjects.map(project => {
                 const createdDate = project.createdAt ? 
                     new Date(project.createdAt.seconds * 1000).toLocaleDateString() : 
@@ -639,45 +683,45 @@
 
                 return `
                     <tr class="hover:bg-accent-50 transition-colors">
-                        <td class="px-6 py-4 whitespace-nowrap">
+                        <td class="px-3 sm:px-6 py-4 whitespace-nowrap">
                             <div>
                                 <div class="text-sm font-medium text-accent-900">${project.title}</div>
-                                <div class="text-sm text-accent-500 truncate max-w-xs">${project.description}</div>
+                                <div class="text-xs sm:text-sm text-accent-500 truncate max-w-xs">${project.description}</div>
                             </div>
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
+                        <td class="px-3 sm:px-6 py-4 whitespace-nowrap">
                             <div class="text-sm text-accent-900">${clientName}</div>
-                            <div class="text-sm text-accent-500">${userEmail}</div>
+                            <div class="text-xs text-accent-500 hidden sm:block">${userEmail}</div>
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent-100 text-accent-800">
+                        <td class="px-3 sm:px-6 py-4 whitespace-nowrap">
+                            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-accent-100 text-accent-800">
                                 ${project.type.replace('-', ' ').toUpperCase()}
                             </span>
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-accent-900">
+                        <td class="px-3 sm:px-6 py-4 whitespace-nowrap text-sm text-accent-900">
                             ${project.budget}
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${statusColors[project.status] || 'bg-gray-100 text-gray-800'}">
+                        <td class="px-3 sm:px-6 py-4 whitespace-nowrap">
+                            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${statusColors[project.status] || 'bg-gray-100 text-gray-800'}">
                                 ${project.status.replace('-', ' ').toUpperCase()}
                             </span>
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-accent-500">
+                        <td class="px-3 sm:px-6 py-4 whitespace-nowrap text-xs sm:text-sm text-accent-500">
                             ${createdDate}
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                            <div class="flex space-x-2">
-                                <button onclick="viewProject('${project.id}')" class="text-blue-600 hover:text-blue-900" title="View Details">
-                                    <i class="fas fa-eye"></i>
+                        <td class="px-3 sm:px-6 py-4 whitespace-nowrap text-sm font-medium">
+                            <div class="flex space-x-1 sm:space-x-2">
+                                <button onclick="viewProject('${project.id}')" class="text-blue-600 hover:text-blue-900 p-1" title="View Details">
+                                    <i class="fas fa-eye text-xs sm:text-sm"></i>
                                 </button>
-                                <button onclick="updateProjectStatus('${project.id}', 'in-progress')" class="text-green-600 hover:text-green-900" title="Start Project">
-                                    <i class="fas fa-play"></i>
+                                <button onclick="updateProjectStatus('${project.id}', 'in-progress')" class="text-green-600 hover:text-green-900 p-1" title="Start Project">
+                                    <i class="fas fa-play text-xs sm:text-sm"></i>
                                 </button>
-                                <button onclick="updateProjectStatus('${project.id}', 'completed')" class="text-purple-600 hover:text-purple-900" title="Mark Complete">
-                                    <i class="fas fa-check"></i>
+                                <button onclick="updateProjectStatus('${project.id}', 'completed')" class="text-purple-600 hover:text-purple-900 p-1" title="Mark Complete">
+                                    <i class="fas fa-check text-xs sm:text-sm"></i>
                                 </button>
-                                <button onclick="deleteProject('${project.id}')" class="text-red-600 hover:text-red-900" title="Delete">
-                                    <i class="fas fa-trash"></i>
+                                <button onclick="deleteProject('${project.id}')" class="text-red-600 hover:text-red-900 p-1" title="Delete">
+                                    <i class="fas fa-trash text-xs sm:text-sm"></i>
                                 </button>
                             </div>
                         </td>
@@ -709,8 +753,8 @@
                 <div class="space-y-6">
                     <div class="flex items-start justify-between">
                         <div>
-                            <h4 class="text-xl font-semibold text-accent-900">${project.title}</h4>
-                            <p class="text-accent-600">${project.userEmail || 'Unknown client'}</p>
+                            <h4 class="text-lg sm:text-xl font-semibold text-accent-900">${project.title}</h4>
+                            <p class="text-accent-600 text-sm sm:text-base">${project.userEmail || 'Unknown client'}</p>
                         </div>
                         <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${statusColors[project.status] || 'bg-gray-100 text-gray-800'}">
                             ${project.status.replace('-', ' ').toUpperCase()}
@@ -720,15 +764,15 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-sm font-medium text-accent-700 mb-1">Project Type</label>
-                            <p class="text-accent-900">${project.type.replace('-', ' ').toUpperCase()}</p>
+                            <p class="text-accent-900 text-sm sm:text-base">${project.type.replace('-', ' ').toUpperCase()}</p>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-accent-700 mb-1">Budget Range</label>
-                            <p class="text-accent-900">${project.budget}</p>
+                            <p class="text-accent-900 text-sm sm:text-base">${project.budget}</p>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-accent-700 mb-1">Created Date</label>
-                            <p class="text-accent-900">${createdDate}</p>
+                            <p class="text-accent-900 text-sm sm:text-base">${createdDate}</p>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-accent-700 mb-1">Project ID</label>
@@ -739,22 +783,22 @@
                     <div>
                         <label class="block text-sm font-medium text-accent-700 mb-2">Project Description</label>
                         <div class="bg-accent-50 rounded-lg p-4">
-                            <p class="text-accent-900 leading-relaxed">${project.description}</p>
+                            <p class="text-accent-900 leading-relaxed text-sm sm:text-base">${project.description}</p>
                         </div>
                     </div>
 
-                    <div class="flex flex-wrap gap-3">
-                        <button onclick="updateProjectStatus('${project.id}', 'in-progress')" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                            <i class="fas fa-play mr-2"></i>Start Project
+                    <div class="flex flex-wrap gap-2 sm:gap-3">
+                        <button onclick="updateProjectStatus('${project.id}', 'in-progress')" class="px-3 sm:px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm">
+                            <i class="fas fa-play mr-1 sm:mr-2"></i>Start
                         </button>
-                        <button onclick="updateProjectStatus('${project.id}', 'completed')" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
-                            <i class="fas fa-check mr-2"></i>Mark Complete
+                        <button onclick="updateProjectStatus('${project.id}', 'completed')" class="px-3 sm:px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm">
+                            <i class="fas fa-check mr-1 sm:mr-2"></i>Complete
                         </button>
-                        <button onclick="updateProjectStatus('${project.id}', 'cancelled')" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
-                            <i class="fas fa-times mr-2"></i>Cancel Project
+                        <button onclick="updateProjectStatus('${project.id}', 'cancelled')" class="px-3 sm:px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors text-sm">
+                            <i class="fas fa-times mr-1 sm:mr-2"></i>Cancel
                         </button>
-                        <button onclick="sendClientEmail('${project.userEmail}', '${project.title}')" class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
-                            <i class="fas fa-envelope mr-2"></i>Email Client
+                        <button onclick="sendClientEmail('${project.userEmail}', '${project.title}')" class="px-3 sm:px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm">
+                            <i class="fas fa-envelope mr-1 sm:mr-2"></i>Email
                         </button>
                     </div>
                 </div>
